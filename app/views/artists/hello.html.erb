@@ -1,0 +1,23 @@
+<h1>Artists#hello</h1>
+<p>Find me in app/views/artists/index.html.erb</p>
+
+
+<%= 1 + 1 %><br />
+
+<% target = "World" %>
+<%= "Hello #{target}" %>
+
+<br>
+
+<ul>
+<% @array.each do |n| %>
+  <li><%= n %></li>
+<% end %>
+</ul>
+
+<br>
+ID => <%= params[:id] %><br>
+PAGE => <%= @page %><br>
+NEXT PAGE => <%= @page.to_i + 1 %><br>
+
+<h5><%= params.inspect %></h5>
