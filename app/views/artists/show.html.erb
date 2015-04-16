@@ -1,0 +1,32 @@
+<header class="row">
+  <section class="medium-12 column page-title">
+    <h1>Artists#index</h1>
+    <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+    <%= link_to("Add New Artist", "#", :class => "action new" ) %>
+  </section>
+</header>
+
+<main class="row">
+  <section class="medium-12 columns">
+  <p>Find me in app/views/artists/show.html.erb</p>
+
+  <div class="subjects show">
+
+    <table summary="Artist detail view">
+      <tr>
+        <th>Name</th>
+        <td><%= @artist.name %></td>
+      </tr>
+      <tr>
+        <th>Created</th>
+        <td><%= @artist.created_at %></td>
+      </tr>
+      <tr>
+        <th>Updated</th>
+        <td><%= @artist.updated_at %></td>
+      </tr>
+    </table>
+
+    </div>
+  </section>
+</main>

@@ -1,25 +1,35 @@
-<header class="row">
-  <section class="medium-12 column page-title">
-    <h1>Artists#index</h1>
+<section class="artist index">
+  <header class="row">
+    <section class="medium-12 column page-title">
+      <h1>Artists#index</h1>
+      <%= link_to("Add New Artist", "#", :class => "action new" ) %>
+    </section>
+  </header>
+
+  <main class="row">
+    <section class="medium-12 columns">
+      <p>Find me in app/views/artists/index.html.erb</p>
+
+      <table>
+        <tr>
+          <th>Name</th>
+          <th># Albums</th>
+          <th># Songs</th>
+        </tr>
+
+        <% @artists.each do |artist| %>
+        <tr>
+          <td><%= artist.name %></td>
+          <td><%= artist.albums.count %></td>
+          <td><%= artist.songs.count %></td>
+          <td class="actions">
+            <%= link_to("Show", {:action => 'show' , :id => artist.id}, :class => "action show") %>
+            <%= link_to("Edit", "#", :class => "action edit") %>
+            <%= link_to("Delete", "#", :class => "action delete") %>
+          </td>
+        </tr>
+        <% end %>
   </section>
-</header>
+  </main>
 
-<main class="row">
-  <section class="medium-12 columns">
-    <p>Find me in app/views/artists/index.html.erb</p>
-
-    <%= link_to('Hello 1', {:action => 'hello'}) %>
-    <br>
-    <%=
-      link_to(
-        'Hello 1 with params',
-        {
-          :action => 'hello',
-          :id => 33,
-          :page => 13,
-          :test => true
-        }
-      )
-    %>
 </section>
-</main>

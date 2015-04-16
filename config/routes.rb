@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # Active Admin
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   # Root route
   root 'artists#index'
 
