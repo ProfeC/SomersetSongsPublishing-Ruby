@@ -67,5 +67,5 @@ Rails.application.routes.draw do
   #   end
 
   # Defualt route to be processed last
-  match ':controller(/:action(/:id(.:format)))', :via => :get
+  match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
 end

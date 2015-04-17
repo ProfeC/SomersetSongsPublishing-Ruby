@@ -1,2 +1,33 @@
-<h1>Artists#new</h1>
-<p>Find me in app/views/artists/new.html.erb</p>
+<section class="artist new">
+  <header class="row">
+    <section class="medium-12 column page-title">
+      <h1>Artists#new</h1>
+      <%= link_to("Back to List", {:action => 'index'}, :class => "back-link" ) %>
+    </section>
+  </header>
+
+  <main class="row">
+    <section class="medium-12 columns">
+      <p>Find me in app/views/artists/new.html.erb</p>
+
+      <%= form_for(:artist, :url => {:action => 'create'}) do |f| %>
+
+        <table summary="Artist Form Fields">
+        <tr>
+          <th>Name</th>
+          <td><%= f.text_field(:name) %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td><%= f.text_field(:description) %></td>
+        </tr>
+        </table>
+
+        <div class="form-buttons">
+          <%= submit_tag("Create Artist") %>
+        </div>
+      <% end %>
+    </section>
+  </main>
+
+</section>

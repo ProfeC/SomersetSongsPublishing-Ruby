@@ -1,5 +1,6 @@
 class Song < ActiveRecord::Base
   belongs_to :album
+  belongs_to :artist
 
   scope :sorted_by_title, lambda { order("songs.title ASC") }
   scope :sorted_by_title_reverse, lambda { order("songs.title DESC") }

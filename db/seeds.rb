@@ -24,13 +24,16 @@ artists = Artist.create ([
 # Seed some albums
 albums = Album.create ([
   {
-    title: 'Eye II Eye'
+    title: 'Eye II Eye',
+    artist_id: 1
   },
   {
-    title: 'Mick Jones'
+    title: 'Mick Jones',
+    artist_id: 2
   },
   {
-    title: 'Agent Provocateur'
+    title: 'Agent Provocateur',
+    artist_id: 3
   }
 ])
 
@@ -38,15 +41,21 @@ albums = Album.create ([
 songs = Song.create ([
   {
     title: '10 Light Years Away',
-    original_release_date: '1999-11-22'
+    original_release_date: '1999-11-22',
+    artist_id: 1,
+    album_id: 3
   },
   {
     title: '4 Wheels Turnin\'',
     original_release_date: '1989-10-4',
+    artist_id: 2,
+    album_id: 3
   },
   {
     title: 'A Love In Vain',
     original_release_date: '1984-12-19',
+    artist_id: 3,
+    album_id: 3
   }
 ])
 

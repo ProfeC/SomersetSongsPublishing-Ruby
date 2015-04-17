@@ -6,6 +6,14 @@
   </section>
 </header>
 
+<% if !flash[:notice].blank? %>
+  <div class="row">
+    <div div-alert class="medium-11 medium-centered columns text-centered alert-box success radius">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% end %>
+
 <main class="row">
   <section class="medium-12 columns">
   <p>Find me in app/views/artists/show.html.erb</p>
@@ -16,6 +24,10 @@
       <tr>
         <th>Name</th>
         <td><%= @artist.name %></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td><%= @artist.description %></td>
       </tr>
       <tr>
         <th>Created</th>

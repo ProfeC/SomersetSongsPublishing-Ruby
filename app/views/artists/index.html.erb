@@ -2,9 +2,17 @@
   <header class="row">
     <section class="medium-12 column page-title">
       <h1>Artists#index</h1>
-      <%= link_to("Add New Artist", "#", :class => "action new" ) %>
+      <%= link_to("Add New Artist", {:action => 'new'}, :class => "action new" ) %>
     </section>
   </header>
+
+  <% if !flash[:notice].blank? %>
+    <div class="row">
+      <div div-alert class="medium-11 medium-centered columns text-centered alert-box success radius">
+        <%= flash[:notice] %>
+      </div>
+    </div>
+  <% end %>
 
   <main class="row">
     <section class="medium-12 columns">
@@ -12,6 +20,7 @@
 
       <table>
         <tr>
+          <th>ID</th>
           <th>Name</th>
           <th># Albums</th>
           <th># Songs</th>
@@ -19,13 +28,14 @@
 
         <% @artists.each do |artist| %>
         <tr>
+          <td><%= artist.id %>
           <td><%= artist.name %></td>
           <td><%= artist.albums.count %></td>
           <td><%= artist.songs.count %></td>
           <td class="actions">
             <%= link_to("Show", {:action => 'show' , :id => artist.id}, :class => "action show") %>
-            <%= link_to("Edit", "#", :class => "action edit") %>
-            <%= link_to("Delete", "#", :class => "action delete") %>
+            <%= link_to("Edit", {:action => 'edit', :id => artist.id}, :class => "action edit") %>
+            <%= link_to("Delete", {:action => 'delete', :id => artist.id}, :class => "action delete") %>
           </td>
         </tr>
         <% end %>
