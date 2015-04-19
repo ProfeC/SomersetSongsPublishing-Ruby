@@ -59,3 +59,56 @@ songs = Song.create ([
   }
 ])
 
+# Seed Genres
+genres = Genre.create([
+  {
+    title: 'Rock'
+  },
+  {
+    title: 'Rap'
+  },
+  {
+    title: 'Hip Hop'
+  },
+  {
+    title: 'Ballad'
+  },
+  {
+    title: 'Instrumental'
+  }
+])
+
+# Seed Themes
+themes = Theme.create([
+  {
+    title: 'Blue'
+  },
+  {
+    title: 'Car'
+  },
+  {
+    title: 'Racing'
+  },
+  {
+    title: 'Automotive'
+  },
+  {
+    title: 'Temperature'
+  },
+  {
+    title: 'Frozen'
+  }
+])
+
+# Seed Tags
+tags = Tag.create([
+  {
+    title: 'Uptempo'
+  },
+  {
+    title: 'Driving'
+  },
+  {
+    title: 'Dynamic'
+  }
+])
