@@ -65,11 +65,7 @@ class SongsController < ApplicationController
         :title,
         :description,
         :original_release_date,
-        :permalink,
-        :file_uri,
-        :genre_ids,
-        :theme_ids,
-        :tag_ids
+        :permalink
       )
     end
 end

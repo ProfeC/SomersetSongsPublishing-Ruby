@@ -34,6 +34,10 @@ albums = Album.create ([
   {
     title: 'Agent Provocateur',
     artist_id: 3
+  },
+  {
+    title: 'Double Vision',
+    artist_id: 3
   }
 ])
 
@@ -42,73 +46,32 @@ songs = Song.create ([
   {
     title: '10 Light Years Away',
     original_release_date: '1999-11-22',
+    length: '3:52',
     artist_id: 1,
     album_id: 3
   },
   {
     title: '4 Wheels Turnin\'',
     original_release_date: '1989-10-4',
+    length: '4:35',
     artist_id: 2,
     album_id: 3
   },
   {
     title: 'A Love In Vain',
     original_release_date: '1984-12-19',
+    length: '4:12',
     artist_id: 3,
     album_id: 3
-  }
-])
-
-# Seed Genres
-genres = Genre.create([
-  {
-    title: 'Rock'
   },
   {
-    title: 'Rap'
-  },
-  {
-    title: 'Hip Hop'
-  },
-  {
-    title: 'Ballad'
-  },
-  {
-    title: 'Instrumental'
-  }
-])
-
-# Seed Themes
-themes = Theme.create([
-  {
-    title: 'Blue'
-  },
-  {
-    title: 'Car'
-  },
-  {
-    title: 'Racing'
-  },
-  {
-    title: 'Automotive'
-  },
-  {
-    title: 'Temperature'
-  },
-  {
-    title: 'Frozen'
-  }
-])
-
-# Seed Tags
-tags = Tag.create([
-  {
-    title: 'Uptempo'
-  },
-  {
-    title: 'Driving'
-  },
-  {
-    title: 'Dynamic'
+    title: 'Blue Morning, Blue Day',
+    original_release_date: '1980-10-10',
+    length: '3:12',
+    genre: 'rock',
+    theme: 'blue',
+    tag: 'blue, bleu, rock, morning',
+    artist_id: 3,
+    album_id: 4
   }
 ])

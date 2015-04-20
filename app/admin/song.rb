@@ -13,7 +13,7 @@ ActiveAdmin.register Song do
   #   permitted
   # end
 
-  permit_params :title, :description, :original_release_date, :permalink, :file_uri, :length, :artist_id, :album_id, themes: [], tags: [], genres_attributes: [:id, :title, :_destroy]
+  permit_params :title, :description, :original_release_date, :permalink, :file_uri, :length, :artist_id, :album_id, :theme, :tag, :genre
 
 
   index do
@@ -21,9 +21,9 @@ ActiveAdmin.register Song do
     id_column
     column :title
     column :length
-    column :themes
-    column :tags
-    column :genres
+    column :theme
+    column :tag
+    column :genre
     column :original_release_date
     column :updated_at
     column :created_at
@@ -31,9 +31,9 @@ ActiveAdmin.register Song do
   end
 
   filter :title
-  filter :tags
-  filter :themes
-  filter :genres
+  filter :tag
+  filter :theme
+  filter :genre
   filter :original_release_date
   filter :created_at
   filter :updated_at
@@ -55,9 +55,9 @@ ActiveAdmin.register Song do
     f.inputs 'Content', :description
 
     f.inputs 'Categorization' do
-      f.input :genres
-      f.input :themes
-      f.input :tags
+      f.input :genre
+      f.input :theme
+      f.input :tag
 
       # f.inputs do
       #   f.has_many :genres, heading: 'Genres', allow_destroy: true, new_record: do |g|
