@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: somerset_songs_production
-  username: pure-rails
-  password: <%= ENV['PURE-RAILS_DATABASE_PASSWORD'] %>
+  username: somerset_songs
+  password: <%= ENV['SOMERSET_SONGS_DATABASE_PASSWORD'] %>
