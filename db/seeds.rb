@@ -46,28 +46,28 @@ songs = Song.create ([
   {
     title: '10 Light Years Away',
     original_release_date: '1999-11-22',
-    length: '3:52',
+    length: '00:03:52',
     artist_id: 1,
     album_id: 3
   },
   {
     title: '4 Wheels Turnin\'',
     original_release_date: '1989-10-4',
-    length: '4:35',
+    length: '00:04:35',
     artist_id: 2,
     album_id: 3
   },
   {
     title: 'A Love In Vain',
     original_release_date: '1984-12-19',
-    length: '4:12',
+    length: '00:04:12',
     artist_id: 3,
     album_id: 3
   },
   {
     title: 'Blue Morning, Blue Day',
     original_release_date: '1980-10-10',
-    length: '3:12',
+    length: '00:03:12',
     genre: 'rock',
     theme: 'blue',
     tag: 'blue, bleu, rock, morning',
