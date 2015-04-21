@@ -1,0 +1,8 @@
+
+<% if !flash[:notice].blank? %>
+  <div class="row">
+    <div div-alert class="medium-11 medium-centered columns text-centered alert-box success radius">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% end %>
