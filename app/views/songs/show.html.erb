@@ -1,0 +1,46 @@
+<% content_for :title do %>
+  <%= @song.title %>
+<% end %>
+
+<article>
+
+  <header class="row">
+    <section class="medium-12 column page-title">
+      <h1>Songs#Show</h1>
+      <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+      <%= link_to("Add New Song", "#", :class => "action new" ) %>
+    </section>
+  </header>
+
+  <section  class="row"
+    <div class="medium-12 columns">
+    <p>Find me in app/views/shows/show.html.erb</p>
+
+    <div class="songs show">
+
+      <table summary="Song detail view">
+        <tr>
+          <th>Name</th>
+          <td><%= @song.title %></td>
+        </tr>
+        <tr>
+          <th>Length</th>
+          <td><%= @song.length.strftime("%M:%S") %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td><%= @song.description %></td>
+        </tr>
+        <tr>
+          <th>Created</th>
+          <td><%= @song.created_at %></td>
+        </tr>
+        <tr>
+          <th>Updated</th>
+          <td><%= @song.updated_at %></td>
+        </tr>
+      </table>
+
+      </div>
+  </section>
+</article>

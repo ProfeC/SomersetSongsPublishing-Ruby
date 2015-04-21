@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  <%= "Artist Index" %>
+<% end %>
+
 <section class="artist index">
   <header class="row">
     <section class="medium-12 column page-title">
@@ -17,6 +21,7 @@
   <main class="row">
     <section class="medium-12 columns">
       <p>Find me in app/views/artists/index.html.erb</p>
+      <p>Found <%= pluralize(@artists.size, 'artist') %></p>
 
       <table>
         <tr>

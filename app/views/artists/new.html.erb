@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  <%= "New Artist" %>
+<% end %>
+
 <section class="artist new">
   <header class="row">
     <section class="medium-12 column page-title">
@@ -12,16 +16,7 @@
 
       <%= form_for(:artist, :url => {:action => 'create'}) do |f| %>
 
-        <table summary="Artist Form Fields">
-        <tr>
-          <th>Name</th>
-          <td><%= f.text_field(:name) %></td>
-        </tr>
-        <tr>
-          <th>Description</th>
-          <td><%= f.text_field(:description) %></td>
-        </tr>
-        </table>
+        <%= render(:partial => "form", :locals => {:f => f}) %>
 
         <div class="form-buttons">
           <%= submit_tag("Create Artist") %>

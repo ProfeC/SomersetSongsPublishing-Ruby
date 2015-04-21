@@ -1,8 +1,12 @@
+<% content_for :title do %>
+  <%= "Song Listing" %>
+<% end %>
+
 <section class="song index">
   <header class="row">
     <section class="medium-12 column page-title">
       <h1>Songs#index</h1>
-      <%= link_to("Add New Artist", {:action => 'new'}, :class => "action new" ) %>
+      <%= link_to("Add New Song", {:action => 'new'}, :class => "action new" ) %>
     </section>
   </header>
 
