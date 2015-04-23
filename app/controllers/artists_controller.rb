@@ -7,6 +7,12 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
+  # Show artist by name
+  def show_by_name
+    @artist = Artist.find(name: params[:name])
+    render :show
+  end
+
   def new
     @artist = Artist.new
   end

@@ -1,6 +1,9 @@
 <header class="row">
   <section class="small-12 column">
-    <h2 class="page-title"><%= content_for?(:title) ? yield(:title)  : "<!-- No Page Title!!! -->" %></h2>
+    <h2 class="page-title">
+      <%= content_for?(:title) ? yield(:title)  : "<!-- No Page Title!!! -->" %>
+      <%= content_for?(:subtitle) ? yield(:subtitle) : "<!-- No Subtitle-->" %>
+    </h2>
   </section>
-  <%= link_to("Add New Song", {:action => 'new'}, :class => "action new" ) %>
+  <%= link_to("Add New", {:action => 'new'}, :class => "action new" ) %>
 </header>

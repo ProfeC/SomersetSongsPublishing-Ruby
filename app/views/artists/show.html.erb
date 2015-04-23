@@ -2,47 +2,33 @@
   <%= @artist.name %>
 <% end %>
 
-<header class="row">
-  <section class="medium-12 column page-title">
-    <h1>Artists#index</h1>
-    <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
-    <%= link_to("Add New Artist", "#", :class => "action new" ) %>
-  </section>
-</header>
-
-<% if !flash[:notice].blank? %>
-  <div class="row">
-    <div div-alert class="medium-11 medium-centered columns text-centered alert-box success radius">
-      <%= flash[:notice] %>
-    </div>
-  </div>
+<% content_for :subtitle do %>
+  <small class="subheader">(<%= @artist.songs.count %> Songs)</small>
 <% end %>
 
-<main class="row">
-  <section class="medium-12 columns">
-  <p>Find me in app/views/artists/show.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link button') %>
 
-  <div class="subjects show">
+<p>Find me in app/views/artists/show.html.erb</p>
 
-    <table summary="Artist detail view">
-      <tr>
-        <th>Name</th>
-        <td><%= @artist.name %></td>
-      </tr>
-      <tr>
-        <th>Description</th>
-        <td><%= @artist.description %></td>
-      </tr>
-      <tr>
-        <th>Created</th>
-        <td><%= @artist.created_at %></td>
-      </tr>
-      <tr>
-        <th>Updated</th>
-        <td><%= @artist.updated_at %></td>
-      </tr>
-    </table>
+<div class="subjects show">
+  <table summary="Artist detail view">
+    <tr>
+      <th>Description</th>
+      <td><%= @artist.description %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @artist.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @artist.updated_at %></td>
+    </tr>
+  </table>
+</div>
 
-    </div>
-  </section>
-</main>
+<ul>
+<% @artist.songs.each do |song| %>
+  <li><%= song.id %> => <%= song.title %></li>
+<% end %>
+</ul>
