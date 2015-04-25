@@ -8,21 +8,12 @@
 
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link button') %>
 
-<p>Find me in app/views/artists/show.html.erb</p>
 
 <div class="subjects show">
   <table summary="Artist detail view">
     <tr>
       <th>Description</th>
       <td><%= @artist.description %></td>
-    </tr>
-    <tr>
-      <th>Created</th>
-      <td><%= @artist.created_at %></td>
-    </tr>
-    <tr>
-      <th>Updated</th>
-      <td><%= @artist.updated_at %></td>
     </tr>
   </table>
 </div>
@@ -32,3 +23,14 @@
   <li><%= song.id %> => <%= song.title %></li>
 <% end %>
 </ul>
+
+<!-- <div class="row">
+  <div class="medium-12 columns text-right">
+    <small>
+      <strong>Updated:</strong> <%= @artist.updated_at %> -
+      <strong>Created:</strong> <%= @artist.created_at %>
+      <p>Find me in app/views/artists/show.html.erb</p>
+    </small>
+  </div>
+</div>
+ -->

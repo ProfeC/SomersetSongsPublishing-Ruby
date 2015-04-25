@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="medium-12 columns text-right">
+    <h6>
+      <small>
+        <% if ( @updated ) %>
+          <strong>Updated:</strong> <%= time_tag @updated %> -
+        <% end %>
+
+        <%
+        # Check to see if there's a creation date to show.
+        if ( @created )
+        %>
+        <strong>Created:</strong> <%= time_tag @created %>
+        <%
+        end
+        %>
+      </small>
+    </h6>
+  </div>
+</div>
+
+

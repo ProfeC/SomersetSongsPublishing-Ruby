@@ -9,7 +9,9 @@ class ArtistsController < ApplicationController
 
   # Show artist by name
   def show_by_name
-    @artist = Artist.find(name: params[:name])
+    @artist = Artist.find_by(name: params[:name])
+    @updated = @artist.updated_at
+    @created = @artist.created_at
     render :show
   end
 
