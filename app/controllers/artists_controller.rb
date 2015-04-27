@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  layout "moderna"
+
   def index
     @artists  = Artist.sorted
   end

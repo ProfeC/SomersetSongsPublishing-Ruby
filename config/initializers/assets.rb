@@ -12,3 +12,13 @@ Rails.application.config.assets.version = '1.0'
 
 # Add Modernizr to precompiled assets
 Rails.application.config.assets.precompile += %w( vendor/modernizr.js )
+
+# Add Moderna Theme to precompiles assets
+Rails.application.config.assets.precompile += %w( moderna/bootstrap.min.css )
+Rails.application.config.assets.precompile += %w( moderna/fancybox/jquery.fancybox.css )
+Rails.application.config.assets.precompile += %w( moderna/jcarousel.css )
+Rails.application.config.assets.precompile += %w( moderna/flexslider.css )
+Rails.application.config.assets.precompile += %w( moderna/style.css )
+Rails.application.config.assets.precompile += %w( moderna/default.css )
+
+Rails.application.config.assets.precompile += %w( moderna.js )
