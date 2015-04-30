@@ -12,26 +12,9 @@
  *
 
  */
-//= require foundation_and_overrides
 //= require_self
-/*
-//= require_tree .
-*/
+//= require hosting/animate.css
+//= require hosting/font-awesome.min.css
+//= require ./hosting/style
 
-// @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
-
-#global-header {
-  background-color: rgba(100, 182, 252, 0.5);
-}
-
-#global-footer {
-  background-color: rgba(0, 0, 0, 0.25);
-  color: rgba(255, 255, 255, 0.75);
-  min-height: 150px;
-  padding-top: 13px;
-}
-
-main {
-  background-color: rgba(100, 182, 252, 0.25);
-}

@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  # layout "moderna"
+  # layout "hosting"
 
   def index
     @artists  = Artist.sorted
