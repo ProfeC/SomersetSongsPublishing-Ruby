@@ -2,31 +2,37 @@
   <%= "Song Listing" %>
 <% end %>
 
-<section class="song index">
+<div class="page-content">
+  <div class="fullwidth-block">
+    <div class="container">
+      <section class="song index">
 
-  <p>Find me in app/views/songs/index.html.erb</p>
+        <p>Find me in app/views/songs/index.html.erb</p>
 
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th># Albums</th>
-      <th># Songs</th>
-    </tr>
+        <table class="wow fadeInUp">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th># Albums</th>
+            <th># Songs</th>
+          </tr>
 
-    <% @songs.each do |song| %>
-      <tr>
-        <td><%= song.id %>
-        <td><%= song.title %></td>
-        <td><%= song.original_release_date %></td>
-        <td><%= song.description %></td>
-        <td class="actions">
-        <%= link_to("Show", {:action => 'show' , :id => song.id}, :class => "action show") %>
-        <%= link_to("Edit", {:action => 'edit', :id => song.id}, :class => "action edit") %>
-        <%= link_to("Delete", {:action => 'delete', :id => song.id}, :class => "action delete") %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+          <% @songs.each do |song| %>
+            <tr>
+              <td><%= song.id %>
+              <td><%= song.title %></td>
+              <td><%= song.original_release_date %></td>
+              <td><%= song.description %></td>
+              <td class="actions">
+              <%= link_to("Show", {:action => 'show' , :id => song.id}, :class => "action show") %>
+              <%= link_to("Edit", {:action => 'edit', :id => song.id}, :class => "action edit") %>
+              <%= link_to("Delete", {:action => 'delete', :id => song.id}, :class => "action delete") %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
 
-</section>
+      </section>
+    </div>
+  </div>
+</div>
