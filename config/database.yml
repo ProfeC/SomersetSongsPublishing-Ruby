@@ -27,6 +27,7 @@ development:
 test:
   <<: *default
   database: somerset_songs_test
+  username: rails
   password: <%= ENV['SOMERSET_SONGS_DATABASE_PASSWORD'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -51,5 +52,5 @@ test:
 production:
   <<: *default
   database: somerset_songs_production
-  username: somerset_songs
+  username: rails
   password: <%= ENV['SOMERSET_SONGS_DATABASE_PASSWORD'] %>
