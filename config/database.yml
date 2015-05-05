@@ -14,7 +14,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: somerset_songs
-  password: password
+  # password: password
+  password: <%= ENV['db_pass'] %>
   socket: /tmp/mysql.sock
 
 development:
@@ -27,8 +28,8 @@ development:
 test:
   <<: *default
   database: somerset_songs_test
-  username: rails
-  password: <%= ENV['SOMERSET_SONGS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['db_pass'] %>
+  username: <%= ENV['db_user'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -52,5 +53,5 @@ test:
 production:
   <<: *default
   database: somerset_songs_production
-  username: rails
-  password: <%= ENV['SOMERSET_SONGS_DATABASE_PASSWORD'] %>
+  password: <%= ENV['db_pass'] %>
+  username: <%= ENV['db_user'] %>

@@ -33,6 +33,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+# Use Figaro to securely configure application variables
+gem "figaro"
+
 # Use ActiveAdmin (and its dependencies) for administrative UI [http://activeadmin.info/docs/documentation.html]
 # gem 'activeadmin', github: 'activeadmin'
 # gem 'devise'
