@@ -1,38 +1,37 @@
-<% content_for :title do %>
-  <%= "Song Listing" %>
-<% end %>
 
-<div class="page-content">
-  <div class="fullwidth-block">
-    <div class="container">
-      <section class="song index">
+<!-- Render page title -->
+<%=
+  render 'application/page_title',
+  title: 'Song Listing',
+  leading_text: 'Aliquam nibh quam iaculis tempus dignissim quis faucibus etiam dignissim tempus nibh nec venenatis turpis bibendum vivamus laoreet odio eleifend iaculis',
+  subtitle: ''
+%>
 
-        <p>Find me in app/views/songs/index.html.erb</p>
+<section class="song index wow fadeInUp">
+  <table width="100%">
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>Name</th>
+      <th>Album</th>
+      <th>Artist</th>
+      <th>Release Date</th>
+      <th>Controls</th>
+    </tr>
 
-        <table class="wow fadeInUp">
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th># Albums</th>
-            <th># Songs</th>
-          </tr>
+    <% @songs.each do |song| %>
+      <tr>
+        <!-- <td><%= song.id %> -->
+        <td><%= song.title %></td>
+        <td><%= link_to(song.album.title, {:action => '/album/show', :id => song.album.id}) %></td>
+        <td><%= link_to song.artist.name, :controller => 'artists', :action => 'show', :id => song.artist.id %></td>
+        <td><%= song.original_release_date %></td>
+        <td class="actions">
+        <%= link_to("Show", {:action => 'show' , :id => song.id}, :class => "action show") %>
+        <%= link_to("Edit", {:action => 'edit', :id => song.id}, :class => "action edit") %>
+        <%= link_to("Delete", {:action => 'delete', :id => song.id}, :class => "action delete") %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-          <% @songs.each do |song| %>
-            <tr>
-              <td><%= song.id %>
-              <td><%= song.title %></td>
-              <td><%= song.original_release_date %></td>
-              <td><%= song.description %></td>
-              <td class="actions">
-              <%= link_to("Show", {:action => 'show' , :id => song.id}, :class => "action show") %>
-              <%= link_to("Edit", {:action => 'edit', :id => song.id}, :class => "action edit") %>
-              <%= link_to("Delete", {:action => 'delete', :id => song.id}, :class => "action delete") %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-
-      </section>
-    </div>
-  </div>
-</div>
+</section>

@@ -1,9 +1,11 @@
-<header class="row">
-  <section class="small-12 column">
-    <h2 class="page-title">
-      <%= content_for?(:title) ? yield(:title)  : "" %>
-      <%= content_for?(:subtitle) ? yield(:subtitle) : "" %>
-    </h2>
-  </section>
-  <%= link_to("Add New", {:action => 'new'}, :class => "action new" ) %>
+<header>
+  <h1 class="page-title"><%= title %>
+    <% if subtitle != '' %>
+      <small class="subheader"><%= subtitle %></small>
+    <% end %>
+  </h1>
+
+  <% if leading_text %>
+    <p class="leading muted"><%= leading_text %></p>
+  <% end %>
 </header>

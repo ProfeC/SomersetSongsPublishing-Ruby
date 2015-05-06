@@ -46,8 +46,39 @@
 
       <main class="content">
 
-        <%= yield %>
+        <div class="breadcrumbs">
+          <div class="container">
+            <!-- Render the search form -->
+            <%= render(:partial => "application/search_form") %>
+          </div>
+        </div>
 
+        <div class="page-content">
+
+        <!-- Render any notices -->
+        <%= render(:partial => "application/flash_notice") %>
+
+        <div class="fullwidth-block">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+
+                <%= yield %>
+
+              </div>
+              <div class="col-md-4">
+                <aside class="boxed-content" data-bg-color="#f6f7f9">
+                  <h3 class="wow fadeInUp">Interdum et malesuad</h3>
+                  <p class="wow fadeInUp">Nunc molestie enim eu felis convallis, vitae blandit ligula elementum. Ut tincidunt id nisi eget ultricies integer amet sollicitudin urna. Donec tempus augue ut diam imperdiet.</p>
+
+                  <hr class="spacer">
+                  <h3 class="wow fadeInUp">Fames ac ante ipsum</h3>
+                  <p class="wow fadeInUp">Quisque ligula mauris, pretium nec tincidunt sit amet, pellentesque aliquet metus. Morbi id elementum est.</p>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
       </main> <!-- .content -->
 
       <footer class="site-footer wow fadeInUp">
