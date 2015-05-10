@@ -18,12 +18,12 @@ body{
 }
 
 .top-header{
-	background: $footer-background;
-	color: $footer-color;
+	background: rgba(1, 166, 212, 0.95);
+	color: rgba(21, 37, 89, 0.85);
 	padding: 20px 0;
 
 	a{
-		color: $footer-color;
+		color: rgba(21, 37, 89, 0.85);
 		text-decoration: none;
 	}
 }

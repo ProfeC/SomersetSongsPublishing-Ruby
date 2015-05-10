@@ -29,7 +29,8 @@
 /*===========================================
  * Importing CSS Libraries
  *===========================================*/
-@import "libs/settings",
+@import
+  "libs/settings",
   "libs/mixins",
   "libs/normalize",
   "libs/component",
@@ -47,7 +48,8 @@
   "pages/news",
   "pages/page",
 
-  "libs/widgets";
+  "libs/widgets",
+  "libs/search-bar";
 
 
 // #global-header {

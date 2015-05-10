@@ -21,17 +21,9 @@
     <div id="site-content">
 
       <header class="site-header">
-        <div class="top-header">
-          <div class="container">
-            <a href="tel:80049123441">Call Us: (800) 1234567</a>
-
-<!-- .member-navigation -->
-<!--             <nav class="member-navigation pull-right">
-              <a href="#"><i class="fa fa-user"></i> Register</a>
-              <a href="#"><i class="fa fa-lock"></i> Login</a>
-            </nav>  -->
-          </div> <!-- .container -->
-        </div> <!-- .top-header -->
+        <%=
+          render 'application/header_top'
+        %>
 
         <div class="bottom-header">
           <div class="container">
@@ -46,7 +38,7 @@
 
       <main class="content">
 
-        <div class="breadcrumbs">
+        <div class="search-bar">
           <div class="container">
             <!-- Render the search form -->
             <%= render(:partial => "application/search_form") %>

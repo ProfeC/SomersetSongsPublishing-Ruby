@@ -1,0 +1,13 @@
+.search-bar {
+  @include em(14);
+
+  background: rgba(1, 166, 212, 0.05);
+  color: #aeb0b9;
+  font-weight: 300;
+  padding: 10px;
+
+  a {
+    color: #aeb0b9;
+    text-decoration: none;
+  }
+}

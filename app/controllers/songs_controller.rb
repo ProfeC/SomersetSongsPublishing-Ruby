@@ -9,11 +9,15 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @albums = Album.order('title ASC')
+    @artists = Artist.order('name ASC')
   end
 
   def create
     # Instantiate a new object
     @song = Song.new(song_params)
+    @albums = Album.order('title ASC')
+    @artists = Artist.order('name ASC')
 
     # Save the object
     if @song.save
@@ -28,11 +32,15 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    @artists = Artist.order('name ASC')
+    @albums = Album.order('title ASC')
   end
 
   def update
     # Find an existing object to use for its form parameters
     @song = Song.find(params[:id])
+    @artists = Artist.order('name ASC')
+    @albums = Album.order('title ASC')
 
     # Update the object
     if @song.update_attributes(song_params)

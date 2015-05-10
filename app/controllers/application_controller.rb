@@ -3,13 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  layout "hosting"
+  layout 'hosting'
 
   def index
-    render "index"
+    render 'index'
   end
 
   def about
-    render "about"
+    render 'about'
+  end
+
+  def services
+    render 'services'
   end
 end
