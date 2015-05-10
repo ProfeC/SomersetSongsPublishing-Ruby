@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: somerset_songs
+  username: <%= Figaro.env.db_user %> #somerset_songs
   # password: password
   password: <%= Figaro.env.db_pass %>
   socket: /tmp/mysql.sock
