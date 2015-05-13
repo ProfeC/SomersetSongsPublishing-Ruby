@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415030400) do
+ActiveRecord::Schema.define(version: 20150513004544) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -88,6 +88,16 @@ ActiveRecord::Schema.define(version: 20150415030400) do
   add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
   add_index "songs", ["artist_id"], name: "index_songs_on_artist_id", using: :btree
   add_index "songs", ["permalink"], name: "index_songs_on_permalink", using: :btree
+
+  create_table "vs_database_diagrams", id: false, force: :cascade do |t|
+    t.string   "name",     limit: 80
+    t.text     "diadata",  limit: 65535
+    t.string   "comment",  limit: 1022
+    t.text     "preview",  limit: 65535
+    t.string   "lockinfo", limit: 80
+    t.datetime "locktime",               null: false
+    t.string   "version",  limit: 80
+  end
 
   add_foreign_key "albums", "artists"
   add_foreign_key "songs", "albums"

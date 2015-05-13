@@ -22,7 +22,7 @@
       <tr>
         <!-- <td><%= song.id %> -->
         <td><%= song.title %></td>
-        <td><%= link_to(song.album.title, {:action => '/album/show', :id => song.album.id}) %></td>
+        <td><%= link_to song.album.title, :controller => 'albums', :action => 'show', :id => song.album.id %></td>
         <td><%= link_to song.artist.name, :controller => 'artists', :action => 'show', :id => song.artist.id %></td>
         <td><%= song.original_release_date %></td>
         <td class="actions">

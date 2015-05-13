@@ -1,0 +1,32 @@
+<footer class="site-footer wow fadeInUp">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <!-- .branding -->
+        <%= link_to image_tag('hosting/logo-footer.png', :alt => 'Site Title', :class => 'logo-icon') + '<h1 class="site-title">Somerset Songs <span>Publishing</span></h1><h2 class="site-description">Media Library</h2>'.html_safe, {:action => :index}, :class => "branding" %>
+
+        <p class="copy">Copyright 2015 Somerset Songs Publishing. All rights reserved</p>
+      </div>
+
+      <div class="col-md-6 align-right">
+
+        <nav class="footer-navigation">
+          <%= render(:partial => "application/global_navigation_2") %>
+        </nav> <!-- .footer-navigation -->
+
+
+
+        <div class="social-links">
+          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+          <a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a>
+        </div> <!-- .social-links -->
+
+      </div>
+    </div>
+
+  </div>
+</footer> <!-- .site-footer -->
