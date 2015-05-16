@@ -6,7 +6,6 @@ class CreateSongs < ActiveRecord::Migration
       t.date :original_release_date
       t.string :permalink, index: true
       t.string :file_uri
-      t.string :genre
       t.string :theme
       t.string :tag
       t.string :length

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'genre/show'
+
+  get 'genre/index'
+
+  get 'genre/create'
+
+  get 'genre/delete'
+
+  get 'genre/update'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

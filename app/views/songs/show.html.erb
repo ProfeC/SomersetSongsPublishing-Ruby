@@ -19,11 +19,26 @@
       </tr>
       <tr>
         <th>Length</th>
-        <td><%= @song.length.strftime("%M:%S") %></td>
+        <td><%= @song.length %></td>
       </tr>
       <tr>
         <th>Description</th>
         <td><%= @song.description %></td>
+      </tr>
+      <tr>
+      <tr>
+        <th>Genre ID</th>
+        <td><p>Genre ID = < %= @song.genre_id % ></p>
+          <ul>
+          < % @song.genre_ids.each do |genre| % >
+            <li>< %= #genre.id % > => < %= genre.name % ></li>
+          < % end % >
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>Mood/Theme</th>
+        <td><%= @song.theme %></td>
       </tr>
       <tr>
         <th>Created</th>
