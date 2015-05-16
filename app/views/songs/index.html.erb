@@ -14,22 +14,16 @@
       <th>Name</th>
       <th>Album</th>
       <th>Artist</th>
-      <th>Release Date</th>
-      <th>Controls</th>
+      <th>Released</th>
     </tr>
 
     <% @songs.each do |song| %>
       <tr>
         <!-- <td><%= song.id %> -->
-        <td><%= song.title %></td>
-        <td><%= link_to song.album.title, :controller => 'albums', :action => 'show', :id => song.album.id %></td>
-        <td><%= link_to song.artist.name, :controller => 'artists', :action => 'show', :id => song.artist.id %></td>
-        <td><%= song.original_release_date %></td>
-        <td class="actions">
-        <%= link_to("Show", {:action => 'show' , :id => song.id}, :class => "action show") %>
-        <%= link_to("Edit", {:action => 'edit', :id => song.id}, :class => "action edit") %>
-        <%= link_to("Delete", {:action => 'delete', :id => song.id}, :class => "action delete") %>
-        </td>
+        <td><%= link_to song.title, controller: 'songs', action: 'show', id: song.id %></td>
+        <td><%= link_to song.album.title, controller: 'albums', action: 'show', id: song.album.id %></td>
+        <td><%= link_to song.artist.name, controller: 'artists', action: 'show', id: song.artist.id %></td>
+        <td align="center"><%= song.original_release_date.to_formatted_s(:year) %></td>
       </tr>
     <% end %>
   </table>

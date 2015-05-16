@@ -9,7 +9,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :genre
       t.string :theme
       t.string :tag
-      t.time :length
+      t.string :length
       t.references :album, index: true, foreign_key: true
       t.references :artist, index: true, foreign_key: true
 
