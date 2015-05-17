@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.0'
 # Use Figaro to securely configure application variables
 gem "figaro"
 
+# Use Paperclip to manage file uploads
+gem "paperclip", "~> 4.2"
+
 # Use ActiveAdmin (and its dependencies) for administrative UI [http://activeadmin.info/docs/documentation.html]
 # gem 'activeadmin', github: 'activeadmin'
 # gem 'devise'
