@@ -47,11 +47,11 @@ class SongsController < ApplicationController
     # Update the object
     if @song.update_attributes(song_params)
       # If update succeeds, redirect
-    #   flash[:notice] = 'song "#{song.title}" updated successfully'
-    #   redirect_to(:action => 'show', :id => @song.id)
-    # else
-    #   # If update fails display the form
-    #   render('edit')
+      flash[:notice] = 'song "#{song.title}" updated successfully'
+      redirect_to(:action => 'show', :id => @song.id)
+    else
+      # If update fails display the form
+      render('edit')
     end
   end
 
@@ -63,6 +63,13 @@ class SongsController < ApplicationController
     song = Song.find(params[:id]).destroy
     # flash[:notice] = 'song "#{song.title}" deleted successfully'
     # redirect_to(:action => 'index')
+  end
+
+  def upload
+    uploaded_io = params[:song][:file_uri]
+    File.open(Rails.root.join('public', 'media', uploaded_io.original_filename), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
   end
 
   private
