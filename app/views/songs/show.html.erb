@@ -28,7 +28,7 @@
       <tr>
       <tr>
         <th>Genre ID</th>
-        <td><p>Genre ID = < %= @song.genre_id % ></p>
+        <td><p>Genre ID = <%= @song.genre_id %></p>
           <ul>
           < % @song.genre_ids.each do |genre| % >
             <li>< %= #genre.id % > => < %= genre.name % ></li>

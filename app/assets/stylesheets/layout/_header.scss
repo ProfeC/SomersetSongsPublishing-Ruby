@@ -18,7 +18,7 @@ body{
 }
 
 .top-header{
-	background: rgba(1, 166, 212, 0.95);
+	background: $header-background;
 	color: rgba(21, 37, 89, 0.85);
 	padding: 20px 0;
 
@@ -41,9 +41,9 @@ body{
 	box-shadow: 0 1px 5px rgba(0,0,0,.3);
 	@include clearfix;
 
-	.branding{
-		padding: 15px 0;
-	}
+	// .branding {
+	// 	padding: 15px 0;
+	// }
 }
 
 .branding {

@@ -24,8 +24,10 @@
     <td><%= f.file_field(:file_uri) %></td>
   </tr>
   <tr>
-    <th>< %= f.label(:genre) % ></th>
-    <td>< %= f.text_field(:genre) % ></td>
+    <th>Genres</th>
+    <td><% @genres.each do |g| %>
+      <%= check_box_tag(:genre_id, g.id)  %><%= label_tag(g.name) %>
+    <% end %></td>
   </tr>
   <tr>
     <th><%= f.label(:theme) %></th>

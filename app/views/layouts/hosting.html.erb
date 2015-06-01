@@ -28,7 +28,10 @@
         <div class="bottom-header">
           <div class="container">
             <!-- #branding -->
-            <%= link_to image_tag('hosting/logo-icon.png', :alt => 'Site Title', :class => 'logo-icon') + '<h1 class="site-title">Somerset Songs <span>Publishing</span></h1><h2 class="site-description">Media Library</h2>'.html_safe, {:action => :index}, :class => "branding pull-left" %>
+            <!--
+            < % = # link_to image_tag('header-logo-203Wx90H.png', :alt => 'Somerset Songs Logo.', :class => 'logo-icon') + '<h1 class="site-title">Somerset Songs <span>Publishing</span></h1><h2 class="site-description">Media Library</h2>'.html_safe, {:action => :index}, :class => "branding pull-left" % >
+            -->
+            <%= link_to image_tag('header-logo-203Wx90H.png', :alt => 'Somerset Songs Logo.', :class => 'logo-icon'), {:action => :index}, :class => "branding pull-left" %>
 
             <nav class="main-navigation pull-right">
               <button type="button" class="menu-toggle">
@@ -63,7 +66,8 @@
 
               </div>
               <div class="col-md-4">
-                <aside class="boxed-content" data-bg-color="#f6f7f9">
+                <!-- <aside class="boxed-content" data-bg-color="#f6f7f9"> -->
+                <aside class="boxed-content">
                   <h3 class="wow fadeInUp">Interdum et malesuad</h3>
                   <p class="wow fadeInUp">Nunc molestie enim eu felis convallis, vitae blandit ligula elementum. Ut tincidunt id nisi eget ultricies integer amet sollicitudin urna. Donec tempus augue ut diam imperdiet.</p>
 

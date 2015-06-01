@@ -36,6 +36,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @artists = Artist.order('name ASC')
     @albums = Album.order('title ASC')
+    @genres = Genre.order('name ASC')
   end
 
   def update
@@ -43,11 +44,12 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @artists = Artist.order('name ASC')
     @albums = Album.order('title ASC')
+    @genres = Genre.order('name ASC')
 
     # Update the object
     if @song.update_attributes(song_params)
       # If update succeeds, redirect
-      flash[:notice] = 'song "#{song.title}" updated successfully'
+      flash[:notice] = 'song "[:song.title]" updated successfully'
       redirect_to(:action => 'show', :id => @song.id)
     else
       # If update fails display the form
@@ -82,7 +84,14 @@ class SongsController < ApplicationController
         :title,
         :description,
         :original_release_date,
-        :permalink
+        :permalink,
+        :artist_id,
+        :album_id,
+        :file_uri,
+        :theme,
+        :tag,
+        :length,
+        :genre_id
       )
     end
 end
