@@ -8,6 +8,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Seed some genres
+genres = Genre.create ([
+  {
+    name: 'rock'
+  },
+  {
+    name: 'blues'
+  },
+  {
+    name: 'ballad'
+  }
+])
+
 # Seed some artists
 artists = Artist.create ([
   {
@@ -41,19 +54,6 @@ albums = Album.create ([
   }
 ])
 
-# Seed some genres
-genres = Genre.create ([
-  {
-    name: 'rock'
-  },
-  {
-    name: 'blues'
-  },
-  {
-    name: 'ballad'
-  }
-])
-
 # Seed some songs
 songs = Song.create ([
   {
@@ -61,8 +61,7 @@ songs = Song.create ([
     original_release_date: '1999-11-22',
     length: '00:03:52',
     artist_id: 1,
-    album_id: 3,
-    genre_id: [1, 3]
+    album_id: 3
   },
   {
     title: '4 Wheels Turnin\'',

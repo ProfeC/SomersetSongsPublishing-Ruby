@@ -5,12 +5,12 @@
 <article class="row songs show">
   <div class="medium-12 columns">
     <!-- Button Group Optional Classes: [radius round] -->
-    <ul class="button-group">
-      <!-- Button Color Classes: [secondary alert success] -->
-      <!-- Button Size Classes: [tiny small large] -->
-      <li><%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link button') %></li>
-      <li><%= link_to("Add New Song", "#", :class => "action new button" ) %></li>
-    </ul>
+<!--     <ul class="button-group">
+      <!- - Button Color Classes: [secondary alert success] - ->
+      <!- - Button Size Classes: [tiny small large] - ->
+      <li>< % = link_to("<< Back to List", {:action => 'index'}, :class => 'back-link button') % ></li>
+      <li>< % = link_to("Add New Song", "#", :class => "action new button" ) % ></li>
+    </ul> -->
 
     <table summary="Song detail view">
       <tr>
@@ -27,13 +27,16 @@
       </tr>
       <tr>
       <tr>
-        <th>Genre ID</th>
-        <td><p>Genre ID = <%= @song.genre_id %></p>
-          <ul>
-          < % @song.genre_ids.each do |genre| % >
-            <li>< %= #genre.id % > => < %= genre.name % ></li>
-          < % end % >
-          </ul>
+        <th>Genre(s)</th>
+        <td>
+          <%
+          @genre_names = Array.new()
+          @song.genre_ids.each do |genre|
+            @genre_names.push @song.genres.find(genre).name
+          end
+          %>
+
+          <%= @genre_names.join(', ') %>
         </td>
       </tr>
       <tr>
