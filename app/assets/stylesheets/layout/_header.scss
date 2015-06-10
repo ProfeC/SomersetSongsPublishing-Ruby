@@ -1,4 +1,4 @@
-body{
+body {
 	position: relative;
 	font-family: $primary-font;
 	font-size: 16px;
@@ -11,39 +11,40 @@ body{
 	}
 }
 
-.site-header{
-	position: relative;
-	z-index: 99;
-	line-height: normal;
+.site-header {
+  line-height: normal;
+  position: relative;
+  z-index: 99;
+
+  .bottom-header {
+    @include clearfix;
+    background: $header-background-bottom;
+    box-shadow: 0 1px 5px rgba(0,0,0,.3);
+    height: 150px;
+
+    // .branding {
+    //  padding: 15px 0;
+    // }
+  }
+
+  .top-header {
+    background: $header-background;
+    color: rgba(21, 37, 89, 0.85);
+    padding: 20px 0;
+
+    a {
+      color: rgba(21, 37, 89, 0.85);
+      text-decoration: none;
+    }
+  }
 }
 
-.top-header{
-	background: $header-background;
-	color: rgba(21, 37, 89, 0.85);
-	padding: 20px 0;
-
-	a{
-		color: rgba(21, 37, 89, 0.85);
-		text-decoration: none;
-	}
-}
-
-.member-navigation{
+.member-navigation {
 	.fa{margin-right: 5px}
 	a{
 		display: inline-block;
 		margin-left:20px;
 	}
-}
-
-.bottom-header{
-	background: white;
-	box-shadow: 0 1px 5px rgba(0,0,0,.3);
-	@include clearfix;
-
-	// .branding {
-	// 	padding: 15px 0;
-	// }
 }
 
 .branding {
@@ -86,7 +87,8 @@ body{
 	}
 }
 
-.main-navigation{
+.main-navigation {
+  margin: 30px 0;
 
 
 	.menu-toggle{

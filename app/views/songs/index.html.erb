@@ -2,10 +2,21 @@
 <!-- Render page title -->
 <%=
   render 'application/page_title',
-  title: 'Song Listing',
-  leading_text: 'Aliquam nibh quam iaculis tempus dignissim quis faucibus etiam dignissim tempus nibh nec venenatis turpis bibendum vivamus laoreet odio eleifend iaculis',
+  title: 'Music Search',
+  leading_text: 'Please feel free to browse for ideas. No sign in is needed. You can search the entire catalog for: melodic moods, lyrical themes, title, genre, etc.',
   subtitle: ''
 %>
+
+<!-- Search Bar -->
+<div class="search-bar">
+  <%= render(:partial => "application/search_form") %>
+</div>
+
+<p>Or you can complete the Music Search request  with a brief description of what you are looking for and we will respond with music suggestions.</p>
+
+
+
+<% if @songs.present? %>
 
 <section class="song index wow fadeInUp">
   <table width="100%">
@@ -29,3 +40,9 @@
   </table>
 
 </section>
+
+<% else %>
+  <p>There are no songs containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+
+

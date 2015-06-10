@@ -4,16 +4,22 @@ $primary-font: "Roboto Slab", serif;
 // Color Variables
 $primary-color: #152559;
 $secondary-color: #01a6d4;
-$background-color: rgb(235,248,255); // #ebf8ff color description : Very pale (mostly white) blue.
+// $background-color: rgb(235,248,255); // #ebf8ff color description : Very pale (mostly white) blue.
+$background-color: rgb(0,143,199); // #008fc7 color description : Strong blue.
 
-$body-background: lighten($background-color, 2.5%);
+
+
+
+// $body-background: lighten($background-color, 2.5%);
+$body-background: lighten($background-color, 57%);
 $body-color: #7d808c;
 $muted-color: #adafb8;
 
 // $header-background: rgb(214,242,255); // #d6f2ff color description : Very pale blue.
 $header-background: $background-color;
+$header-background-bottom: $background-color;
 
 //$footer-background: #292c35;
 //$footer-background: rgb(0,62,91); // #003e5b color description : Very dark blue.
-$footer-background: darken($background-color, 73%);
+$footer-background: darken($background-color, 25%);
 $footer-color: #aaacb5;

@@ -10,4 +10,8 @@ class Song < ActiveRecord::Base
   # scope :search, lambda { |query|
   #   where("title LIKE ?", "%#{query}%")
   # }
+
+  def self.search(search)
+    where("title LIKE ? OR theme LIKE ?", "%#{search}%", "%#{search}%")
+  end
 end

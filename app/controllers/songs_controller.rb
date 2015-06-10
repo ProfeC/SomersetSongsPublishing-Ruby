@@ -1,12 +1,32 @@
 class SongsController < ApplicationController
+  # def index
+  #   @songs  = Song.sorted_by_title
+  # end
+
   def index
-    @songs  = Song.sorted_by_title
+  @songs = Song.all
+
+  if params[:search]
+    @songs = Song.search(params[:search]).sorted_by_title
+  else
+    @songs = Song.all.sorted_by_title
   end
+end
 
   def show
     @song = Song.find(params[:id])
-    # @album = Album.find(params[:id])
-    @genre_ids = @song.genre_ids
+
+    # NOTE: Get the list of genres to display.
+    @aGenres = Array.new()
+    @song.genre_ids.each do |genre|
+      @aGenres.push @song.genres.find(genre).name
+    end
+    @genre_names = @aGenres.join(', ')
+
+  end
+
+  def search
+    @songs = Song.search(params:[:search])
   end
 
   def new

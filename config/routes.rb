@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
 
-  get 'genre/show'
+  # get 'genre/show'
 
-  get 'genre/index'
+  # get 'genre/index'
 
-  get 'genre/create'
+  # get 'genre/create'
 
-  get 'genre/delete'
+  # get 'genre/delete'
 
-  get 'genre/update'
+  # get 'genre/update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'application#index'
+  root 'songs#index'
 
-  get '/' => 'application#index'
-  get 'index' => 'application#index'
+  # get '/' => 'application#index'
+  # get 'index' => 'application#index'
   get 'about' => 'application#about'
 
   # Example of regular route:

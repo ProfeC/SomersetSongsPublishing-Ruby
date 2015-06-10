@@ -28,16 +28,7 @@
       <tr>
       <tr>
         <th>Genre(s)</th>
-        <td>
-          <%
-          @genre_names = Array.new()
-          @song.genre_ids.each do |genre|
-            @genre_names.push @song.genres.find(genre).name
-          end
-          %>
-
-          <%= @genre_names.join(', ') %>
-        </td>
+        <td><%= @genre_names %></td>
       </tr>
       <tr>
         <th>Mood/Theme</th>
