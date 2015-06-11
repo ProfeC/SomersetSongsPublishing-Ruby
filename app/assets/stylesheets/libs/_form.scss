@@ -1,0 +1,27 @@
+form {
+  input:not([type="submit"]),
+  textarea {
+    @include em(14);
+
+    // border-radius: 20px;
+    border: 2px solid #dedfe2;
+    font-family: inherit;
+    font-weight: 300;
+    outline: none;
+    padding: 10px 20px;
+    transition: .3s ease;
+    width: 100%;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $secondary-color;
+    }
+  }
+
+  textarea {
+    display: block;
+    min-height: 180px;
+    resize: vertical;
+  }
+}

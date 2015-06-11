@@ -143,7 +143,7 @@
 .feature{
 	margin-bottom: 30px;
 	position: relative;
-	
+
 	[class^="icon-"]{
 		font-size: 48px;
 		float: left;
@@ -156,11 +156,11 @@
 		color: $primary-color;
 		margin-bottom: 20px;
 		.title,.subtitle{display: table}
-		.title{ 
+		.title{
 			@include em(24);
 			margin: 0;
 		}
-		.subtitle{ 
+		.subtitle{
 			@include em(18);
 			font-weight: 100;
 			color: $body-color;
@@ -202,7 +202,7 @@
 			display: none;
 		}
 	}
-	
+
 }
 
 .pricing-table{
@@ -317,27 +317,4 @@
 
 address{
 	font-style: normal;
-}
-
-form{
-	input:not([type="submit"]), textarea{
-		padding: 10px 20px;
-		border-radius: 20px;
-		border: 2px solid #dedfe2;
-		font-family: inherit;
-		@include em(14);
-		font-weight: 300;
-		width: 100%;
-		outline: none;
-		transition: .3s ease;
-
-		&:hover, &:active, &:focus{
-			border-color: $secondary-color;
-		}
-	}
-	textarea{
-		display: block;
-		min-height: 180px;
-		resize: vertical;
-	}
 }

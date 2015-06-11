@@ -12,8 +12,8 @@
  *
  */
 
-//= require_self
 //= require animate.css
+//= require_self
 //= require font-awesome.min.css
 
 /* Add imports of custom sass/scss files here */
@@ -29,27 +29,32 @@
 /*===========================================
  * Importing CSS Libraries
  *===========================================*/
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 @import
-  "libs/settings",
-  "libs/mixins",
-  "libs/normalize",
-  "libs/component",
-  "libs/lineo-icon",
+  'libs/settings',
+  'libs/mixins',
+  'libs/normalize',
+  'libs/component',
+  'libs/form',
+  'libs/lineo-icon',
 
   // importing bootstrap grid framework
-  "libs/bootstrap-grid/settings",
-  "libs/bootstrap-grid/mixins",
-  "libs/bootstrap-grid/grid",
+  // 'libs/bootstrap-grid/settings',
+  // 'libs/bootstrap-grid/mixins',
+  // 'libs/bootstrap-grid/grid',
 
-  "layout/header",
-  "layout/content",
-  "layout/footer",
+  'layout/header',
+  'layout/content',
+  'layout/footer',
 
-  "pages/news",
-  "pages/page",
+  'pages/news',
+  'pages/page',
 
-  "libs/widgets",
-  "libs/search-bar";
+  'libs/widgets',
+  'libs/search-bar';
 
 
 // #global-header {

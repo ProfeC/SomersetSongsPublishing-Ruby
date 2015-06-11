@@ -2,11 +2,15 @@
 # Reference: http://www.korenlc.com/creating-a-simple-search-in-rails-4/
 %>
 
-<section id="global-search">
-
+<section id="global-search" class="container-fluid search-bar">
   <%= form_tag({controller: "songs", action: "index"}, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Songs" %>
-  <%= submit_tag "Search" %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <%= text_field_tag :search, params[:search], placeholder: "Search Songs", class: "form-control" %>
+          <span class="input-group-btn"><%= submit_tag "Search", class: "btn btn-default" %></span>
+        </div>
+      </div>
+    </div>
   <% end %>
-
 </section>

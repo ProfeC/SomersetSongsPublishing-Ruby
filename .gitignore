@@ -14,3 +14,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+vendor/assets/bootstrap-sass-3.3.4.tar.gz
+
+vendor/assets/bootstrap-3.3.4-dist.zip

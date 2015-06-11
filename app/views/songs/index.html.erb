@@ -8,9 +8,7 @@
 %>
 
 <!-- Search Bar -->
-<div class="search-bar">
-  <%= render(:partial => "application/search_form") %>
-</div>
+<%= render(:partial => "application/search_form") %>
 
 <p>Or you can complete the Music Search request  with a brief description of what you are looking for and we will respond with music suggestions.</p>
 
@@ -21,7 +19,6 @@
 <section class="song index wow fadeInUp">
   <table width="100%">
     <tr>
-      <!-- <th>ID</th> -->
       <th>Name</th>
       <th>Album</th>
       <th>Artist</th>
@@ -30,7 +27,6 @@
 
     <% @songs.each do |song| %>
       <tr>
-        <!-- <td><%= song.id %> -->
         <td><%= link_to song.title, controller: 'songs', action: 'show', id: song.id %></td>
         <td><%= link_to song.album.title, controller: 'albums', action: 'show', id: song.album.id %></td>
         <td><%= link_to song.artist.name, controller: 'artists', action: 'show', id: song.artist.id %></td>

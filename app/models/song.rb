@@ -12,6 +12,6 @@ class Song < ActiveRecord::Base
   # }
 
   def self.search(search)
-    where("title LIKE ? OR theme LIKE ?", "%#{search}%", "%#{search}%")
+    where("title ILIKE ? OR theme ILIKE ?", "%#{search}%", "%#{search}%")
   end
 end

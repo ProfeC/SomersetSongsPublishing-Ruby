@@ -27,6 +27,9 @@ gem 'typescript-rails'
 # Use Foundation for our front-end
 # gem 'foundation-rails'
 
+# Use Bootstrap for the front-end
+gem 'bootstrap-sass', '~> 3.3.4'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
