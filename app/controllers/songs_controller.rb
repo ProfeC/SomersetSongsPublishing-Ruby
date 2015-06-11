@@ -4,13 +4,7 @@ class SongsController < ApplicationController
   # end
 
   def index
-  @songs = Song.all
-
-  if params[:search]
-    @songs = Song.search(params[:search]).sorted_by_title
-  else
-    @songs = Song.all.sorted_by_title
-  end
+  @songs = Song.search(params[:search]).sorted_by_title
 end
 
   def show

@@ -12,6 +12,12 @@ class Song < ActiveRecord::Base
   # }
 
   def self.search(search)
-    where("title ILIKE ? OR theme ILIKE ?", "%#{search}%", "%#{search}%")
+    if search
+      # @songs = Song.search(params[:search]).sorted_by_title
+      where("title ILIKE ? OR theme ILIKE ?", "%#{search}%", "%#{search}%")
+    else
+      # @songs = Song.all.sorted_by_title
+      all
+    end
   end
 end
