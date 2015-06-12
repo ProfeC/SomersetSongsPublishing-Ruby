@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
   belongs_to :album
-  belongs_to :artist
+  # belongs_to :artist
   has_and_belongs_to_many :genres
 
   scope :sorted_by_title, lambda { order("songs.title ASC") }
