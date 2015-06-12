@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-  # get 'genre/show'
-
-  # get 'genre/index'
-
-  # get 'genre/create'
-
-  # get 'genre/delete'
-
-  # get 'genre/update'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -26,6 +16,16 @@ Rails.application.routes.draw do
 
   # Get Artist by Name
   get 'artists/:name' => 'artists#show_by_name'
+
+  # NOTE: Mood Resources
+
+  # NOTE: Genre Resources
+  # get 'genre/show'
+  # get 'genre/index'
+  # get 'genre/create'
+  # get 'genre/delete'
+  # get 'genre/update'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
