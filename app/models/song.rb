@@ -1,7 +1,9 @@
 class Song < ActiveRecord::Base
   belongs_to :album
-  # belongs_to :artist
+  belongs_to :artist
   has_and_belongs_to_many :genres
+  has_and_belongs_to_many :moods
+  has_and_belongs_to_many :themes
 
   scope :sorted_by_title, lambda { order("songs.title ASC") }
   scope :sorted_by_title_reverse, lambda { order("songs.title DESC") }
@@ -16,7 +18,7 @@ class Song < ActiveRecord::Base
       # @songs = Song.search(params[:search]).sorted_by_title
       where("title ILIKE ? OR theme ILIKE ?", "%#{search}%", "%#{search}%")
     else
-      # @songs = Song.all.sorted_by_title
+      @songs = Song.all.sorted_by_title
       all
     end
   end
