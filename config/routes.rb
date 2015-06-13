@@ -3,30 +3,6 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-  root 'songs#index'
-
-  # get '/' => 'application#index'
-  # get 'index' => 'application#index'
-  get 'about' => 'application#about'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Get Artist by Name
-  get 'artists/:name' => 'artists#show_by_name'
-
-  # NOTE: Mood Resources
-
-  # NOTE: Genre Resources
-  # get 'genre/show'
-  # get 'genre/index'
-  # get 'genre/create'
-  # get 'genre/delete'
-  # get 'genre/update'
-
-
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -72,6 +48,33 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # You can have the root of your site routed with "root"
+  # root 'welcome#index'
+  root 'songs#index'
+
+  # get '/' => 'application#index'
+  # get 'index' => 'application#index'
+  get 'about' => 'application#about'
+
+  # Example of regular route:
+  #   get 'products/:id' => 'catalog#view'
+
+  # Get Artist by Name
+  get 'artists/:name' => 'artists#show_by_name'
+
+  # NOTE: Genre Resources
+  # get 'genre/show'
+  # get 'genre/index'
+  # get 'genre/create'
+  # get 'genre/delete'
+  # get 'genre/update'
+
+  # NOTE: Mood Resources
+  resources :moods
+
+  # NOTE: Theme Resources
+  resources :themes
 
   # Default route to be processed last
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]

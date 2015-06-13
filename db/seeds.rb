@@ -8,6 +8,34 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Seed some moods
+moods = Mood.create([
+  {
+    title: 'Aggressive/Angry',
+    description: ''
+  },
+  {
+    title: 'Ambient',
+    description: ''
+  },
+  {
+    title: 'Building',
+    description: ''
+  },
+  {
+    title: 'Despair',
+    description: ''
+  },
+  {
+    title: 'Dramatic',
+    description: ''
+  },
+  {
+    title: 'Dreamy/Ethereal',
+    description: ''
+  }
+])
+
 # Seed some genres
 genres = Genre.create ([
   {
@@ -18,6 +46,34 @@ genres = Genre.create ([
   },
   {
     name: 'ballad'
+  }
+])
+
+# Seed some themes
+themes = Theme.create ([
+  {
+    title: 'Alive/Life/Live',
+    description: ''
+  },
+  {
+    title: 'Alone/Lonely',
+    description: ''
+  },
+  {
+    title: 'Beautiful/Pretty',
+    description: ''
+  },
+  {
+    title: 'Blue',
+    description: ''
+  },
+  {
+    title: 'Children',
+    description: ''
+  },
+  {
+    title: 'Dirty',
+    description: ''
   }
 ])
 
@@ -81,8 +137,6 @@ songs = Song.create ([
     title: 'Blue Morning, Blue Day',
     original_release_date: '1980-10-10',
     length: '00:03:12',
-    theme: 'blue',
-    tag: 'blue, bleu, rock, morning',
     artist_id: 3,
     album_id: 4
   }

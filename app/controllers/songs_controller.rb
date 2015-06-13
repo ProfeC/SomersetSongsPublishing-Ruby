@@ -27,6 +27,9 @@ end
     @song = Song.new
     @albums = Album.order('title ASC')
     @artists = Artist.order('name ASC')
+    @genres = Genre.order('name ASC')
+    @themes = Theme.order('name ASC')
+    @moods = Mood.order('name ASC')
   end
 
   def create
@@ -34,15 +37,18 @@ end
     @song = Song.new(song_params)
     @albums = Album.order('title ASC')
     @artists = Artist.order('name ASC')
+    @genres = Genre.order('name ASC')
+    @themes = Theme.order('name ASC')
+    @moods = Mood.order('name ASC')
 
     # Save the object
     if @song.save
-      # If save succeeds, redirect
-      # flash[:notice] = 'song created successfully'
-      # redirect_to(:action => 'index')
-    # else
-    #   # If save fails display the form
-    #   render('new')
+      If save succeeds, redirect
+      flash[:notice] = 'song created successfully'
+      redirect_to(:action => 'index')
+    else
+      # If save fails display the form
+      render('new')
     end
   end
 
@@ -51,6 +57,8 @@ end
     @artists = Artist.order('name ASC')
     @albums = Album.order('title ASC')
     @genres = Genre.order('name ASC')
+    @themes = Theme.order('name ASC')
+    @moods = Mood.order('name ASC')
   end
 
   def update
@@ -59,11 +67,13 @@ end
     @artists = Artist.order('name ASC')
     @albums = Album.order('title ASC')
     @genres = Genre.order('name ASC')
+    @themes = Theme.order('name ASC')
+    @moods = Mood.order('name ASC')
 
     # Update the object
     if @song.update_attributes(song_params)
       # If update succeeds, redirect
-      flash[:notice] = 'song "[:song.title]" updated successfully'
+      flash[:notice] = 'song "#{song.title}" updated successfully'
       redirect_to(:action => 'show', :id => @song.id)
     else
       # If update fails display the form
@@ -77,8 +87,8 @@ end
 
   def destroy
     song = Song.find(params[:id]).destroy
-    # flash[:notice] = 'song "#{song.title}" deleted successfully'
-    # redirect_to(:action => 'index')
+    flash[:notice] = 'song "#{song.title}" deleted successfully'
+    redirect_to(:action => 'index')
   end
 
   def upload
@@ -105,7 +115,9 @@ end
         :theme,
         :tag,
         :length,
-        :genre_id
+        :genre_id,
+        :mood_id,
+        :theme_id
       )
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603012252) do
+ActiveRecord::Schema.define(version: 20150613014130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,29 @@ ActiveRecord::Schema.define(version: 20150603012252) do
   add_index "genres_songs", ["genre_id", "song_id"], name: "index_genres_songs_on_genre_id_and_song_id", using: :btree
   add_index "genres_songs", ["song_id", "genre_id"], name: "index_genres_songs_on_song_id_and_genre_id", using: :btree
 
+  create_table "moods", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "moods", ["title"], name: "index_moods_on_title", unique: true, using: :btree
+
+  create_table "moods_songs", id: false, force: :cascade do |t|
+    t.integer "song_id", null: false
+    t.integer "mood_id", null: false
+  end
+
+  add_index "moods_songs", ["mood_id", "song_id"], name: "index_moods_songs_on_mood_id_and_song_id", using: :btree
+  add_index "moods_songs", ["song_id", "mood_id"], name: "index_moods_songs_on_song_id_and_mood_id", using: :btree
+
   create_table "songs", force: :cascade do |t|
     t.string   "title",                 null: false
     t.text     "description"
     t.date     "original_release_date"
     t.string   "permalink"
     t.string   "file_uri"
-    t.string   "theme"
-    t.string   "tag"
     t.string   "length"
     t.integer  "album_id"
     t.integer  "artist_id"
@@ -71,6 +86,23 @@ ActiveRecord::Schema.define(version: 20150603012252) do
   add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
   add_index "songs", ["artist_id"], name: "index_songs_on_artist_id", using: :btree
   add_index "songs", ["permalink"], name: "index_songs_on_permalink", using: :btree
+
+  create_table "songs_themes", id: false, force: :cascade do |t|
+    t.integer "song_id",  null: false
+    t.integer "theme_id", null: false
+  end
+
+  add_index "songs_themes", ["song_id", "theme_id"], name: "index_songs_themes_on_song_id_and_theme_id", using: :btree
+  add_index "songs_themes", ["theme_id", "song_id"], name: "index_songs_themes_on_theme_id_and_song_id", using: :btree
+
+  create_table "themes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "themes", ["title"], name: "index_themes_on_title", unique: true, using: :btree
 
   add_foreign_key "albums", "artists"
   add_foreign_key "songs", "albums"
