@@ -3,15 +3,13 @@
 one:
   title: MyString
   description: MyText
-  original_release_date: 2015-04-13
-  permalink: MyString
-  file_uri: MyString
-  album_id: 
+  original_release_date: 2015-06-13
+  length: MyString
+  album: 
 
 two:
   title: MyString
   description: MyText
-  original_release_date: 2015-04-13
-  permalink: MyString
-  file_uri: MyString
-  album_id: 
+  original_release_date: 2015-06-13
+  length: MyString
+  album: 

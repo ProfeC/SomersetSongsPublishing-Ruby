@@ -60,10 +60,18 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  # Get Artist by Name
-  get 'artists/:name' => 'artists#show_by_name'
+  # NOTE: Artist Resources
+  # get 'artists/:name' => 'artists#show_by_name'
+  resources :artists
+
+  # NOTE: Song Resources
+  resources :songs
+
+  # NOTE: Album Resources
+  resources :albums
 
   # NOTE: Genre Resources
+  resources :genres
   # get 'genre/show'
   # get 'genre/index'
   # get 'genre/create'
