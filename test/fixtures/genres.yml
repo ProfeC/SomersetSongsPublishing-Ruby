@@ -2,8 +2,8 @@
 
 one:
   title: MyString
-  song_id: 
+  description: MyText
 
 two:
   title: MyString
-  song_id: 
+  description: MyText
