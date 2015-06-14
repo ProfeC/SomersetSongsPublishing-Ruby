@@ -116,13 +116,13 @@ songs = Song.create ([
     title: '10 Light Years Away',
     original_release_date: '1999-11-22',
     length: '00:03:52',
-    album_id: 3
+    album_id: 1
   },
   {
     title: '4 Wheels Turnin\'',
     original_release_date: '1989-10-4',
     length: '00:04:35',
-    album_id: 3
+    album_id: 2
   },
   {
     title: 'A Love In Vain',
