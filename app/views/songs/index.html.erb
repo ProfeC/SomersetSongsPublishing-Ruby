@@ -1,34 +1,60 @@
+<!-- Render page title -->
+<%=
+  render 'application/page_title',
+  title: 'Music Search',
+  leading_text: 'Please feel free to browse for ideas. No sign in is needed. You can search the entire catalog for: melodic moods, lyrical themes, title, genre, etc.',
+  subtitle: ''
+%>
+
+<!-- Search Bar -->
+<%= render(:partial => "application/search_form") %>
+
+<p>Or you can complete the Music Search request  with a brief description of what you are looking for and we will respond with music suggestions.</p>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Songs</h1>
+<% if @songs.present? %>
 
-<table>
-  <thead>
+<!-- <section class="song index wow fadeInUp"> -->
+<section class="song index">
+  <table width="100%">
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Original release date</th>
-      <th>Length</th>
+      <th>Name</th>
       <th>Album</th>
-      <th colspan="3"></th>
+      <th>Artist</th>
+      <th>Released</th>
+      <th colspan="2">Actions</th>
     </tr>
-  </thead>
 
-  <tbody>
     <% @songs.each do |song| %>
+      <%
+      album = Album.find(song.album.id)
+      artist = Artist.find(album.artist.id)
+      %>
+
+      <hr align="center" width="75%">
+      <pre><%= song.inspect %></pre>
+      <pre><%= album.inspect %></pre>
+      <pre><%= artist.inspect %></pre>
+      <pre><%= Album.find(song.album.id).inspect %></pre>
+      <hr align="center" width="75%">
+
       <tr>
-        <td><%= song.title %></td>
-        <td><%= song.description %></td>
-        <td><%= song.original_release_date %></td>
-        <td><%= song.length %></td>
-        <td><%= song.album %></td>
-        <td><%= link_to 'Show', song %></td>
+        <td><%= link_to song.title, song %></td>
+        <td><%= link_to album.title, album %></td>
+        <td><%= link_to artist.name, artist %></td>
+        <td align="center"><%= song.original_release_date.to_formatted_s(:year) %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+  </table>
+
+</section>
+
+<% else %>
+  <p>There are no songs containing the term(s) <%= params[:search] %>.</p>
+<% end %>
 
 <br>
 
