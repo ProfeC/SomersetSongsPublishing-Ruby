@@ -12,9 +12,33 @@
 !/log/.keep
 /tmp
 
+# Ignore Passenger files
+passenger.*
+
 # Ignore application configuration
 /config/application.yml
 
 vendor/assets/bootstrap-sass-3.3.4.tar.gz
 
 vendor/assets/bootstrap-3.3.4-dist.zip
+
+# Ignore copied files & folders
+app/models/genre copy.rb
+app/models/mood copy.rb
+app/models/theme copy.rb
+app/models/artist copy.rb
+app/models/song copy.rb
+app/models/album copy.rb
+app/controllers/genre_controller copy.rb
+app/controllers/genres_controller copy.rb
+app/controllers/moods_controller copy.rb
+app/controllers/themes_controller copy.rb
+app/controllers/artists_controller copy.rb
+app/controllers/albums_controller copy.rb
+app/controllers/songs_controller copy.rb
+app/views/artists copy/
+app/views/genre copy/
+app/views/moods copy/
+app/views/songs copy/
+app/views/themes copy/
+db/migrate/2015* copy.rb
