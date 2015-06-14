@@ -1,76 +1,74 @@
 class ArtistsController < ApplicationController
-  # layout "hosting"
+  before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
+  # GET /artists
+  # GET /artists.json
   def index
-    @artists  = Artist.sorted
+    @artists = Artist.all
   end
 
+  # GET /artists/1
+  # GET /artists/1.json
   def show
-    @artist = Artist.find(params[:id])
   end
 
-  # Show artist by name
-  def show_by_name
-    @artist = Artist.find_by(name: params[:name])
-    @updated = @artist.updated_at
-    @created = @artist.created_at
-    render :show
-  end
-
+  # GET /artists/new
   def new
     @artist = Artist.new
   end
 
+  # GET /artists/1/edit
+  def edit
+  end
+
+  # POST /artists
+  # POST /artists.json
   def create
-    # Instantiate a new object
     @artist = Artist.new(artist_params)
 
-    # Save the object
-    if @artist.save
-      # If save succeeds, redirect
-      flash[:notice] = 'Artist created successfully'
-      redirect_to(:action => 'index')
-    else
-      # If save fails display the form
-      render('new')
+    respond_to do |format|
+      if @artist.save
+        format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
+        format.json { render :show, status: :created, location: @artist }
+      else
+        format.html { render :new }
+        format.json { render json: @artist.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def edit
-    @artist = Artist.find(params[:id])
-  end
-
+  # PATCH/PUT /artists/1
+  # PATCH/PUT /artists/1.json
   def update
-    # Find an existing object to use for its form parameters
-    @artist = Artist.find(params[:id])
-
-    # Update the object
-    if @artist.update_attributes(artist_params)
-      # If update succeeds, redirect
-      flash[:notice] = 'Artist "#{artist.name}" updated successfully'
-      redirect_to(:action => 'show', :id => @artist.id)
-    else
-      # If update fails display the form
-      render('edit')
+    respond_to do |format|
+      if @artist.update(artist_params)
+        format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
+        format.json { render :show, status: :ok, location: @artist }
+      else
+        format.html { render :edit }
+        format.json { render json: @artist.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def delete
-    @artist = Artist.find(params[:id])
-  end
-
+  # DELETE /artists/1
+  # DELETE /artists/1.json
   def destroy
-    artist = Artist.find(params[:id]).destroy
-    flash[:notice] = 'Artist "#{artist.name}" deleted successfully'
-    redirect_to(:action => 'index')
+    @artist.destroy
+    respond_to do |format|
+      format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_artist
+      @artist = Artist.find(params[:id])
+    end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      # Same as using "params[:artist]", except that it:
-      # - raises an error if :artist is not present
-      # - allows listed attributes to be mass-assigned
       params.require(:artist).permit(:name, :description)
     end
 end

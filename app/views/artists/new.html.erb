@@ -1,28 +1,5 @@
-<% content_for :title do %>
-  <%= "New Artist" %>
-<% end %>
+<h1>New Artist</h1>
 
-<section class="artist new">
-  <header class="row">
-    <section class="medium-12 column page-title">
-      <h1>Artists#new</h1>
-      <%= link_to("Back to List", {:action => 'index'}, :class => "back-link" ) %>
-    </section>
-  </header>
+<%= render 'form' %>
 
-  <main class="row">
-    <section class="medium-12 columns">
-      <p>Find me in app/views/artists/new.html.erb</p>
-
-      <%= form_for(:artist, :url => {:action => 'create'}) do |f| %>
-
-        <%= render(:partial => "form", :locals => {:f => f}) %>
-
-        <div class="form-buttons">
-          <%= submit_tag("Create Artist") %>
-        </div>
-      <% end %>
-    </section>
-  </main>
-
-</section>
+<%= link_to 'Back', artists_path %>

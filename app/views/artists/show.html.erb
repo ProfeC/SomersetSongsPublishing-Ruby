@@ -1,36 +1,14 @@
-<% content_for :title do %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
   <%= @artist.name %>
-<% end %>
+</p>
 
-<% content_for :subtitle do %>
-  <small class="subheader">(<%= @artist.songs.count %> Songs)</small>
-<% end %>
+<p>
+  <strong>Description:</strong>
+  <%= @artist.description %>
+</p>
 
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link button') %>
-
-
-<div class="subjects show">
-  <table summary="Artist detail view">
-    <tr>
-      <th>Description</th>
-      <td><%= @artist.description %></td>
-    </tr>
-  </table>
-</div>
-
-<ul>
-<% @artist.songs.each do |song| %>
-  <li><%= song.id %> => <%= song.title %></li>
-<% end %>
-</ul>
-
-<!-- <div class="row">
-  <div class="medium-12 columns text-right">
-    <small>
-      <strong>Updated:</strong> <%= @artist.updated_at %> -
-      <strong>Created:</strong> <%= @artist.created_at %>
-      <p>Find me in app/views/artists/show.html.erb</p>
-    </small>
-  </div>
-</div>
- -->
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
