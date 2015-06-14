@@ -3,13 +3,11 @@
 one:
   title: MyString
   description: MyText
-  original_release_date: 2015-04-13
-  permalink: MyString
-  artist_id: 
+  original_release_date: 2015-06-13
+  artist: 
 
 two:
   title: MyString
   description: MyText
-  original_release_date: 2015-04-13
-  permalink: MyString
-  artist_id: 
+  original_release_date: 2015-06-13
+  artist: 
