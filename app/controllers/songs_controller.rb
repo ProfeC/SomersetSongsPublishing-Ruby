@@ -1,123 +1,74 @@
 class SongsController < ApplicationController
-  # def index
-  #   @songs  = Song.sorted_by_title
-  # end
+  before_action :set_song, only: [:show, :edit, :update, :destroy]
 
+  # GET /songs
+  # GET /songs.json
   def index
-  @songs = Song.search(params[:search]).sorted_by_title
-end
+    @songs = Song.all
+  end
 
+  # GET /songs/1
+  # GET /songs/1.json
   def show
-    @song = Song.find(params[:id])
-
-    # NOTE: Get the list of genres to display.
-    @aGenres = Array.new()
-    @song.genre_ids.each do |genre|
-      @aGenres.push @song.genres.find(genre).name
-    end
-    @genre_names = @aGenres.join(', ')
-
   end
 
-  def search
-    @songs = Song.search(params:[:search])
-  end
-
+  # GET /songs/new
   def new
     @song = Song.new
-    @albums = Album.order('title ASC')
-    @artists = Artist.order('name ASC')
-    @genres = Genre.order('name ASC')
-    @themes = Theme.order('name ASC')
-    @moods = Mood.order('name ASC')
   end
 
-  def create
-    # Instantiate a new object
-    @song = Song.new(song_params)
-    @albums = Album.order('title ASC')
-    @artists = Artist.order('name ASC')
-    @genres = Genre.order('name ASC')
-    @themes = Theme.order('name ASC')
-    @moods = Mood.order('name ASC')
-
-    # Save the object
-    if @song.save
-      If save succeeds, redirect
-      flash[:notice] = 'song created successfully'
-      redirect_to(:action => 'index')
-    else
-      # If save fails display the form
-      render('new')
-    end
-  end
-
+  # GET /songs/1/edit
   def edit
-    @song = Song.find(params[:id])
-    @artists = Artist.order('name ASC')
-    @albums = Album.order('title ASC')
-    @genres = Genre.order('name ASC')
-    @themes = Theme.order('name ASC')
-    @moods = Mood.order('name ASC')
   end
 
-  def update
-    # Find an existing object to use for its form parameters
-    @song = Song.find(params[:id])
-    @artists = Artist.order('name ASC')
-    @albums = Album.order('title ASC')
-    @genres = Genre.order('name ASC')
-    @themes = Theme.order('name ASC')
-    @moods = Mood.order('name ASC')
+  # POST /songs
+  # POST /songs.json
+  def create
+    @song = Song.new(song_params)
 
-    # Update the object
-    if @song.update_attributes(song_params)
-      # If update succeeds, redirect
-      flash[:notice] = 'song "#{song.title}" updated successfully'
-      redirect_to(:action => 'show', :id => @song.id)
-    else
-      # If update fails display the form
-      render('edit')
+    respond_to do |format|
+      if @song.save
+        format.html { redirect_to @song, notice: 'Song was successfully created.' }
+        format.json { render :show, status: :created, location: @song }
+      else
+        format.html { render :new }
+        format.json { render json: @song.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def delete
-    @song = Song.find(params[:id])
+  # PATCH/PUT /songs/1
+  # PATCH/PUT /songs/1.json
+  def update
+    respond_to do |format|
+      if @song.update(song_params)
+        format.html { redirect_to @song, notice: 'Song was successfully updated.' }
+        format.json { render :show, status: :ok, location: @song }
+      else
+        format.html { render :edit }
+        format.json { render json: @song.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
+  # DELETE /songs/1
+  # DELETE /songs/1.json
   def destroy
-    song = Song.find(params[:id]).destroy
-    flash[:notice] = 'song "#{song.title}" deleted successfully'
-    redirect_to(:action => 'index')
-  end
-
-  def upload
-    uploaded_io = params[:song][:file_uri]
-    File.open(Rails.root.join('public', 'media', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
+    @song.destroy
+    respond_to do |format|
+      format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_song
+      @song = Song.find(params[:id])
+    end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      # Same as using "params[:song]", except that it:
-      # - raises an error if :song is not present
-      # - allows listed attributes to be mass-assigned
-      params.require(:song).permit(
-        :title,
-        :description,
-        :original_release_date,
-        :permalink,
-        :artist_id,
-        :album_id,
-        :file_uri,
-        :theme,
-        :tag,
-        :length,
-        :genre_id,
-        :mood_id,
-        :theme_id
-      )
+      params.require(:song).permit(:title, :description, :original_release_date, :length, :album)
     end
 end

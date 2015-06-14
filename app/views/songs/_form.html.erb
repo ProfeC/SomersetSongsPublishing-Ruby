@@ -1,56 +1,37 @@
-<table summary="Song form fields">
-  <tr>
-    <th><%= f.label(:title, "Title") %></th>
-    <td><%= f.text_field(:title) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:description, "Description") %></th>
-    <td><%= f.text_area(:description, :size => '40x5') %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:artist_id, 'Artist') %></th>
-    <td><%= f.select(:artist_id, @artists.map {|a| [a.name, a.id]}) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:album_id, 'Album')%></th>
-    <td><%= f.select(:album_id, @albums.map {|a| [a.title, a.id]}) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:original_release_date) %></th>
-    <td><%= f.text_field(:original_release_date) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:file_uri) %></th>
-    <td><%= f.file_field(:file_uri) %></td>
-  </tr>
-  <tr>
-    <th>Genres</th>
-    <td><% @genres.each do |g| %>
-      <%= check_box_tag(:genre_id, g.id)  %><%= label_tag(g.name) %>
-    <% end %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:theme) %></th>
-    <td><%= f.text_field(:theme) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:tag) %></th>
-    <td><%= f.text_field(:tag) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:length) %></th>
-    <td><%= f.text_field(:length) %></td>
-  </tr>
-</table>
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
 
+      <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<!--       t.string :title, :null => false
-      t.text :description
-      t.date :original_release_date
-      t.string :permalink, index: true
-      t.string :file_uri
-      t.string :genre
-      t.string :theme
-      t.string :tag
-      t.time :length
- -->
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :original_release_date %><br>
+    <%= f.date_select :original_release_date %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.text_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :album %><br>
+    <%= f.text_field :album %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

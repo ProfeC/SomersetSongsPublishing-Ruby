@@ -1,48 +1,29 @@
-<% content_for :title do %>
-  <%= @song.title + " :: " + @song.artist_id.to_s %>
-<% end %>
+<p id="notice"><%= notice %></p>
 
-<article class="row songs show">
-  <div class="medium-12 columns">
-    <!-- Button Group Optional Classes: [radius round] -->
-<!--     <ul class="button-group">
-      <!- - Button Color Classes: [secondary alert success] - ->
-      <!- - Button Size Classes: [tiny small large] - ->
-      <li>< % = link_to("<< Back to List", {:action => 'index'}, :class => 'back-link button') % ></li>
-      <li>< % = link_to("Add New Song", "#", :class => "action new button" ) % ></li>
-    </ul> -->
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
 
-    <table summary="Song detail view">
-      <tr>
-        <th>Name</th>
-        <td><%= @song.title %></td>
-      </tr>
-      <tr>
-        <th>Length</th>
-        <td><%= @song.length %></td>
-      </tr>
-      <tr>
-        <th>Description</th>
-        <td><%= @song.description %></td>
-      </tr>
-      <tr>
-      <tr>
-        <th>Genre(s)</th>
-        <td><%= @genre_names %></td>
-      </tr>
-      <tr>
-        <th>Mood/Theme</th>
-        <td><%= @song.theme %></td>
-      </tr>
-      <tr>
-        <th>Created</th>
-        <td><%= @song.created_at %></td>
-      </tr>
-      <tr>
-        <th>Updated</th>
-        <td><%= @song.updated_at %></td>
-      </tr>
-    </table>
+<p>
+  <strong>Description:</strong>
+  <%= @song.description %>
+</p>
 
-    </div>
-</article>
+<p>
+  <strong>Original release date:</strong>
+  <%= @song.original_release_date %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @song.length %>
+</p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @song.album %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
