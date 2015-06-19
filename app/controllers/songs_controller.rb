@@ -4,7 +4,20 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    flash[:notice] = ''
+
+    @songs = Song.search(params[:q])
+    # @songs = Song.all
+
+    # Check to see if the array is empty
+    if @songs.empty?
+      flash[:notice] = 'There are no songs containing the term(s) "' + params[:q] + '".'
+      @songs = Song.all
+    end
+
+    @songs.sorted_by_title
+
+
   end
 
   # GET /songs/1
