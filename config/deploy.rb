@@ -1,16 +1,26 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'somerset_songs'
+server '45.55.145.62', port: 80, roles: [:web, :app, :db], primary: true
+
+set :user, 'rails'
+set :application, 'library'
 # set :repo_url, 'git@example.com:me/my_repo.git'
 set :repo_url, 'https://github.com/ProfeC/SomersetSongsPublishing-Ruby.git'
+
+# Don't change these unless you know what you're doing
+set :stage, :production
+set :deploy_via, :remote_cache
+set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_dsa.pub) }
+set :use_sudo, false
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/somerset_songs
-set :deploy_to, '/home/rails/apps/library'
+# set :deploy_to, '/var/www/somerset_songs'
 
 # Default value for :scm is :git
 set :scm, :git
@@ -34,7 +44,9 @@ set :pty, true
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
+
+
 
 # Set the post-deployment instructions here.
 # Once the deployment is complete, Capistrano
@@ -62,4 +74,38 @@ namespace :deploy do
     end
   end
 
+  desc "Make sure local git is in sync with remote."
+  task :check_revision do
+    on roles(:app) do
+      unless `git rev-parse HEAD` == `git rev-parse origin/master`
+        puts "WARNING: HEAD is not the same as origin/master"
+        puts "Run `git push` to sync changes."
+        exit
+      end
+    end
+  end
+
+  desc 'Initial Deploy'
+  task :initial do
+    on roles(:app) do
+      before 'deploy:restart', 'unicorn:start'
+      invoke 'deploy'
+    end
+  end
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      invoke 'unicorn:restart'
+    end
+  end
+
+  before :starting,     :check_revision
+  after  :finishing,    :compile_assets
+  after  :finishing,    :cleanup
+  after  :finishing,    :restart
 end
+
+# ps aux | grep unicorn    # Get unicorn pid
+# kill -s SIGUSR2 pid   # Restart unicorn
+# kill -s SIGTERM pid   # Stop unicorn
