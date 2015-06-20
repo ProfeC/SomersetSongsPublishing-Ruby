@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Make sure Paperclip knows where to find Imagemagick
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

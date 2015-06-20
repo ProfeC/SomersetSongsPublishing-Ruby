@@ -16,8 +16,6 @@ class SongsController < ApplicationController
     end
 
     @songs.sorted_by_title
-
-
   end
 
   # GET /songs/1

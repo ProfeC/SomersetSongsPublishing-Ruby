@@ -4,6 +4,13 @@ class Song < ActiveRecord::Base
   has_and_belongs_to_many :moods, :join_table => 'moods_songs'
   has_and_belongs_to_many :themes, :join_table => 'songs_themes'
 
+  # Add file attachments
+  has_attached_file :cover_art, :styles => { :large => "300x300", :medium => "250x250>", :thumb => "125x125>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :cover_art, :content_type => /\Aimage\/.*\Z/
+
+  has_attached_file :audio
+  validates_attachment_content_type :audio, :content_type => /\Aaudio\/.*\Z/
+
   scope :sorted_by_title, lambda { order("songs.title ASC") }
   scope :sorted_by_title_reverse, lambda { order("songs.title DESC") }
   scope :sorted_by_release_date, lambda { order("songs.original_release_date ASC") }
