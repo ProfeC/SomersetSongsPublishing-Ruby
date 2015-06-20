@@ -1,29 +1,58 @@
+<%
+  # Some local variables
+  @album = Album.find(@song.album.id)
+  @artist = Artist.find(@album.artist.id)
+
+%>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<article class="row song show">
+
+<header class="page-header">
+  <h1>
   <%= @song.title %>
+  <small><em><%= @song.original_release_date.to_formatted_s(:year) %></em></small>
+  </h1>
+</header>
+
+<!-- <pre><%= @song.inspect %></pre>
+
+<h1>Album</h1>
+<pre><%= @album.inspect %></pre>
+
+<h1>Artist</h1>
+<pre><%= @artist.inspect %></pre> -->
+
+  <div class="col-md-4">
+    <img src="http://placehold.it/250x250">
+  </div>
+  <div class="col-md-8">
+
+<p>audio player goes here...</p>
+
+<% if @song.description %>
+<div class="description">
+  <h3>Description</h3>
+  <p><%= @song.description %></p>
+</div>
+<% end %>
+
+<h2>Information</h2>
+<p>
+  <strong>Album:</strong>
+  <%= @album.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @song.description %>
-</p>
-
-<p>
-  <strong>Original release date:</strong>
-  <%= @song.original_release_date %>
-</p>
-
-<p>
-  <strong>Length:</strong>
+  <strong>Duration:</strong>
   <%= @song.length %>
 </p>
 
-<p>
-  <strong>Album:</strong>
-  <%= @song.album %>
-</p>
+
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
+
+    </div>
+</article>
