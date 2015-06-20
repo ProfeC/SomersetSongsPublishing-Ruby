@@ -61,6 +61,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Puma as the app server
 gem 'puma'
 
+# Use Foreman to mimic production settings in dev & test
+gem 'foreman', group: :development
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
