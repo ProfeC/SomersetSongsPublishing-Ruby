@@ -10,11 +10,11 @@
 
 # Seed some genres
 genre_list = [
-  { title: 'rock' },
-  { title: 'blues' },
-  { title: 'ballad' }
+  [ 'rock', '' ],
+  [ 'blues', '' ],
+  [ 'ballad', '' ]
 ]
 
 genre_list.each do |genre|
-  Genre.create( :title => genre.title )
+  Genre.create( :title => genre[0], :description => genre[1] )
 end
