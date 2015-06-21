@@ -12,18 +12,18 @@
 albums = Album.create ([
   {
     title: 'Eye II Eye',
-    artist_id: Album.find_by(name: 'Scorpions, The').id
+    artist_id: Artist.find_by(name: 'Scorpions, The').id
   },
   {
     title: 'Mick Jones',
-    artist_id: Album.find_by(name: 'Mick Jones').id
+    artist_id: Artist.find_by(name: 'Mick Jones').id
   },
   {
     title: 'Agent Provocateur',
-    artist_id: Album.find_by(name: 'Scorpions, The').id
+    artist_id: Artist.find_by(name: 'Scorpions, The').id
   },
   {
     title: 'Double Vision',
-    artist_id: Album.find_by(name: 'Foreigner').id
+    artist_id: Artist.find_by(name: 'Foreigner').id
   }
 ])

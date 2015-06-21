@@ -27,7 +27,7 @@ songs = Song.create ([
     title: '4 Wheels Turnin\''
   },
   {
-    album_id: Album.find_by(title: 'Agent Provocateur').id,,
+    album_id: Album.find_by(title: 'Agent Provocateur').id,
     audio: '',
     cover_art: '',
     length: '00:04:12',
