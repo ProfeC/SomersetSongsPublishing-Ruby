@@ -10,17 +10,19 @@ class SongsController < ApplicationController
     # @songs = Song.all
 
     # Check to see if the array is empty
-    if @songs.empty?
-      flash[:notice] = 'There are no songs containing the term(s) "' + params[:q] + '".'
+    if @songs.blank?
+      flash[:notice] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
       @songs = Song.all
     end
 
-    @songs.sorted_by_title
+    @songs.order(id: :desc)
   end
 
   # GET /songs/1
   # GET /songs/1.json
   def show
+    @album = Album.find(@song.album.id)
+    @artist = Artist.find(@album.artist.id)
   end
 
   # GET /songs/new
@@ -53,7 +55,7 @@ class SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
-        format.html { redirect_to @song, notice: 'Song was successfully updated.' }
+        format.html { redirect_to @song, notice: 'Song was successfully updated.', style: 'success' }
         format.json { render :show, status: :ok, location: @song }
       else
         format.html { render :edit }
@@ -80,6 +82,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :description, :original_release_date, :length, :album)
+      params.require(:song).permit(:title, :description, :original_release_date, :length, :album, :cover_art, :audio)
     end
 end

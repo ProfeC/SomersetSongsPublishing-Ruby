@@ -5,28 +5,29 @@ class Song < ActiveRecord::Base
   has_and_belongs_to_many :themes, :join_table => 'songs_themes'
 
   # Add file attachments
-  has_attached_file :cover_art, :styles => { :large => "300x300", :medium => "250x250>", :thumb => "125x125>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :cover_art, :styles => { :large => "300x300", :medium => "250x250>", :thumb => "125x125>" }
   validates_attachment_content_type :cover_art, :content_type => /\Aimage\/.*\Z/
 
   has_attached_file :audio
   validates_attachment_content_type :audio, :content_type => /\Aaudio\/.*\Z/
 
   scope :sorted_by_title, lambda { order("songs.title ASC") }
-  scope :sorted_by_title_reverse, lambda { order("songs.title DESC") }
-  scope :sorted_by_release_date, lambda { order("songs.original_release_date ASC") }
-  scope :sorted_by_release_date_reverse, lambda { order("songs.original_release_date DESC") }
+  # scope :sorted_by_title_reverse, lambda { order("songs.title DESC") }
+  # scope :sorted_by_release_date, lambda { order("songs.original_release_date ASC") }
+  # scope :sorted_by_release_date_reverse, lambda { order("songs.original_release_date DESC") }
 
   # scope :search, lambda { |query|
   #   where("title LIKE ?", "%#{query}%")
   # }
 
   def self.search(q)
+
     if q
       # @songs = Song.search(params[:q]).sorted_by_title
       # where("title ILIKE ? OR theme ILIKE ? OR genre ILIKE ? OR mood ILIKE ?", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%")
       where("title ILIKE ?", "%#{q}%")
     else
-      @songs = Song.all
+      # @songs = Song.all
       all
     end
   end

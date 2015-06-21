@@ -9,13 +9,16 @@
 <!-- Search Bar -->
 <%= render(:partial => "application/search_form") %>
 
+  <pre><%= debug @songs %></pre>
+
+
 <p>Or you can complete the Music Search request  with a brief description of what you are looking for and we will respond with music suggestions.</p>
 
 <!-- <section class="song index wow fadeInUp"> -->
 <section class="song index">
   <table width="100%">
     <tr>
-      <th>Name</th>
+      <th>Title</th>
       <th>Album</th>
       <th>Artist</th>
       <th>Released</th>

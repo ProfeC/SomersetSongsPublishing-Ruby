@@ -1,58 +1,66 @@
 <%
   # Some local variables
-  @album = Album.find(@song.album.id)
-  @artist = Artist.find(@album.artist.id)
-
+  # @album = Album.find(@song.album.id)
+  # @artist = Artist.find(@album.artist.id)
 %>
 
-<p id="notice"><%= notice %></p>
+<article class="song show">
 
-<article class="row song show">
+  <header class="page-header">
+    <h1>
+    <%= @song.title %>
+    <small><em><%= @song.original_release_date.to_formatted_s(:year) %></em></small>
+    </h1>
+  </header>
+  <pre><%= simple_format @song.to_yaml %></pre>
 
-<header class="page-header">
-  <h1>
-  <%= @song.title %>
-  <small><em><%= @song.original_release_date.to_formatted_s(:year) %></em></small>
-  </h1>
-</header>
+  <!-- <h1>Album</h1>
+  <pre><%= @album.inspect %></pre>
 
-<!-- <pre><%= @song.inspect %></pre>
+  <h1>Artist</h1>
+  <pre><%= @artist.inspect %></pre> -->
 
-<h1>Album</h1>
-<pre><%= @album.inspect %></pre>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- <img src="http://placehold.it/250x250"> -->
+      <span class="thumbnail"><img src="
 
-<h1>Artist</h1>
-<pre><%= @artist.inspect %></pre> -->
+      <%=
+      if @song.cover_art_file_name.present?
+        @song.cover_art.url(:medium)
+      else
+        "//placehold.it/250x250/ebf8ff/666666?text=No+Preview".html_safe
+      end
+      %>
 
-  <div class="col-md-4">
-    <img src="http://placehold.it/250x250">
-  </div>
-  <div class="col-md-8">
-
-<p>audio player goes here...</p>
-
-<% if @song.description %>
-<div class="description">
-  <h3>Description</h3>
-  <p><%= @song.description %></p>
-</div>
-<% end %>
-
-<h2>Information</h2>
-<p>
-  <strong>Album:</strong>
-  <%= @album.title %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @song.length %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
-
+        " /></span>
     </div>
+
+    <div class="col-md-8">
+
+      <h3>Information</h3>
+      <p><strong>Album:</strong> <%= @album.title %></p>
+
+      <p><strong>Duration:</strong> <%= @song.length %></p>
+
+      <% if @song.audio_file_name %>
+      <audio controls="controls">
+        Your browser does not support the <code>audio</code> element.
+        <source src="<%= @song.audio.url(:original) %>" type="<%= @song.audio.content_type %>" volume="0.5" >
+      </audio>
+      <% end %>
+    </div>
+  </div>
+
+
+  <% if !@song.description = ''  %>
+  <div class="description">
+    <h3>Description</h3>
+    <p><%= @song.description %></p>
+  </div>
+  <% end %>
+
+  <%= link_to 'Edit', edit_song_path(@song) %> |
+  <%= link_to 'Back', songs_path %>
+
 </article>

@@ -1,4 +1,9 @@
 <%= form_for(@song) do |f| %>
+  <%
+    # Some local variables
+    @albums = Album.all
+  %>
+
   <% if @song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
@@ -28,9 +33,20 @@
     <%= f.text_field :length %>
   </div>
   <div class="field">
-    <%= f.label :album %><br>
-    <%= f.text_field :album %>
+    <%= f.label :album %>
+    <br><%= f.select(:album_id, @albums.map {|a| [a.title, a.id]}) %>
   </div>
+  <div class="field">
+    <%= f.label :cover_art %><br>
+    <%= f.file_field :cover_art %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :audio %><br>
+    <%= f.file_field :audio %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
