@@ -16,9 +16,9 @@
   <table class="table table-hover table-striped">
     <tr>
       <th>Title</th>
-      <th>Album</th>
       <th>Artist</th>
-      <th>Released</th>
+<!--       <th></th>
+      <th>Released</th> -->
       <!-- <th colspan="2">Actions</th> -->
     </tr>
 
@@ -34,10 +34,10 @@
       <!-- <pre>genres => <%= genres.inspect %></pre> -->
 
       <tr>
-        <td><%= link_to song.title, song %></td>
-        <td><%= link_to album.title, album %></td>
+        <td><%= link_to song.title, song %><br><small><%= song.original_release_date.to_formatted_s(:year) %></small></td>
         <td><%= link_to artist.name, artist %></td>
-        <td align="center"><%= song.original_release_date.to_formatted_s(:year) %></td>
+<!--         <td> - <%= link_to album.title, album %></td>
+        <td align="center"></td> -->
 <!--         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
