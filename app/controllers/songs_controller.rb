@@ -15,7 +15,7 @@ class SongsController < ApplicationController
       @songs = Song.all
     end
 
-    @songs.order(id: :desc)
+    @songs = @songs.order(:title)
   end
 
   # GET /songs/1
