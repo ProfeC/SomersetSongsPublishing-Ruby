@@ -7,10 +7,12 @@ $secondary-color: #01a6d4;
 
 // Background Variations
 // $background-color: rgb(235,248,255); // #ebf8ff color description : Very pale (mostly white) blue.
-// $background-color: rgb(0,143,199); // #008fc7 color description : Strong blue.
+// $background-color: rgb(0,143,199); // #008fc7 color description : Strong blue. ***
 // $background-color: rgb(238,250,255); // #eefaff color description : Very pale (mostly white) blue.
-// $background-color: rgb(0,128,255); // #0080ff color description : Pure (or mostly pure) blue.
-$background-color: rgb(85,171,255); // #55abff color description : Light blue.
+// $background-color: rgb(0,128,255); // #0080ff color description : Pure (or mostly pure) blue. **
+// $background-color: rgb(85,171,255); // #55abff color description : Light blue. ***
+$background-color: rgb(100, 149, 237); // cornflowerblue ****
+
 
 // $body-background: lighten($background-color, 2.5%);
 $body-background: lighten($background-color, 57%);
