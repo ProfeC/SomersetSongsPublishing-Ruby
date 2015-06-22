@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
   has_and_belongs_to_many :themes, :join_table => 'songs_themes'
 
   # Add file attachments
-  has_attached_file :cover_art, :styles => { :large => "300x300", :medium => "250x250>", :thumb => "125x125>" }
+  has_attached_file :cover_art, :styles => { :large => "300x300#", :medium => "200x200#>", :thumb => "100x100#>" }
   validates_attachment_content_type :cover_art, :content_type => /\Aimage\/.*\Z/
 
   has_attached_file :audio
