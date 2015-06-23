@@ -47,7 +47,7 @@ gem "figaro"
 
 # Use Paperclip & AWS S3 to manage file uploads
 gem "paperclip", "~> 4.2"
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # Use ActiveAdmin (and its dependencies) for administrative UI [http://activeadmin.info/docs/documentation.html]
 # gem 'activeadmin', github: 'activeadmin'

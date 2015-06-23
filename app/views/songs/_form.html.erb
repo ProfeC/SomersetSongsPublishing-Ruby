@@ -1,4 +1,4 @@
-<%= form_for(@song) do |f| %>
+<%= form_for(@song, multipart: true) do |f| %>
   <%
     # Some local variables
     @albums = Album.all
