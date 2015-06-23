@@ -20,31 +20,57 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+
   <div class="field">
     <%= f.label :original_release_date %><br>
     <%= f.date_select :original_release_date %>
   </div>
+
   <div class="field">
     <%= f.label :length %><br>
     <%= f.text_field :length %>
   </div>
+
   <div class="field">
     <%= f.label :album %>
     <br><%= f.select(:album_id, @albums.map {|a| [a.title, a.id]}) %>
   </div>
+
   <div class="field">
-    <%= f.label :cover_art %><br>
+    <h4><%= f.label :cover_art %></h4>
+    <div class="row">
+      <div class="col-sm-7">
     <%= f.file_field :cover_art %>
+        </div>
+        <div class="col-sm-5">
+        <%=
+          image_tag @song.cover_art.url(:thumb), class: "img-responsive center-block thumbnail"
+        %>
+        </div>
+      </div>
   </div>
 
 
   <div class="field">
-    <%= f.label :audio %><br>
-    <%= f.file_field :audio %>
+    <h3><%= f.label :audio %></h3>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.file_field :audio %>
+      </div>
+      <div class="col-sm-6">
+        <% if @song.audio_file_name %>
+        <audio controls="controls">
+        Your browser does not support the <code>audio</code> element.
+        <source src="<%= @song.audio.url(:original) %>" type="<%= @song.audio.content_type %>" volume="0.5" >
+        </audio>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="actions">

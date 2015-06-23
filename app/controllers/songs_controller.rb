@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_album, only: [:show, :edit, :update, :destroy, :create]
 
   # GET /songs
   # GET /songs.json
@@ -81,6 +82,14 @@ class SongsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       @song = Song.find(params[:id])
+    end
+
+    def set_album
+      @album = Album.all
+    end
+
+    def set_aartist
+      @artist = Artist.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
