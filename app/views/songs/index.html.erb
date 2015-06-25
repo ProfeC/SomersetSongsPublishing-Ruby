@@ -14,6 +14,7 @@
 <!-- <section class="song index wow fadeInUp"> -->
 <section class="song index">
   <table class="table table-hover table-striped">
+  <thead>
     <tr>
       <th>Title</th>
       <th>Artist</th>
@@ -21,6 +22,8 @@
       <th>Released</th> -->
       <!-- <th colspan="2">Actions</th> -->
     </tr>
+    </thead>
+    <tbody>
 
     <% @songs.each do |song| %>
       <%
@@ -42,6 +45,7 @@
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
+  </tbody>
   </table>
 
 </section>
