@@ -8,6 +8,7 @@
     <title><%= content_for?(:title) ? yield(:title) + " :: Somerset Songs Publishing" : "Somerset Songs Publishing" %></title>
 
     <%= stylesheet_link_tag("application", :media => 'all') %>
+    <%= javascript_include_tag "modernizr" %>
     <%= csrf_meta_tags %>
 
     <!-- Loading third party fonts -->
