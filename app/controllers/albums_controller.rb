@@ -10,6 +10,10 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @artist = Artist.find(@album.artist.id)
+
+    # Get all the songs for the album
+    @songs = Song.where(album: @album.id)
   end
 
   # GET /albums/new
