@@ -14,7 +14,6 @@
 
 //= require animate.css
 //= require_self
-//= require font-awesome.min.css
 
 /* Add imports of custom sass/scss files here */
 
@@ -39,12 +38,6 @@
   'libs/normalize',
   'libs/component',
   'libs/form',
-  'libs/lineo-icon',
-
-  // importing bootstrap grid framework
-  // 'libs/bootstrap-grid/settings',
-  // 'libs/bootstrap-grid/mixins',
-  // 'libs/bootstrap-grid/grid',
 
   'layout/header',
   'layout/content',
@@ -71,3 +64,7 @@
 // main {
 //   background-color: rgba(100, 182, 252, 0.25);
 // }
+
+// Add Font Awesome fonts last
+@import "font-awesome-sprockets";
+@import "font-awesome";
