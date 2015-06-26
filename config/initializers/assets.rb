@@ -11,7 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 # Add Modernizr to precompiled assets
-Rails.application.config.assets.precompile += %w( vendor/assets/javascripts/modernizr.js )
+Rails.application.config.assets.precompile += %w( modernizr.js )
 
 # Add Bootstrap to precompiled assets
 # Rails.application.config.assets.precompile += %w( vendor/bootstrap/js/bootstrap.min.js )
@@ -19,5 +19,5 @@ Rails.application.config.assets.precompile += %w( vendor/assets/javascripts/mode
 # Rails.application.config.assets.precompile += %w( vendor/bootstrap/css/bootstrap-theme.min.css )
 
 # Add Theme to precompiles assets
-Rails.application.config.assets.precompile += %w( hosting.js )
-Rails.application.config.assets.precompile += %w( hosting.css )
+# Rails.application.config.assets.precompile += %w( hosting.js )
+# Rails.application.config.assets.precompile += %w( hosting.css )
