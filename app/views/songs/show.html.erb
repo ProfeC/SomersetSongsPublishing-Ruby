@@ -6,25 +6,6 @@
     <small><em><%= @song.original_release_date.to_formatted_s(:year) %></em></small>
     </h1>
   </header>
-  <!--
-  <pre><%= simple_format @song.to_yaml %></pre>
-
-  <h1>Album</h1>
-  <pre><%= @album.inspect %></pre>
-
-  <h1>Artist</h1>
-  <pre><%= @artist.inspect %></pre>
-
-  <h1>Genres</h1>
-  <pre><%= @genres.inspect %></pre>
-
-  <h1>Moods</h1>
-  <pre><%= @moods.inspect %></pre>
-
-  <h1>Themes</h1>
-  <pre><%= @themes.inspect %></pre>
- -->
-
 
   <div class="row">
     <div class="col-md-4">
@@ -45,9 +26,77 @@
       <p><strong>Album:</strong> <%= @album.title %></p>
       <p><strong>Duration:</strong> <%= @song.length %></p>
 
-      <% #TODO: Loop over genre list and display them %>
-      <p><strong>Genres:</strong> <%= @genres.length %></p>
+      <p><strong>Genres:</strong>
 
+      <%
+      #NOTE: Check to see if there are genres
+      if @genres.present?
+      genre_last = @genres.last
+      %>
+        <% @genres.each do |genre| %>
+          <%= genre.title %>
+
+          <%
+          # NOTE: Add a comma if it's not the last genre.
+          if genre != genre_last
+          %>
+
+          ,&nbsp;
+          <% end %>
+        <% end %>
+      <% else %>
+        n/a
+      <% end %>
+
+      </p>
+
+      <p><strong>Moods:</strong>
+
+      <%
+      #NOTE: Check to see if there are moods
+      if @moods.present?
+      mood_last = @moods.last
+      %>
+        <% @moods.each do |mood| %>
+          <%= mood.title %>
+
+          <%
+          # NOTE: Add a comma if it's not the last mood.
+          if mood != mood_last
+          %>
+
+          ,&nbsp;
+          <% end %>
+        <% end %>
+      <% else %>
+        n/a
+      <% end %>
+
+      </p>
+
+      <p><strong>Themes:</strong>
+
+      <%
+      #NOTE: Check to see if there are themes
+      if @themes.present?
+      theme_last = @themes.last
+      %>
+        <% @themes.each do |theme| %>
+          <%= theme.title %>
+
+          <%
+          # NOTE: Add a comma if it's not the last theme.
+          if theme != theme_last
+          %>
+
+          ,&nbsp;
+          <% end %>
+        <% end %>
+      <% else %>
+        n/a
+      <% end %>
+
+      </p>
 
       <% if @song.audio_file_name %>
       <audio controls="controls">
@@ -66,7 +115,8 @@
   </div>
   <% end %>
 
+<!--
   <%= link_to 'Edit', edit_song_path(@song) %> |
   <%= link_to 'Back', songs_path %>
-
+ -->
 </article>
