@@ -1,4 +1,9 @@
-<%= form_for(@album) do |f| %>
+<%
+  # Some local variables
+  @artists = Artist.all
+%>
+
+<%= form_for @album, html: {class: 'form-horizontal'} do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
@@ -11,23 +16,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :original_release_date, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+      <%= f.date_select :original_release_date, {start_year:1960, end_year: Date.today.year, order: [:month, :day, :year]}, { :class => 'xform-control' } %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :original_release_date %><br>
-    <%= f.date_select :original_release_date %>
+  <div class="form-group">
+    <%= f.label :artist, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+      <%= f.select :artist_id, @artists.map {|a| [a.name, a.id]}, {}, {class: 'form-control'} %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :artist %><br>
-    <%= f.text_field :artist %>
+  <div class="form-group">
+    <%= f.label :description, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+      <%= f.text_area :description %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <div class="col-md-9 col-md-offset-3">
+    <%= f.submit class: 'btn btn-lg btn-info btn-block center-block' %>
+    </div>
   </div>
 <% end %>
