@@ -73,7 +73,7 @@
                   <% end %>
 
                 <% else %>
-                  <p>n/a</p>
+                  <p>-</p>
                 <% end %>
               </td>
 
@@ -97,32 +97,33 @@
                   <% end %>
 
                 <% else %>
-                  <p>n/a</p>
+                  <p>-</p>
 
                 <% end %>
               </td>
 
               <td>
-                <%
-                #NOTE: Check to see if there are genres
-                if @genres.present?
-                  genre_last = @genres.last
-                %>
-                  <% @genres.each do |genre| %>
+              <%
+              @genres = Genre.joins(:songs).where(songs: {id: song.id})
+
+              #NOTE: Check to see if there are genres
+              if @genres.present?
+
+                @genres.each do |genre|
+              %>
                     <%= genre.title %>
 
                     <%
                     # NOTE: Add a comma if it's not the last genre.
-                    if genre != genre_last
+                    if genre != @genres.last
                     %>
-
                       ,<br>
                     <% end %>
 
                   <% end %>
 
                 <% else %>
-                  <p>n/a</p>
+                  <p>-</p>
 
                 <% end %>
               </td>

@@ -23,7 +23,7 @@
     <div class="col-md-8">
 
       <h3>Information</h3>
-      <p><strong>Album:</strong> <%= @album.title %></p>
+      <p><strong>Album:</strong> <%= link_to @album.title, @album  %></p>
       <p><strong>Duration:</strong> <%= @song.length %></p>
 
       <p><strong>Genres:</strong>
@@ -45,7 +45,7 @@
           <% end %>
         <% end %>
       <% else %>
-        n/a
+        -
       <% end %>
 
       </p>
@@ -69,7 +69,7 @@
           <% end %>
         <% end %>
       <% else %>
-        n/a
+        -
       <% end %>
 
       </p>
@@ -93,7 +93,7 @@
           <% end %>
         <% end %>
       <% else %>
-        n/a
+        -
       <% end %>
 
       </p>

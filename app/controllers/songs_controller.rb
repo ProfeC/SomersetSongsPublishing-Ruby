@@ -24,9 +24,9 @@ class SongsController < ApplicationController
   def show
     @album = Album.find(@song.album.id)
     @artist = Artist.find(@album.artist.id)
-    @genres = Genre.joins(:songs)
-    @moods = Mood.joins(:songs)
-    @themes = Theme.joins(:songs)
+    @genres = Genre.joins(:songs).where(songs: {id: @song.id})
+    @moods = Mood.joins(:songs).where(songs: {id: @song.id})
+    @themes = Theme.joins(:songs).where(songs: {id: @song.id})
   end
 
   # GET /songs/new

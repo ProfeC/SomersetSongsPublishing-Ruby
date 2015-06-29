@@ -12,6 +12,10 @@ class GenresController < ApplicationController
   def show
   end
 
+  def show_by_song
+    @genres = Genre.joins(:song).where(:song)
+  end
+
   # GET /genres/new
   def new
     @genre = Genre.new

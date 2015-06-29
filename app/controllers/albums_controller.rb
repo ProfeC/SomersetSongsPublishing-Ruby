@@ -14,7 +14,9 @@ class AlbumsController < ApplicationController
 
     # Get all the songs for the album
     @songs = Song.where(album: @album.id)
-    @genres = Genre.joins(:songs)
+
+    # Make the genre join table available
+    # @genres = Genre.joins(:songs)
 
   end
 
