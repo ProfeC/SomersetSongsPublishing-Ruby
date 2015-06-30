@@ -5,11 +5,23 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @artists = Artist.all
+
+    # Get album count for each artist
+    # @album_count = Album.find(@artist.album.id)
+
+    #Get song count for each artist
   end
 
   # GET /artists/1
   # GET /artists/1.json
   def show
+    @albums = Album.where(artist_id: @artist)
+
+    if @albums.length > 0
+      @albums.each do |album|
+        @songs = Song.all.where(album_id: album.id)
+      end
+    end
   end
 
   # GET /artists/new

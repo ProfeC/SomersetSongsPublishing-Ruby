@@ -1,14 +1,134 @@
-<p id="notice"><%= notice %></p>
+<article class="artist show">
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+  <header class="page-header">
+    <h1><%= @artist.name %></h1>
+  </header>
 
-<p>
-  <strong>Description:</strong>
-  <%= @artist.description %>
-</p>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- <img src="http://placehold.it/250x250"> -->
+
+      <%=
+      if @artist.cover_art_file_name.present?
+        image_tag @artist.cover_art.url(:medium), class: "img-responsive center-block thumbnail"
+      else
+        image_tag "//placehold.it/250x250/ebf8ff/666666?text=No+Preview", class: "img-responsive center-block thumbnail"
+      end
+      %>
+    </div>
+
+    <div class="col-md-8">
+      <% if @artist.description  %>
+      <div class="description">
+          <%= @artist.description %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>Song List</h3>
+
+    <% if @songs.present? %>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Themes</th>
+            <th>Moods</th>
+            <th>Genres</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @songs.each do |song| %>
+            <tr>
+              <td><p><strong><%= link_to song.title, song %></strong></p></td>
+              <td><%= song.original_release_date.to_formatted_s(:year) %></td>
+              <td>
+                <%
+                #NOTE: Check to see if there are themes
+                if @themes.present?
+                  theme_last = @themes.last
+                %>
+                  <% @themes.each do |theme| %>
+                    <%= theme.title %>
+
+                    <%
+                    # NOTE: Add a comma if it's not the last theme.
+                    if theme != theme_last
+                    %>
+
+                     ,<br>
+                    <% end %>
+
+                  <% end %>
+
+                <% else %>
+                  <p>-</p>
+                <% end %>
+              </td>
+
+              <td>
+                <%
+                #NOTE: Check to see if there are moods
+                if @moods.present?
+                  mood_last = @moods.last
+                %>
+                  <% @moods.each do |mood| %>
+                    <%= mood.title %>
+
+                    <%
+                    # NOTE: Add a comma if it's not the last mood.
+                    if mood != mood_last
+                    %>
+
+                      ,<br>
+                    <% end %>
+
+                  <% end %>
+
+                <% else %>
+                  <p>-</p>
+
+                <% end %>
+              </td>
+
+              <td>
+              <%
+              @genres = Genre.joins(:songs).where(songs: {id: song.id})
+
+              #NOTE: Check to see if there are genres
+              if @genres.present?
+
+                @genres.each do |genre|
+              %>
+                    <%= genre.title %>
+
+                    <%
+                    # NOTE: Add a comma if it's not the last genre.
+                    if genre != @genres.last
+                    %>
+                      ,<br>
+                    <% end %>
+
+                  <% end %>
+
+                <% else %>
+                  <p>-</p>
+
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p><em>There are no songs associated with this album</em></p>
+    <% end %>
+
+
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
+
+</article>
