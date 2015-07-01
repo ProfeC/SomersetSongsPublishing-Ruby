@@ -5,9 +5,8 @@
   </header>
 
   <div class="row">
+  <% #TODO: change the column count based on available data. %>
     <div class="col-md-4">
-      <!-- <img src="http://placehold.it/250x250"> -->
-
       <%=
       if @artist.cover_art_file_name.present?
         image_tag @artist.cover_art.url(:medium), class: "img-responsive center-block thumbnail"
@@ -33,6 +32,7 @@
         <thead>
           <tr>
             <th>Title</th>
+            <th>Album</th>
             <th>Year</th>
             <th>Themes</th>
             <th>Moods</th>
@@ -43,6 +43,7 @@
         <% @songs.each do |song| %>
             <tr>
               <td><p><strong><%= link_to song.title, song %></strong></p></td>
+              <td><p><strong><%= link_to song.album.title, song.album %></strong></p></td>
               <td><%= song.original_release_date.to_formatted_s(:year) %></td>
               <td>
                 <%
