@@ -12,7 +12,7 @@
 albums = Album.create ([
   {
     title: 'Agent Provocateur',
-    artist_id: Artist.find_by(name: 'Scorpions, The').id,
+    artist_id: Artist.find_by(name: 'Foreigner').id,
     original_release_date: '1984-11-05',
     description: 'Agent Provocateur is the fifth studio album by American/British rock band Foreigner, released on November 5, 1984. The album was the band\'s first and only number one album in the UK, and it reached the top 5 in the U.S. Although album sales were lower than their previous work in the U.S., it contains the band\'s biggest hit single, \"I Want to Know What Love Is\", which is their only #1 single in the UK and the U.S., staying at the top spot for three and two weeks respectively. The follow-up single, \"That Was Yesterday\", also proved to be a sizeable hit, peaking at #12 in the U.S. The album was certified Platinum in the UK by the BPI, and triple Platinum in the U.S. by the RIAA.[2]
 

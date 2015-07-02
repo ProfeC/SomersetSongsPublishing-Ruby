@@ -24,7 +24,7 @@ artist_list = [
   [ 'Mick Jones', '' ], #12
   [ 'M.O.P.', '' ], #13
   [ 'Ozzy Osbourne', '' ], #14
-  [ 'Scorpions, The', '' ], #15
+  [ 'The Scorpions', '' ], #15
   [ 'Duncan Sheik', '' ], #16
   [ 'Strange Fruit', '' ], #17
   [ 'Strange Fruit w/ Jimmy Nail', '' ], #18
