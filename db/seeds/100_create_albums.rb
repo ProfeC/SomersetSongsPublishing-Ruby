@@ -9,10 +9,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Seed some albums
-albums = Album.create ([
+album_list = [
   {
     title: 'Agent Provocateur',
-    artist_id: Artist.find_by(name: 'Foreigner').id,
+    artist: 'Foreigner',
     original_release_date: '1984-11-05',
     description: 'Agent Provocateur is the fifth studio album by American/British rock band Foreigner, released on November 5, 1984. The album was the band\'s first and only number one album in the UK, and it reached the top 5 in the U.S. Although album sales were lower than their previous work in the U.S., it contains the band\'s biggest hit single, \"I Want to Know What Love Is\", which is their only #1 single in the UK and the U.S., staying at the top spot for three and two weeks respectively. The follow-up single, \"That Was Yesterday\", also proved to be a sizeable hit, peaking at #12 in the U.S. The album was certified Platinum in the UK by the BPI, and triple Platinum in the U.S. by the RIAA.[2]
 
@@ -20,134 +20,144 @@ albums = Album.create ([
   },
   {
     title: '1984 Olympic Marathon Theme Song',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: '4',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Beyond Good and Evil',
-    artist_id: Artist.find_by(name: 'The Cult').id
+    artist: 'The Cult'
   },
   {
     title: 'Business Never Personal',
-    artist_id: Artist.find_by(name: 'EMPD').id
+    artist: 'EMPD'
   },
   {
     title: 'Busted',
-    artist_id: Artist.find_by(name: 'Cheap Trick').id
+    artist: 'Cheap Trick'
   },
   {
     title: 'Can\'t Slow Down',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Cherie',
-    artist_id: Artist.find_by(name: 'Cherie').id
+    artist: 'Cherie'
   },
   {
     title: 'Daylight',
-    artist_id: Artist.find_by(name: 'Sheik, Duncan').id
+    artist: 'Sheik, Duncan'
   },
   {
     title: 'Double Vision',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Down To Earth',
-    artist_id: Artist.find_by(name: 'Ozzy Osbourne').id
+    artist: 'Ozzy Osbourne'
   },
   {
     title: 'Eye II Eye',
-    artist_id: Artist.find_by(name: 'The Scorpions').id
+    artist: 'The Scorpions'
   },
   {
     title: 'Fame And Fortune',
-    artist_id: Artist.find_by(name: 'Bad Company').id
+    artist: 'Bad Company'
   },
   {
     title: 'Feels Like The First Time',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Foreigner',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Foreigner (Expanded)',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Gandhi Khan',
-    artist_id: Artist.find_by(name: 'Armand Van Helden').id
+    artist: 'Armand Van Helden'
   },
   {
     title: 'Head Games',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Head Games (Expanded)',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Hot Blooded (No Limits)',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'In Deep',
-    artist_id: Artist.find_by(name: 'Tina Arena').id
+    artist: 'Tina Arena'
   },
   {
     title: 'Inside Information',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Journeyman',
-    artist_id: Artist.find_by(name: 'Eric Clapton').id
+    artist: 'Eric Clapton'
   },
   {
     title: 'La Vida Que Vendrá',
-    artist_id: Artist.find_by(name: '99 Posse').id
+    artist: '99 Posse'
   },
   {
     title: 'Mick Jones',
-    artist_id: Artist.find_by(name: 'Mick Jones').id
+    artist: 'Mick Jones'
   },
   {
     title: 'Mr. Moonlight',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'No End In Sight: The Very Best Of Foreigner',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Still Crazy',
-    artist_id: Artist.find_by(name: 'Strange Fruit').id
+    artist: 'Strange Fruit'
   },
   {
     title: 'The Understanding',
-    artist_id: Artist.find_by(name: 'Memphis Bleek (Explicit)').id
+    artist: 'Memphis Bleek (Explicit)'
   },
   {
     title: 'Unusual Heat',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'The Very Best And Beyond',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Warriorz',
-    artist_id: Artist.find_by(name: 'M.O.P.').id
+    artist: 'M.O.P.'
   },
   {
     title: 'White Magic (Soundtrack)',
-    artist_id: Artist.find_by(name: 'Foreigner').id
+    artist: 'Foreigner'
   },
   {
     title: 'Will You Be There (In The Morning)',
-    artist_id: Artist.find_by(name: 'Heart').id
+    artist: 'Heart'
   }
-])
+]
+
+album_list.each do |album|
+
+  a = Album.create(
+    :artist_id => Artist.find_by(name: album[:artist]).id,
+    :description => album[:description],
+    :original_release_date => album[:date],
+    :title => album[:title]
+  )
+end
