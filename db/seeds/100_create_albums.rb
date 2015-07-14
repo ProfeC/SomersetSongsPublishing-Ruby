@@ -28,7 +28,7 @@ albums = Album.create ([
   },
   {
     title: 'Beyond Good and Evil',
-    artist_id: Artist.find_by(name: 'Cult, The').id
+    artist_id: Artist.find_by(name: 'The Cult').id
   },
   {
     title: 'Business Never Personal',
@@ -60,7 +60,7 @@ albums = Album.create ([
   },
   {
     title: 'Eye II Eye',
-    artist_id: Artist.find_by(name: 'Scorpions, The').id
+    artist_id: Artist.find_by(name: 'The Scorpions').id
   },
   {
     title: 'Fame And Fortune',

@@ -17,7 +17,7 @@ artist_list = [
   [ 'Cheap Trick', '' ], #5
   [ 'Cherie', '' ], #6
   [ 'Eric Clapton', '' ], #7
-  [ 'Cult, The', '' ], #8
+  [ 'The Cult', '' ], #8
   [ 'EPMD', '' ], #9
   [ 'Foreigner', '' ], #10
   [ 'Heart', '' ], #11
