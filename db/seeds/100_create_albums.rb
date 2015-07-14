@@ -32,7 +32,7 @@ album_list = [
   },
   {
     title: 'Business Never Personal',
-    artist: 'EMPD'
+    artist: 'EPMD'
   },
   {
     title: 'Busted',
@@ -48,7 +48,7 @@ album_list = [
   },
   {
     title: 'Daylight',
-    artist: 'Sheik, Duncan'
+    artist: 'Duncan Sheik'
   },
   {
     title: 'Double Vision',
