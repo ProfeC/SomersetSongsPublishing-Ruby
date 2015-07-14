@@ -15,13 +15,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
-    @albums = Album.where(artist_id: @artist)
-
-    if @albums.length > 0
-      @albums.each do |album|
-        @songs = Song.all.where(album_id: album.id)
-      end
-    end
+    @albums = Album.where(artist_id: @artist).pluck(:id)
+    @songs = Song.where album_id: @albums
   end
 
   # GET /artists/new

@@ -26,7 +26,6 @@
   </div>
 
   <h3>Song List</h3>
-
     <% if @songs.present? %>
       <table class="table table-hover table-striped">
         <thead>
@@ -40,7 +39,9 @@
           </tr>
         </thead>
         <tbody>
+
         <% @songs.each do |song| %>
+
             <tr>
               <td><p><strong><%= link_to song.title, song %></strong></p></td>
               <td><p><strong><%= link_to song.album.title, song.album %></strong></p></td>
@@ -124,7 +125,7 @@
         </tbody>
       </table>
     <% else %>
-      <p><em>There are no songs associated with this album</em></p>
+      <p><em>There are no songs associated with this artist.</em></p>
     <% end %>
 
 
