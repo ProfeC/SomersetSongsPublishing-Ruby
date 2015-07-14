@@ -80,12 +80,12 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+  production:
+    url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: somerset_songs_production
-  password: <%= Figaro.env.db_pass %>
-  username: <%= Figaro.env.db_user %>
+# production:
+#   <<: *default
+#   database: somerset_songs_production
+#   password: <%= Figaro.env.db_pass %>
+#   username: <%= Figaro.env.db_user %>
 
