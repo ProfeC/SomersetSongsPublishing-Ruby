@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   before_action :set_album, only: [:show, :edit, :update, :destroy, :create]
+  before_action :set_mood, only: [:show, :edit, :update, :destroy, :create]
 
   # GET /songs
   # GET /songs.json
@@ -25,7 +26,7 @@ class SongsController < ApplicationController
     @album = Album.find(@song.album.id)
     @artist = Artist.find(@album.artist.id)
     @genres = Genre.joins(:songs).where(songs: {id: @song.id})
-    @moods = Mood.joins(:songs).where(songs: {id: @song.id})
+    # @moods = Mood.joins(:songs).where(songs: {id: @song.id})
     @themes = Theme.joins(:songs).where(songs: {id: @song.id})
   end
 
@@ -36,6 +37,10 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    @genres = Genre.joins(:songs).where(songs: {id: @song.id})
+    @moods = Mood.joins(:songs).where(songs: {id: @song.id})
+    @moodList = Mood.all
+    @themes = Theme.joins(:songs).where(songs: {id: @song.id})
   end
 
   # POST /songs
@@ -88,8 +93,12 @@ class SongsController < ApplicationController
       @album = Album.all
     end
 
-    def set_aartist
+    def set_artist
       @artist = Artist.all
+    end
+
+    def set_mood
+      # @mood = Mood.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
