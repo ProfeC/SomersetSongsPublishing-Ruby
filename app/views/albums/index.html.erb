@@ -1,32 +1,34 @@
-<p id="notice"><%= notice %></p>
+<!-- Render page title -->
+<%=
+  render 'application/page_title',
+  title: 'Albums',
+  leading_text: '',
+  subtitle: ''
+%>
 
-<h1>Listing Albums</h1>
+<!-- Search Bar -->
+<%= render(:partial => "application/search_form") %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Original release date</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- <p>Or you can complete the Music Search request  with a brief description of what you are looking for and we will respond with music suggestions.</p> -->
 
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.title %></td>
-        <td><%= album.description %></td>
-        <td><%= album.original_release_date %></td>
-        <td><%= album.artist %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!-- <section class="artist index wow fadeInUp"> -->
+<div class="album index">
+
+  <%
+  @albums.each do |album|
+    artist = Artist.find(album.artist_id)
+  %>
+    <section>
+      <header>
+        <h4>
+          <%= link_to album.title, album %><br>
+          <small><%= artist.name %></small>
+        </h4>
+      </header>
+    </section>
+  <% end %>
+
+</div>
 
 <br>
 

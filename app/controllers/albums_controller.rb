@@ -5,6 +5,10 @@ class AlbumsController < ApplicationController
   # GET /albums.json
   def index
     @albums = Album.all
+
+    if params[:by_artist]
+      @albums = Album.search_by_artist(params[:by_artist])
+    end
   end
 
   # GET /albums/1

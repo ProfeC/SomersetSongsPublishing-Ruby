@@ -1,3 +1,21 @@
 // Place all the styles related to the Albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.album {
+  &.index {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    list-style-type: none;
+    margin: 13px 0;
+  }
+
+  section {
+    &:hover {
+      background-color: rgba(128, 230, 255, 0.1);
+    }
+
+    padding: 5px;
+  }
+}

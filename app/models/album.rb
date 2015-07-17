@@ -8,4 +8,9 @@ class Album < ActiveRecord::Base
 
   scope :sorted, lambda { order("albums.name ASC") }
   scope :sorted_rev, lambda { order("albums.name DESC") }
+
+  def self.search_by_artist(q)
+    where("artist_id is ?", "#{q}")
+  end
+
 end
