@@ -2,6 +2,9 @@
 # TODO: Not have saving the form clear out currently assigned album art and audio.
 %>
 
+<pre><%= @song.to_yaml %></pre>
+<pre><%= @moodList.to_yaml %></pre>
+
 <%= form_for(@song, multipart: true) do |f| %>
   <%
     # Some local variables
@@ -32,7 +35,7 @@
 
   <div class="field">
     <%= f.label :original_release_date %><br>
-    <%= f.date_select :original_release_date %>
+    <%= f.date_select :original_release_date, {start_year:1960, end_year: Date.today.year, order: [:month, :day, :year]}, { :class => 'xform-control' } %>
   </div>
 
   <div class="field">
@@ -46,10 +49,36 @@
   </div>
 
   <div class="field">
+
+    <label>Moods</label>
+    <section class="moods">
+
+    <%= fields_for :moods do |moods_form| %>
+      <%= :moods.to_yaml %>
+    <% end %>
+
+    <%
+      @moodList.each do |mood|
+        if @moods.map {|m| m.id}.include? mood.id
+          selected = 'yes'
+        else
+          selected = ''
+        end
+    %>
+      <div class="checkbox">
+        <%= check_box_tag mood, selected %>
+        <%= f.label(mood, mood.title) %>
+      </div>
+    <% end %>
+    </section>
+  </div>
+
+  <div class="field">
     <h4><%= f.label :cover_art %></h4>
     <div class="row">
       <div class="col-sm-7">
     <%= f.file_field :cover_art %>
+    <%= f.hidden_field 'hidden_cover_art', value: @song.cover_art_file_name, id: "hidden_cover_art" %>
         </div>
         <div class="col-sm-5">
         <%=
@@ -58,6 +87,55 @@
         </div>
       </div>
   </div>
+
+
+
+          <% if @song.cover_art.blank? %>
+              <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="input-append">
+                  <div class="new_resource_field">
+                    <span class="fileupload-preview js-resource_field"></span>
+                  </div>
+                    <span class="btn btn-white btn-file">
+                      <span class="fileupload-new">
+                        Select file
+                      </span>
+                      <span class="fileupload-exists">
+                        Change
+                      </span>
+                      <%= f.file_field :cover_art, id: "cover_art_input", class: "default" %>
+                    </span>
+                  <span class="btn btn-white fileupload-exists" data-dismiss="fileupload" id="cover_art_remove_button">Remove</span>
+                </div>
+              </div>
+          <% else %>
+              <div class="fileupload fileupload-exists" data-provides="fileupload">
+                <div class="input-append">
+                  <div class="new_resource_field">
+                  <span class="fileupload-preview js-resource_field">
+                    <%= @song.cover_art_file_name %>
+                  </span>
+                  </div>
+                    <span class="btn btn-white btn-file">
+                      <span class="fileupload-new">
+                        Select file
+                      </span>
+                      <span class="fileupload-exists">
+                        Change
+                      </span>
+                      <%= f.file_field :cover_art, id: "cover_art_input", class: "default" %>
+                    </span>
+                  <span class="btn btn-white fileupload-exists" data-dismiss="fileupload" id="cover_art_remove_button">Remove</span>
+                </div>
+              </div>
+          <% end %>
+
+
+
+
+
+
+
 
 
   <div class="field">
