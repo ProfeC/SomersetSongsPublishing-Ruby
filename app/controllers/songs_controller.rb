@@ -8,8 +8,27 @@ class SongsController < ApplicationController
   def index
     flash[:notice] = ''
 
-    @songs = Song.search(params[:q])
-    # @songs = Song.all
+    if params[:q].present?
+      #NOTE: Get possible songs
+      @songs_list = Song.search(params[:q])
+
+      # NOTE: Get possible genres.
+      @genre_id = Genre.find_by_title(params[:q])
+      @genre_songs = ''
+
+      # NOTE: Get possible themes.
+      @theme_id = Theme.find_by_title(params[:q])
+      @theme_songs = ''
+
+      # NOTE: Get possible moods.
+      mood_id = Mood.search_by_name(params[:q])
+      @mood_songs = Song.search_mood(mood_id)
+
+      @songs = (@songs_list + @mood_songs).uniq #+ @genre_songs + @theme_songs
+    end
+
+
+
 
     # Check to see if the array is empty
     if @songs.blank?
@@ -17,7 +36,7 @@ class SongsController < ApplicationController
       @songs = Song.all
     end
 
-    @songs = @songs.order(:title)
+    # @songs = @songs.order(:title)
   end
 
   # GET /songs/1

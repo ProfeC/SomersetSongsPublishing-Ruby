@@ -31,4 +31,15 @@ class Song < ActiveRecord::Base
       all
     end
   end
+
+  # NOTE: Find songs by mood
+  def self.search_mood(uid)
+    song_search = Song.joins(:moods).where(moods: {id: uid})
+
+    # song_search.each do |s|
+    #   @song_list += s
+    # end
+
+    # @song_list
+  end
 end
