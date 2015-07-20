@@ -10,11 +10,11 @@
 
 # Seed some genres
 genre_list = [
-  [ 'Ballad', '' ],
-  [ 'Instrumental', '' ],
-  ['Hip Hop', ''],
-  [ 'Rap', '' ],
-  ['Rock', '']
+  ['ballad', ''],
+  ['instrumental', ''],
+  ['hip hop', ''],
+  ['rap', ''],
+  ['rock', '']
 ]
 
 genre_list.each do |genre|
