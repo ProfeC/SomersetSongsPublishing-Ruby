@@ -12,12 +12,6 @@ class Mood < ActiveRecord::Base
     else
       ''
     end
-
-    # a.each do |b|
-    #   @id_list = b.id
-    # end
-
-    # @id_list
   end
 
   # NOTE: Search for a mood by name

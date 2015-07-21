@@ -8,9 +8,18 @@ class SongsController < ApplicationController
   def index
     flash[:notice] = ''
 
+    # NOTE: Set the value of songs to "All" by default
+    @songs = Song.all
+
     if params[:q].present?
-      #NOTE: Get possible songs
-      @songs_list = Song.search(params[:q])
+
+      # NOTE: Get possible genres.
+      @artist_id = Artist.find_by_name(params[:q])
+      @artist_songs = ''
+
+      # NOTE: Get possible genres.
+      @album_id = Album.find_by_title(params[:q])
+      @album_songs = ''
 
       # NOTE: Get possible genres.
       @genre_id = Genre.find_by_title(params[:q])
@@ -24,19 +33,21 @@ class SongsController < ApplicationController
       mood_id = Mood.search_by_name(params[:q])
       @mood_songs = Song.search_mood(mood_id)
 
-      @songs = (@songs_list + @mood_songs).uniq #+ @genre_songs + @theme_songs
+      #NOTE: Get possible songs
+      @songs_list = Song.search(params[:q])
+
+      @songs_searched = (@songs_list + @mood_songs).uniq #+ @genre_songs + @theme_songs
+
+
+      # Check to see if the array is empty
+      if @songs_searched.blank?
+        flash[:notice] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
+      else
+        @songs = @songs_searched
+      end
     end
 
-
-
-
-    # Check to see if the array is empty
-    if @songs.blank?
-      flash[:notice] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
-      @songs = Song.all
-    end
-
-    # @songs = @songs.order(:title)
+    @songs = @songs.order(:title)
   end
 
   # GET /songs/1

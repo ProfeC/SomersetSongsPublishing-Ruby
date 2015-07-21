@@ -26,20 +26,14 @@ class Song < ActiveRecord::Base
       # @songs = Song.search(params[:q]).sorted_by_title
       # where("title ILIKE ? OR theme ILIKE ? OR genre ILIKE ? OR mood ILIKE ?", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%")
       where("title ILIKE ?", "%#{q}%")
-    else
+    # else
       # @songs = Song.all
-      all
+      # all
     end
   end
 
   # NOTE: Find songs by mood
   def self.search_mood(uid)
     song_search = Song.joins(:moods).where(moods: {id: uid})
-
-    # song_search.each do |s|
-    #   @song_list += s
-    # end
-
-    # @song_list
   end
 end
