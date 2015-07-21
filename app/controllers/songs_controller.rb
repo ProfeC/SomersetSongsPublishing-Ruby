@@ -25,18 +25,18 @@ class SongsController < ApplicationController
       @genre_id = Genre.find_by_title(params[:q])
       @genre_songs = ''
 
-      # NOTE: Get possible themes.
-      @theme_id = Theme.find_by_title(params[:q])
-      @theme_songs = ''
-
       # NOTE: Get possible moods.
       mood_id = Mood.search_by_name(params[:q])
       @mood_songs = Song.search_mood(mood_id)
 
+      # NOTE: Get possible themes.
+      theme_id = Theme.search_by_name(params[:q])
+      @theme_songs = Song.search_theme(theme_id)
+
       #NOTE: Get possible songs
       @songs_list = Song.search(params[:q])
 
-      @songs_searched = (@songs_list + @mood_songs).uniq #+ @genre_songs + @theme_songs
+      @songs_searched = (@songs_list + @mood_songs + @theme_songs).uniq #+ @genre_songs
 
 
       # Check to see if the array is empty
@@ -47,7 +47,7 @@ class SongsController < ApplicationController
       end
     end
 
-    @songs = @songs.order(:title)
+    # @songs = @songs.order(:title)
   end
 
   # GET /songs/1

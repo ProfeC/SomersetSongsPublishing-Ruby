@@ -36,4 +36,9 @@ class Song < ActiveRecord::Base
   def self.search_mood(uid)
     song_search = Song.joins(:moods).where(moods: {id: uid})
   end
+
+  # NOTE: Find songs by theme
+  def self.search_theme(uid)
+    song_search = Song.joins(:themes).where(themes: {id: uid})
+  end
 end
