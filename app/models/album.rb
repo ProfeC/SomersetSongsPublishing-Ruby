@@ -13,4 +13,21 @@ class Album < ActiveRecord::Base
     where("artist_id is ?", "#{q}")
   end
 
+  # NOTE: Search for a album by name
+  def self.search_by_name(name)
+    aAlbum = where('title ILIKE ?', name).first
+
+    # NOTE: Check to see if there's a album by that name
+    if aAlbum.present?
+      aAlbum.id
+    else
+      ''
+    end
+  end
+
+  # NOTE: Search for a album by id
+  def self.search_by_id(id)
+    find(id)
+  end
+
 end

@@ -7,4 +7,21 @@ class Artist < ActiveRecord::Base
 
   scope :sorted, lambda { order("artists.name ASC") }
   scope :sorted_rev, lambda { order("artists.name DESC") }
+
+  # NOTE: Search for a mood by name
+  def self.search_by_name(name)
+    aArtist = where('name ILIKE ?', name).first
+
+    # NOTE: Check to see if there's a mood by that name
+    if aArtist.present?
+      aArtist.id
+    else
+      ''
+    end
+  end
+
+  # NOTE: Search for a mood by name
+  def self.search_by_id(id)
+    find(id)
+  end
 end

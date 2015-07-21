@@ -3,7 +3,6 @@ class Mood < ActiveRecord::Base
 
   # NOTE: Search for a mood by name
   def self.search_by_name(name)
-    # where('title ILIKE ?', '%name%')
     aMood = where('title ILIKE ?', name).first
 
     # NOTE: Check to see if there's a mood by that name

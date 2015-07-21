@@ -9,34 +9,44 @@ class SongsController < ApplicationController
     flash[:notice] = ''
 
     # NOTE: Set the value of songs to "All" by default
-    @songs = Song.all
+    # @songs = Song.all
 
     if params[:q].present?
 
-      # NOTE: Get possible genres.
-      @artist_id = Artist.find_by_name(params[:q])
-      @artist_songs = ''
+      # # NOTE: Get possible artists.
+      # artist_id = Artist.search_by_name(params[:q])
+      # if artist_id.present?
+      #   artist_songs = Artist.search_by_id(artist_id)
+      # else
+        artist_songs = []
+      # end
+
+      # # NOTE: Get possible albums.
+      # album_id = Album.search_by_name(params[:q])
+      # # album_songs = Song.search_album(album_id)
+
+      # if album_id.present?
+      #   album_songs = Album.search_by_id(album_id)
+      # else
+        album_songs = []
+      # end
 
       # NOTE: Get possible genres.
-      @album_id = Album.find_by_title(params[:q])
-      @album_songs = ''
-
-      # NOTE: Get possible genres.
-      @genre_id = Genre.find_by_title(params[:q])
-      @genre_songs = ''
+      genre_id = Genre.search_by_name(params[:q])
+      genre_songs = Song.search_genre(genre_id)
 
       # NOTE: Get possible moods.
       mood_id = Mood.search_by_name(params[:q])
-      @mood_songs = Song.search_mood(mood_id)
+      mood_songs = Song.search_mood(mood_id)
 
       # NOTE: Get possible themes.
       theme_id = Theme.search_by_name(params[:q])
-      @theme_songs = Song.search_theme(theme_id)
+      theme_songs = Song.search_theme(theme_id)
 
       #NOTE: Get possible songs
-      @songs_list = Song.search(params[:q])
+      songs_list = Song.search(params[:q])
 
-      @songs_searched = (@songs_list + @mood_songs + @theme_songs).uniq #+ @genre_songs
+      @songs_searched = (songs_list + mood_songs + theme_songs + genre_songs + album_songs + artist_songs).uniq
 
 
       # Check to see if the array is empty
@@ -47,7 +57,12 @@ class SongsController < ApplicationController
       end
     end
 
-    # @songs = @songs.order(:title)
+    # NOTE: If nothing came back from the search, show ALL songs
+    if !@songs.present?
+      @songs = Song.all
+      @songs = @songs.order(:title)
+    end
+
   end
 
   # GET /songs/1
