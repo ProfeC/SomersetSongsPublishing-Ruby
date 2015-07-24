@@ -1,10 +1,8 @@
 <article class="album show">
 
   <header class="page-header">
-    <h1>
-    <%= @album.title %>
-    <br><small><em><%= @album.artist.name %></em></small>
-    </h1>
+    <h1><%= @album.title %></h1>
+    <h2>By <%= @album.artist.name %></h2>
   </header>
 
   <!-- <pre><%= simple_format @album.to_yaml %></pre> -->
@@ -23,7 +21,7 @@
     </div>
 
     <div class="col-md-8">
-      <h3>Information</h3>
+      <h3>Album Information</h3>
       <% if @album.original_release_date.present? %>
       <p><strong>Released:</strong> <%= @album.original_release_date.to_formatted_s(:year) %></p>
       <% end %>
@@ -36,7 +34,12 @@
     </div>
   </div>
 
-    <h3>Song List</h3>
+  <div class="row">
+    <div class="col-md-12 song-list">
+      <header>
+        <h3>Song List</h3>
+      </header>
+
     <% if @songs.present? %>
       <table class="table table-hover table-striped">
         <thead>
@@ -135,6 +138,7 @@
       <p><em>There are no songs associated with this album</em></p>
     <% end %>
 
+      </div></div>
   <%= link_to 'Edit', edit_album_path(@album) %> |
   <%= link_to 'Back', albums_path %>
 
