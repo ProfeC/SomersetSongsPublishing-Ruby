@@ -62,8 +62,6 @@ songs_list = [
   },
   {
     album: 'Mick Jones',
-    # album_id: Album.find_by(title: 'Mick Jones').id,
-    # audio: File.open('/Users/Lee/Google Drive/Media/imperial_march.mp3'),
     # cover_art: '',
     length: '00:04:35',
     # mood: '',
@@ -72,140 +70,7 @@ songs_list = [
     title: '4 Wheels Turnin\''
   },
   {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:04:12',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'A Love In Vain'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:04:08',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Down On Love'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:04:18',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Growing Up The Hard Way'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:05:00',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'I Want To Know What Love Is'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:04:12',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Love In Vain'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:03:57',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Reaction To Action'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:03:07',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'She\'s Too Tough'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:04:54',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Stranger In My Own House'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:03:46',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'That Was Yesterday'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:03:54',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Tooth And Nail'
-  },
-  {
-    album: 'Agent Provocateur',
-    # album_id: Album.find_by(title: 'Agent Provocateur').id,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    length: '00:04:28',
-    # mood: '',
-    date: '1984-12-19',
-    # theme: '',
-    title: 'Two Different Worlds'
-  },
-  {
     album: 'Double Vision',
-    # album_id: Album.find_by(title: 'Double Vision').id,
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -241,8 +106,8 @@ songs_list.each do |song|
     end
   end
 
-  if song[:them]
-    song[:them].each do |t|
+  if song[:theme]
+    song[:theme].each do |t|
       s.themes << Theme.find_by(title: t)
     end
   end
