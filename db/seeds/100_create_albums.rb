@@ -11,18 +11,6 @@
 # Seed some albums
 album_list = [
   {
-    title: 'Beyond Good and Evil',
-    artist: 'The Cult'
-  },
-  {
-    title: 'Business Never Personal',
-    artist: 'EPMD'
-  },
-  {
-    title: 'Busted',
-    artist: 'Cheap Trick'
-  },
-  {
     title: 'Can\'t Slow Down',
     artist: 'Foreigner'
   },
