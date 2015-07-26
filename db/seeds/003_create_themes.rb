@@ -10,43 +10,151 @@
 
 # Seed some themes
 theme_list = [
-  ['alive/life/live', ''],
-  ['alone/lonely', ''],
-  ['beautiful/pretty', ''],
-  ['blue', ''],
-  ['children', ''],
-  ['dirty', ''],
-  ['dreams', ''],
-  ['eyes', ''],
-  ['feel', ''],
-  ['games', ''],
-  ['hand/hands', ''],
-  ['heart', ''],
-  ['heaven', ''],
-  ['heroes', ''],
-  ['home', ''],
-  ['hope/wish', ''],
-  ['late', ''],
-  ['lie', ''],
-  ['man/men', ''],
-  ['miss you', ''],
-  ['morning', ''],
-  ['need/want', ''],
-  ['night', ''],
-  ['rain', ''],
-  ['risk', ''],
-  ['run/running', ''],
-  ['stars/moon', ''],
-  ['telephone', ''],
-  ['temperature', ''],
-  ['time', ''],
-  ['tonight', ''],
-  ['waiting', ''],
-  ['winning/achievement', ''],
-  ['woman/women', ''],
-  ['world', '']
+  {
+    title: 'alive/life/live',
+    description: ''
+  },
+  {
+    title: 'alone/lonely',
+    description: ''
+  },
+  {
+    title: 'beautiful/pretty',
+    description: ''
+  },
+  {
+    title: 'blue',
+    description: ''
+  },
+  {
+    title: 'children',
+    description: ''
+  },
+  {
+    title: 'dirty',
+    description: ''
+  },
+  {
+    title: 'dreams',
+    description: ''
+  },
+  {
+    title: 'eyes',
+    description: ''
+  },
+  {
+    title: 'feel',
+    description: ''
+  },
+  {
+    title: 'games',
+    description: ''
+  },
+  {
+    title: 'hand/hands',
+    description: ''
+  },
+  {
+    title: 'heart',
+    description: ''
+  },
+  {
+    title: 'heaven',
+    description: ''
+  },
+  {
+    title: 'heroes',
+    description: ''
+  },
+  {
+    title: 'home',
+    description: ''
+  },
+  {
+    title: 'hope/wish',
+    description: ''
+  },
+  {
+    title: 'late',
+    description: ''
+  },
+  {
+    title: 'lie',
+    description: ''
+  },
+  {
+    title: 'man/men',
+    description: ''
+  },
+  {
+    title: 'miss you',
+    description: ''
+  },
+  {
+    title: 'morning',
+    description: ''
+  },
+  {
+    title: 'need/want',
+    description: ''
+  },
+  {
+    title: 'night',
+    description: ''
+  },
+  {
+    title: 'rain',
+    description: ''
+  },
+  {
+    title: 'risk',
+    description: ''
+  },
+  {
+    title: 'run/running',
+    description: ''
+  },
+  {
+    title: 'stars/moon',
+    description: ''
+  },
+  {
+    title: 'telephone',
+    description: ''
+  },
+  {
+    title: 'temperature',
+    description: ''
+  },
+  {
+    title: 'time',
+    description: ''
+  },
+  {
+    title: 'tonight',
+    description: ''
+  },
+  {
+    title: 'waiting',
+    description: ''
+  },
+  {
+    title: 'winning/achievement',
+    description: ''
+  },
+  {
+    title: 'woman/women',
+    description: ''
+  },
+  {
+    title: 'world',
+    description: ''
+  }
 ]
 
 theme_list.each do |theme|
-  Theme.create( :title => theme[0], :description => theme[1] )
+  Theme.where(
+    :title => theme[:title],
+    :description => theme[:description]
+  ).first_or_create
 end

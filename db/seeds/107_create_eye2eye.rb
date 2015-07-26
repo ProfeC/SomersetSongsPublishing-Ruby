@@ -9,24 +9,24 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 a = Album.where(
-  :artist_id => Artist.find_by(name: 'Foreigner').id,
+  :artist_id => Artist.find_by(name: 'The Scorpions').id,
   # :description => '',
   # :original_release_date => '',
-  :title => '1984 Olympic Marathon Theme Song'
+  :title => 'Eye II Eye'
 ).first_or_create
 
 songs_list = [
-  # {
-    # album: a.title,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    # length: '',
-    # mood: '',
-    # date: '',
-    # theme: '',
-    # title: ''
-  # }
+  {
+    album: a.title,
+    audio: '',
+    cover_art: '',
+    genre: ['rock', 'ballad'],
+    length: '00:03:52',
+    mood: ['futuristic'],
+    date: '1999-11-22',
+    theme: ['risk'],
+    title: '10 Light Years Away'
+  }
 ]
 
 songs_list.each do |song|

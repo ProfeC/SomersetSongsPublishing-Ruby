@@ -53,9 +53,17 @@
         </thead>
         <tbody>
         <% @songs.each do |song| %>
+          <%
+              if song.original_release_date.present?
+                release_date = song.original_release_date.to_formatted_s(:year)
+              else
+                release_date = ''
+              end
+            %>
+
             <tr>
               <td><p><strong><%= link_to song.title, song %></strong></p></td>
-              <td><%= song.original_release_date.to_formatted_s(:year) %></td>
+              <td><%= release_date %></td>
               <td>
                 <%
                 #NOTE: Check to see if there are themes

@@ -19,7 +19,6 @@ a = Album.where(
 
 songs_list = [
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -30,7 +29,6 @@ songs_list = [
     title: 'A Love In Vain'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -41,7 +39,6 @@ songs_list = [
     title: 'Down On Love'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -52,7 +49,6 @@ songs_list = [
     title: 'Growing Up The Hard Way'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -63,7 +59,6 @@ songs_list = [
     title: 'I Want To Know What Love Is'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -74,7 +69,6 @@ songs_list = [
     title: 'Love In Vain'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -85,7 +79,6 @@ songs_list = [
     title: 'Reaction To Action'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -96,7 +89,6 @@ songs_list = [
     title: 'She\'s Too Tough'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -107,7 +99,6 @@ songs_list = [
     title: 'Stranger In My Own House'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -118,7 +109,6 @@ songs_list = [
     title: 'That Was Yesterday'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -129,7 +119,6 @@ songs_list = [
     title: 'Tooth And Nail'
   },
   {
-    album: 'Agent Provocateur',
     # audio: '',
     # cover_art: '',
     # genre: '',

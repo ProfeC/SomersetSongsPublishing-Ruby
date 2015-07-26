@@ -1,9 +1,17 @@
+<%
+  if @song.original_release_date.present?
+    release_date = @song.original_release_date.to_formatted_s(:year)
+  else
+    release_date = ''
+  end
+%>
+
 <article class="song show">
 
   <header class="page-header">
     <h1>
     <%= @song.title %>
-    <small><em><%= @song.original_release_date.to_formatted_s(:year) %></em></small>
+    <small><em><%= release_date %></em></small>
     </h1>
   </header>
 

@@ -23,16 +23,8 @@ album_list = [
     artist: 'Duncan Sheik'
   },
   {
-    title: 'Double Vision',
-    artist: 'Foreigner'
-  },
-  {
     title: 'Down To Earth',
     artist: 'Ozzy Osbourne'
-  },
-  {
-    title: 'Eye II Eye',
-    artist: 'The Scorpions'
   },
   {
     title: 'Fame And Fortune',
@@ -83,10 +75,6 @@ album_list = [
     artist: '99 Posse'
   },
   {
-    title: 'Mick Jones',
-    artist: 'Mick Jones'
-  },
-  {
     title: 'Mr. Moonlight',
     artist: 'Foreigner'
   },
@@ -126,10 +114,10 @@ album_list = [
 
 album_list.each do |album|
 
-  a = Album.create(
+  a = Album.where(
     :artist_id => Artist.find_by(name: album[:artist]).id,
     :description => album[:description],
     :original_release_date => album[:date],
     :title => album[:title]
-  )
+  ).first_or_create
 end

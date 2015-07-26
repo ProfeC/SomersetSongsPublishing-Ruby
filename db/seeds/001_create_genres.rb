@@ -10,13 +10,31 @@
 
 # Seed some genres
 genre_list = [
-  ['ballad', ''],
-  ['instrumental', ''],
-  ['hip hop', ''],
-  ['rap', ''],
-  ['rock', '']
+  {
+    title: 'ballad',
+    description: ''
+  },
+  {
+    title: 'instrumental',
+    description: ''
+  },
+  {
+    title: 'hip hop',
+    description: ''
+  },
+  {
+    title: 'rap',
+    description: ''
+  },
+  {
+    title: 'rock',
+    description: ''
+  }
 ]
 
 genre_list.each do |genre|
-  Genre.create( :title => genre[0], :description => genre[1] )
+  Genre.where(
+    :title => genre[:title],
+    :description => genre[:description]
+  ).first_or_create
 end

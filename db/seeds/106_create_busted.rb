@@ -16,8 +16,8 @@ a = Album.where(
 ).first_or_create
 
 songs_list = [
-  {
-    album: a.title,
+  # {
+    # album: a.title,
     # audio: '',
     # cover_art: '',
     # genre: '',
@@ -26,13 +26,13 @@ songs_list = [
     # date: '',
     # theme: '',
     # title: ''
-  }
+  # }
 ]
 
 songs_list.each do |song|
 
   s = Song.where(
-    :album_id => Album.find_by(title: song[:album]).id,
+    :album_id => a.id,
     # :audio => song[:audio],
     # :cover_art => song[:conver_art],
     :description => song[:description],

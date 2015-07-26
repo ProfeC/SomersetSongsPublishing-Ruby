@@ -9,24 +9,24 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 a = Album.where(
-  :artist_id => Artist.find_by(name: 'Foreigner').id,
+  :artist_id => Artist.find_by(name: 'Mick Jones').id,
   # :description => '',
   # :original_release_date => '',
-  :title => '1984 Olympic Marathon Theme Song'
+  :title => 'Mick Jones'
 ).first_or_create
 
 songs_list = [
-  # {
-    # album: a.title,
+  {
+    album: a.title,
     # audio: '',
     # cover_art: '',
-    # genre: '',
-    # length: '',
-    # mood: '',
-    # date: '',
-    # theme: '',
-    # title: ''
-  # }
+    genre: '',
+    length: '00:04:35',
+    mood: '',
+    date: '1989-10-04',
+    theme: ['risk'],
+    title: '4 Wheels Turnin\''
+  }
 ]
 
 songs_list.each do |song|
@@ -41,19 +41,19 @@ songs_list.each do |song|
     :title => song[:title]
   ).first_or_create
 
-  if song[:genre]
+  if song[:genre].present?
     song[:genre].each do |g|
       s.genres << Genre.find_by(title: g)
     end
   end
 
-  if song[:mood]
+  if song[:mood].present?
     song[:mood].each do |m|
       s.moods << Mood.find_by(title: m)
     end
   end
 
-  if song[:theme]
+  if song[:theme].present?
     song[:theme].each do |t|
       s.themes << Theme.find_by(title: t)
     end

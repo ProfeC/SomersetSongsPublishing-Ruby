@@ -10,27 +10,87 @@
 
 # Seed some artists
 artist_list = [
-  [ '99 Posse', '' ], #1
-  [ 'Tina Arena', '' ], #2
-  [ 'Bad Company', '' ], #3
-  [ 'Memphis Bleek (Explicit)', '' ], #4
-  [ 'Cheap Trick', '' ], #5
-  [ 'Cherie', '' ], #6
-  [ 'Eric Clapton', '' ], #7
-  [ 'The Cult', '' ], #8
-  [ 'EPMD', '' ], #9
-  [ 'Foreigner', '' ], #10
-  [ 'Heart', '' ], #11
-  [ 'Mick Jones', '' ], #12
-  [ 'M.O.P.', '' ], #13
-  [ 'Ozzy Osbourne', '' ], #14
-  [ 'The Scorpions', '' ], #15
-  [ 'Duncan Sheik', '' ], #16
-  [ 'Strange Fruit', '' ], #17
-  [ 'Strange Fruit w/ Jimmy Nail', '' ], #18
-  [ 'Armand Van Helden', '' ] #19
+  {
+    name: '99 Posse',
+    description: ''
+  },
+  {
+    name: 'Tina Arena',
+    description: ''
+  },
+  {
+    name: 'Bad Company',
+    description: ''
+  },
+  {
+    name: 'Memphis Bleek (Explicit)',
+    description: ''
+  },
+  {
+    name: 'Cheap Trick',
+    description: ''
+  },
+  {
+    name: 'Cherie',
+    description: ''
+  },
+  {
+    name: 'Eric Clapton',
+    description: ''
+  },
+  {
+    name: 'The Cult',
+    description: ''
+  },
+  {
+    name: 'EPMD',
+    description: ''
+  },
+  {
+    name: 'Foreigner',
+    description: ''
+  },
+  {
+    name: 'Heart',
+    description: ''
+  },
+  {
+    name: 'Mick Jones',
+    description: ''
+  },
+  {
+    name: 'M.O.P.',
+    description: ''
+  },
+  {
+    name: 'Ozzy Osbourne',
+    description: ''
+  },
+  {
+    name: 'The Scorpions',
+    description: ''
+  },
+  {
+    name: 'Duncan Sheik',
+    description: ''
+  },
+  {
+    name: 'Strange Fruit',
+    description: ''
+  },
+  {
+    name: 'Strange Fruit w/ Jimmy Nail',
+    description: ''
+  },
+  {
+    name: 'Armand Van Helden',
+    description:  ''
+  }
 ]
 
 artist_list.each do |artist|
-  Artist.create( :name => artist[0], :description => artist[1] )
+  Artist.where(
+    :name => artist[:name],
+    :description => artist[:description]
+  ).first_or_create
 end
