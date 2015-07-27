@@ -11,15 +11,35 @@
 # Seed some themes
 theme_list = [
   {
-    title: 'alive/life/live',
+    title: 'alive',
     description: ''
   },
   {
-    title: 'alone/lonely',
+    title: 'life',
     description: ''
   },
   {
-    title: 'beautiful/pretty',
+    title: 'live',
+    description: ''
+  },
+  {
+    title: 'alone',
+    description: ''
+  },
+  {
+    title: 'lonely',
+    description: ''
+  },
+  {
+    title: 'beautiful',
+    description: ''
+  },
+  {
+    title: 'fast',
+    description: ''
+  },
+  {
+    title: 'pretty',
     description: ''
   },
   {
@@ -51,7 +71,11 @@ theme_list = [
     description: ''
   },
   {
-    title: 'hand/hands',
+    title: 'hand',
+    description: ''
+  },
+  {
+    title: 'hands',
     description: ''
   },
   {
@@ -71,7 +95,11 @@ theme_list = [
     description: ''
   },
   {
-    title: 'hope/wish',
+    title: 'hope',
+    description: ''
+  },
+  {
+    title: 'wish',
     description: ''
   },
   {
@@ -83,7 +111,11 @@ theme_list = [
     description: ''
   },
   {
-    title: 'man/men',
+    title: 'men',
+    description: ''
+  },
+  {
+    title: 'man',
     description: ''
   },
   {
@@ -95,7 +127,11 @@ theme_list = [
     description: ''
   },
   {
-    title: 'need/want',
+    title: 'need',
+    description: ''
+  },
+  {
+    title: 'want',
     description: ''
   },
   {
@@ -111,11 +147,23 @@ theme_list = [
     description: ''
   },
   {
-    title: 'run/running',
+    title: 'running',
     description: ''
   },
   {
-    title: 'stars/moon',
+    title: 'run',
+    description: ''
+  },
+  {
+    title: 'stars',
+    description: ''
+  },
+  {
+    title: 'speed',
+    description: ''
+  },
+  {
+    title: 'moon',
     description: ''
   },
   {
@@ -139,11 +187,19 @@ theme_list = [
     description: ''
   },
   {
-    title: 'winning/achievement',
+    title: 'winning',
     description: ''
   },
   {
-    title: 'woman/women',
+    title: 'achievement',
+    description: ''
+  },
+  {
+    title: 'woman',
+    description: ''
+  },
+  {
+    title: 'women',
     description: ''
   },
   {
@@ -153,8 +209,7 @@ theme_list = [
 ]
 
 theme_list.each do |theme|
-  Theme.where(
-    :title => theme[:title],
-    :description => theme[:description]
-  ).first_or_create
+  Theme.find_or_create_by(title: theme[:title]) do |t|
+    t.description = theme[:description]
+  end
 end

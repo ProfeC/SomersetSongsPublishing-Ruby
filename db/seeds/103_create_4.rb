@@ -8,54 +8,153 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-a = Album.where(
-  :artist_id => Artist.find_by(name: 'Foreigner').id,
-  # :description => '',
-  # :original_release_date => '',
-  :title => '4'
-).first_or_create
+album = Album.create!(
+  artist_id: Artist.find_by(name: 'Foreigner').id,
+  description: '',
+  original_release_date: '1981-01-01',
+  title: '4',
+)
 
 songs_list = [
-  # {
-    # album: a.title,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    # length: '',
-    # mood: '',
-    # date: '',
-    # theme: '',
-    # title: ''
-  # }
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: '',
+    title: 'Break It Up'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: '',
+    title: 'Don\'t Let Go'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['stars','moon'],
+    title: 'Girl on the Moon'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['winning','achievement'],
+    title: 'I\'m Gonna Win'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['heroes'],
+    title: 'Juke Box Hero'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: '',
+    title: 'Luanne'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['night'],
+    title: 'Night Life'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['speed', 'fast'],
+    title: 'Urgent'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['waiting'],
+    title: 'Waiting for a Girl Like You'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '',
+    mood: '',
+    date: '',
+    theme: ['woman','women'],
+    title: 'Woman in Black'
+  }
 ]
 
 songs_list.each do |song|
 
-  s = Song.where(
-    :album_id => a.id,
-    # :audio => song[:audio],
-    # :cover_art => song[:conver_art],
-    :description => song[:description],
-    :length => song[:length],
-    :original_release_date => song[:date],
-    :title => song[:title]
-  ).first_or_create
+  # Check for a specific release date. If there isn't one, then use the albums
+  if song[:date].present?
+    date = song[:date]
+  else
+    date = album.original_release_date
+  end
 
-  if song[:genre]
+  s = Song.create(
+    title: song[:title],
+    album_id: album.id,
+    audio: song[:audio],
+    cover_art: song[:conver_art],
+    description: song[:description],
+    length: song[:length],
+    original_release_date: date
+  )
+
+  if song[:genre].present?
     song[:genre].each do |g|
-      s.genres << Genre.find_by(title: g)
+      genre = Genre.find_or_create_by(title: g)
+      s.genres << genre
     end
   end
 
-  if song[:mood]
+  if song[:mood].present?
     song[:mood].each do |m|
-      s.moods << Mood.find_by(title: m)
+      mood = Mood.find_or_create_by(title: m)
+      s.moods << mood
     end
   end
 
-  if song[:theme]
+  if song[:theme].present?
     song[:theme].each do |t|
-      s.themes << Theme.find_by(title: t)
+      theme = Theme.find_or_create_by(title: t)
+      s.themes << theme
     end
   end
 

@@ -8,143 +8,153 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-a = Album.where(
-  :artist_id => Artist.find_by(name: 'Foreigner').id,
-  # :description => '',
-  # :original_release_date => '',
-  :title => 'Double Vision'
-).first_or_create
+album = Album.create!(
+  artist_id: Artist.find_by(name: 'Foreigner').id,
+  description: '',
+  original_release_date: '1978-01-01',
+  title: 'Double Vision'
+)
 
 songs_list = [
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '00:03:12',
-    mood: '',
+    mood: [],
     date: '1980-10-10',
-    theme: '',
+    theme: ['blue'],
     title: 'Blue Morning, Blue Day'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: ['home'],
     title: 'Back Where You Belong'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: ['eyes'],
     title: 'Double Vision'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: ['temperature'],
     title: 'Hot Blooded'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: ['ambient'],
+    date: '',
+    theme: ['waiting'],
     title: 'I Have Waited So Long'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: ['children'],
     title: 'Lonely Children'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: [],
     title: 'Love has Taken its Toll'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: ['magic'],
     title: 'Spellbinder'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: ['triumphant'],
+    date: '',
+    theme: [],
     title: 'Tramontane (Instrumental)'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: [],
     length: '',
-    mood: '',
-    # date: '',
-    theme: '',
+    mood: [],
+    date: '',
+    theme: [],
     title: 'You\'re All I Am'
   }
 ]
 
 songs_list.each do |song|
 
-  s = Song.where(
-    :album_id => a.id,
-    # :audio => song[:audio],
-    # :cover_art => song[:conver_art],
-    :description => song[:description],
-    :length => song[:length],
-    :original_release_date => song[:date],
-    :title => song[:title]
-  ).first_or_create
+  # Check for a specific release date. If there isn't one, then use the albums
+  if song[:date].present?
+    date = song[:date]
+  else
+    date = album.original_release_date
+  end
+
+  s = Song.create(
+    title: song[:title],
+    album_id: album.id,
+    audio: song[:audio],
+    cover_art: song[:conver_art],
+    description: song[:description],
+    length: song[:length],
+    original_release_date: date
+  )
 
   if song[:genre].present?
     song[:genre].each do |g|
-      s.genres << Genre.find_by(title: g)
+      genre = Genre.find_or_create_by(title: g)
+      s.genres << genre
     end
   end
 
   if song[:mood].present?
     song[:mood].each do |m|
-      s.moods << Mood.find_by(title: m)
+      mood = Mood.find_or_create_by(title: m)
+      s.moods << mood
     end
   end
 
   if song[:theme].present?
     song[:theme].each do |t|
-      s.themes << Theme.find_by(title: t)
+      theme = Theme.find_or_create_by(title: t)
+      s.themes << theme
     end
   end
 

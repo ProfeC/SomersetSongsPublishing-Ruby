@@ -11,7 +11,11 @@
 # Seed some moods
 mood_list = [
   {
-    title: 'aggressive/angry',
+    title: 'aggressive',
+    description: ''
+  },
+  {
+    title: 'angry',
     description: ''
   },
   {
@@ -31,7 +35,11 @@ mood_list = [
     description: ''
   },
   {
-    title:  'dreamy/ethereal',
+    title:  'ethereal',
+    description: ''
+  },
+  {
+    title:  'dreamy',
     description: ''
   },
   {
@@ -43,7 +51,11 @@ mood_list = [
     description: ''
   },
   {
-    title:  'elegant/sophisticated',
+    title:  'elegant',
+    description: ''
+  },
+  {
+    title:  'sophisticated',
     description: ''
   },
   {
@@ -51,7 +63,11 @@ mood_list = [
     description: ''
   },
   {
-    title:  'exciting/energetic',
+    title:  'exciting',
+    description: ''
+  },
+  {
+    title:  'energetic',
     description: ''
   },
   {
@@ -71,15 +87,27 @@ mood_list = [
     description: ''
   },
   {
-    title:  'majestic/grand',
+    title:  'majestic',
     description: ''
   },
   {
-    title:  'mellow/gentle',
+    title:  'grand',
     description: ''
   },
   {
-    title:  'moody/blue',
+    title:  'mellow',
+    description: ''
+  },
+  {
+    title:  'gentle',
+    description: ''
+  },
+  {
+    title:  'moody',
+    description: ''
+  },
+  {
+    title:  'blue',
     description: ''
   },
   {
@@ -91,7 +119,11 @@ mood_list = [
     description: ''
   },
   {
-    title:  'sad/melancholy',
+    title:  'sad',
+    description: ''
+  },
+  {
+    title:  'melancholy',
     description: ''
   },
   {
