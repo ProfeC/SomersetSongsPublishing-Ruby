@@ -4,6 +4,8 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
+    flash[:notice] = ''
+
     @artists = Artist.all
 
     # Get album count for each artist
@@ -15,6 +17,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
+    flash[:notice] = ''
+
     @albums = Album.where(artist_id: @artist).pluck(:id)
     @songs = Song.where album_id: @albums
   end

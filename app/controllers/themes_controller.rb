@@ -4,12 +4,15 @@ class ThemesController < ApplicationController
   # GET /themes
   # GET /themes.json
   def index
+    flash[:notice] = ''
+
     @themes = Theme.all
   end
 
   # GET /themes/1
   # GET /themes/1.json
   def show
+    flash[:notice] = ''
   end
 
   # GET /themes/new

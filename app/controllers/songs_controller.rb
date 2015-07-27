@@ -68,6 +68,8 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
+    flash[:notice] = ''
+
     @album = Album.find(@song.album.id)
     @artist = Artist.find(@album.artist.id)
     @genres = Genre.joins(:songs).where(songs: {id: @song.id})

@@ -4,12 +4,15 @@ class MoodsController < ApplicationController
   # GET /moods
   # GET /moods.json
   def index
+    flash[:notice] = ''
+
     @moods = Mood.all
   end
 
   # GET /moods/1
   # GET /moods/1.json
   def show
+    flash[:notice] = ''
   end
 
   # GET /moods/new

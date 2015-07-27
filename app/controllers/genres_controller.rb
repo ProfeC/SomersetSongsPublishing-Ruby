@@ -4,15 +4,20 @@ class GenresController < ApplicationController
   # GET /genres
   # GET /genres.json
   def index
+    flash[:notice] = ''
+
     @genres = Genre.all
   end
 
   # GET /genres/1
   # GET /genres/1.json
   def show
+    flash[:notice] = ''
   end
 
   def show_by_song
+    flash[:notice] = ''
+
     @genres = Genre.joins(:song).where(:song)
   end
 

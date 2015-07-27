@@ -4,6 +4,8 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
+    flash[:notice] = ''
+
     @albums = Album.all
 
     if params[:by_artist]
@@ -14,6 +16,8 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    flash[:notice] = ''
+
     @artist = Artist.find(@album.artist.id)
 
     # Get all the songs for the album
