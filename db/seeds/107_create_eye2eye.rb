@@ -17,7 +17,7 @@ album = Album.create!(
 
 songs_list = [
   {
-    album: a.title,
+    album: album.title,
     audio: '',
     cover_art: '',
     genre: ['rock', 'ballad'],
