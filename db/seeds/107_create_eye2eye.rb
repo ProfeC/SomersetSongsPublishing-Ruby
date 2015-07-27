@@ -8,12 +8,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-a = Album.where(
-  :artist_id => Artist.find_by(name: 'The Scorpions').id,
-  # :description => '',
-  # :original_release_date => '',
-  :title => 'Eye II Eye'
-).first_or_create
+album = Album.create!(
+  artist_id: Artist.find_by(name: 'The Scorpions').id,
+  description: '',
+  original_release_date: '',
+  title: 'Eye II Eye'
+)
 
 songs_list = [
   {
@@ -31,31 +31,41 @@ songs_list = [
 
 songs_list.each do |song|
 
-  s = Song.where(
-    :album_id => a.id,
-    # :audio => song[:audio],
-    # :cover_art => song[:conver_art],
-    :description => song[:description],
-    :length => song[:length],
-    :original_release_date => song[:date],
-    :title => song[:title]
-  ).first_or_create
+  # Check for a specific release date. If there isn't one, then use the albums
+  if song[:date].present?
+    date = song[:date]
+  else
+    date = album.original_release_date
+  end
 
-  if song[:genre]
+  s = Song.create(
+    title: song[:title],
+    album_id: album.id,
+    audio: song[:audio],
+    cover_art: song[:conver_art],
+    description: song[:description],
+    length: song[:length],
+    original_release_date: date
+  )
+
+  if song[:genre].present?
     song[:genre].each do |g|
-      s.genres << Genre.find_by(title: g)
+      genre = Genre.find_or_create_by(title: g)
+      s.genres << genre
     end
   end
 
-  if song[:mood]
+  if song[:mood].present?
     song[:mood].each do |m|
-      s.moods << Mood.find_by(title: m)
+      mood = Mood.find_or_create_by(title: m)
+      s.moods << mood
     end
   end
 
-  if song[:theme]
+  if song[:theme].present?
     song[:theme].each do |t|
-      s.themes << Theme.find_by(title: t)
+      theme = Theme.find_or_create_by(title: t)
+      s.themes << theme
     end
   end
 
