@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   resources :artists
 
   # NOTE: Song Resources
+  get 'songs/filter' => 'songs#filter'
   resources :songs
 
   # NOTE: Album Resources

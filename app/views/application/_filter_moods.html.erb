@@ -1,16 +1,12 @@
-<!--
-<pre><%= @moods.to_yaml %></pre>
- -->
-
 <aside class="moods boxed-content">
   <h3 class="wow">Moods</h3>
   <p class="wow">Select one or more moods to filter on.</p>
-  <%= form_tag({controller: "songs", action: "filter"}, {:method => "get", id: "filter-moods"}) do %>
+  <%= form_tag({controller: "songs", action: "filter"}, :method => "get", id: "filter-moods") do %>
     <div class="row">
       <div class="col-xs-12">
         <div class="input-group">
 
-        <% @moods.each do |mood| %>
+          <% @moods.each do |mood| %>
           <div class="checkbox">
             <%= check_box_tag 'moods[]', mood.id, false %>
             <%= label_tag(mood.id, mood.title) %>

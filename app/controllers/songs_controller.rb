@@ -3,6 +3,16 @@ class SongsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy, :create]
   before_action :set_mood, only: [:show, :edit, :update, :destroy, :create]
 
+  def filter
+    if params[:moods].present?
+      m = params[:moods].join(",")
+      @songs = Song.joins(:moods).where("mood_id IN (?)", m)
+    end
+
+    @moods = Mood.sorted
+      render "index"
+  end
+
   # GET /songs
   # GET /songs.json
   def index
@@ -59,8 +69,9 @@ class SongsController < ApplicationController
 
     # NOTE: If nothing came back from the search, show ALL songs
     if !@songs.present?
-      @songs = Song.all
-      @songs = @songs.order(:title)
+      @moods = Mood.sorted
+      @songs = Song.all.order(:title)
+      @themes = Theme.all
     end
 
   end
@@ -73,7 +84,7 @@ class SongsController < ApplicationController
     @album = Album.find(@song.album.id)
     @artist = Artist.find(@album.artist.id)
     @genres = Genre.joins(:songs).where(songs: {id: @song.id})
-    # @moods = Mood.joins(:songs).where(songs: {id: @song.id})
+    @moods = Mood.joins(:songs).where(songs: {id: @song.id})
     @themes = Theme.joins(:songs).where(songs: {id: @song.id})
   end
 
