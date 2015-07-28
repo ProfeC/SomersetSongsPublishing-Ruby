@@ -1,6 +1,8 @@
 class Mood < ActiveRecord::Base
   has_and_belongs_to_many :songs, :join_table => 'moods_songs'
 
+  scope :sorted, lambda { order("moods.title ASC") }
+
   # NOTE: Search for a mood by name
   def self.search_by_name(name)
     aMood = where('title ILIKE ?', name).first
