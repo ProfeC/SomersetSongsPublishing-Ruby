@@ -18,3 +18,36 @@
   }
 }
 
+.moods {
+  &.boxed-content {
+
+    p {
+      font-size: .85em;
+    }
+
+    #filter-moods {
+      .input-group {
+
+        .checkbox {
+          cursor: pointer;
+          margin: 5px 0;
+
+          input[type="checkbox"] {
+            margin-left: -1px;
+            margin-top: 9px;
+          }
+        }
+      }
+
+      .row {
+        min-height: 200px;
+        max-height: 350px;
+        overflow-y: scroll;
+      }
+
+      label {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

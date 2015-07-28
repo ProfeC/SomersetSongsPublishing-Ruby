@@ -1,3 +1,12 @@
+.alert {
+  margin-bottom: 0;
+  padding: 13px;
+}
+
+.sidebar {
+  padding-top: 50px;
+}
+
 .content {
   background-color: $body-background;
 }
@@ -5,7 +14,7 @@
 .boxed-content {
   background-color: darken($body-background, 3%);
   border: 1px solid darken($body-background, 13%);
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .align-left {
@@ -97,14 +106,14 @@ img.pull-right {
 
 img.pull-left,
 img.pull-right {
-	border-radius: 10px;
+  border-radius: 10px;
 
-	@media screen and (max-width:480px){
-		float: none!important;
-		margin: 0 auto 20px;
-		display: block;
-		text-align: center;
-	}
+  @media screen and (max-width:480px) {
+    float: none !important;
+    margin: 0 auto 20px;
+    display: block;
+    text-align: center;
+  }
 }
 
 hr {
