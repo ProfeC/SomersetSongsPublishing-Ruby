@@ -60,18 +60,16 @@
         <div class="fullwidth-block">
           <div class="container">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-9">
 
                 <%= yield %>
 
               </div>
-              <div class="col-md-4">
-                <!-- <aside class="boxed-content" data-bg-color="#f6f7f9"> -->
-                <aside class="boxed-content">
-                  <h3 class="wow">Interdum et malesuad</h3>
-                  <p class="wow">Nunc molestie enim eu felis convallis, vitae blandit ligula elementum. Ut tincidunt id nisi eget ultricies integer amet sollicitudin urna. Donec tempus augue ut diam imperdiet.</p>
+              <div class="sidebar col-md-3">
+                <h2>Filters</h2>
+                  <%= render(:partial => "application/filter_moods") %>
 
-                  <hr class="spacer">
+                <aside class="boxed-content">
                   <h3 class="wow">Fames ac ante ipsum</h3>
                   <p class="wow">Quisque ligula mauris, pretium nec tincidunt sit amet, pellentesque aliquet metus. Morbi id elementum est.</p>
                 </aside>
