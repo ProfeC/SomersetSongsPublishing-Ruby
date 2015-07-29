@@ -6,7 +6,7 @@
       <div class="col-xs-12">
         <div class="input-group">
 
-          <% @moods.each do |mood| %>
+          <% Mood.sorted.each do |mood| %>
           <div class="checkbox">
             <%= check_box_tag 'moods[]', mood.id, false %>
             <%= label_tag(mood.id, mood.title) %>

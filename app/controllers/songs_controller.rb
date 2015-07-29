@@ -9,14 +9,12 @@ class SongsController < ApplicationController
       @songs = Song.joins(:moods).where("mood_id IN (?)", m)
     end
 
-    @moods = Mood.sorted
-      render "index"
+    render "index"
   end
 
   # GET /songs
   # GET /songs.json
   def index
-    flash[:notice] = ''
 
     # NOTE: Set the value of songs to "All" by default
     # @songs = Song.all
@@ -61,10 +59,13 @@ class SongsController < ApplicationController
 
       # Check to see if the array is empty
       if @songs_searched.blank?
-        flash[:notice] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
+        flash[:warning] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
       else
         @songs = @songs_searched
       end
+
+      # Discard the flash notice
+      flash.discard
     end
 
     # NOTE: If nothing came back from the search, show ALL songs
@@ -79,7 +80,6 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    flash[:notice] = ''
 
     @album = Album.find(@song.album.id)
     @artist = Artist.find(@album.artist.id)
