@@ -1,0 +1,39 @@
+<%
+# Possible flash messages...
+# flash [:success] = 'This is a success'
+# flash [:notice] = 'This is a notice'
+# flash [:warning] = 'This is a warning'
+# flash [:alert] = 'This is a alert'
+ %>
+
+<% if flash[:alert].present? %>
+  <div class="fullwidth-block">
+    <div div-alert class="container alert alert-danger" role="alert">
+      <%= flash[:alert] %>
+    </div>
+  </div>
+<% end %>
+
+<% if flash[:notice].present? %>
+  <div class="fullwidth-block">
+    <div div-alert class="container alert alert-info" role="alert">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% end %>
+
+<% if flash[:success].present? %>
+  <div class="fullwidth-block">
+    <div div-alert class="container alert alert-success" role="alert">
+      <%= flash[:success] %>
+    </div>
+  </div>
+<% end %>
+
+<% if flash[:warning].present? %>
+  <div class="fullwidth-block">
+    <div div-alert class="container alert alert-warning" role="alert">
+      <%= flash[:warning] %>
+    </div>
+  </div>
+<% end %>
