@@ -19,4 +19,16 @@ class Mood < ActiveRecord::Base
   def self.search_by_id(id)
     find(id)
   end
+
+  def self.make_sentence(ids)
+    # NOTE: Get the titles of the selected moods
+    mood_titles = []
+    ids. each do |m|
+      title = '"' + find(m).title.titleize + '"'
+      mood_titles << title
+    end
+
+    # Put mood titles into a sentence
+    mood_titles.to_sentence
+  end
 end

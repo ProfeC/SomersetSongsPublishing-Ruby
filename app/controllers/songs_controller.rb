@@ -8,14 +8,8 @@ class SongsController < ApplicationController
       # NOTE: Get all songs with the requested mood(s)
       @songs = Song.joins(:moods).where("mood_id IN (?)", params[:moods])
 
-      # NOTE: Get the titles of the selected moods
-      mood_titles = []
-      params[:moods]. each do |m|
-        mood_titles << Mood.find(m).title.titleize
-      end
-
-      # Put mood titles into a sentence
-      moods = mood_titles.to_sentence
+      # NOTE: Get the titles of the selected moods and put them in a sentence
+      moods = Mood.make_sentence(params[:moods])
       flash[:success] = 'Filtering moods on ' + moods + '.'
     else
       @songs = Song.sorted_by_title
