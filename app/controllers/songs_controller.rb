@@ -14,7 +14,7 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.sorted_by_title
+        @songs = songs.uniq.sorted_by_title
         flash[:success] = 'Filtering genres on ' + genres + '.'
       else
         flash[:alert] = 'There are no songs matching genres: ' + genres + '.'
@@ -31,7 +31,7 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.sorted_by_title
+        @songs = songs.uniq.sorted_by_title
         flash[:success] = 'Filtering moods on ' + moods + '.'
       else
         flash[:alert] = 'There are no songs matching moods: ' + moods + '.'
@@ -48,7 +48,7 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.sorted_by_title
+        @songs = songs.uniq.sorted_by_title
         flash[:success] = 'Filtering themes on ' + themes + '.'
       else
         flash[:alert] = 'There are no songs matching themes: ' + themes + '.'
