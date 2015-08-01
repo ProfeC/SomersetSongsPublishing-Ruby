@@ -5,17 +5,20 @@ class SongsController < ApplicationController
 
   def filter
     if params[:moods].present?
-      @m = params[:moods].join(', ')
-      @moodList = nil
+      # NOTE: Get all songs with the requested mood(s)
+      @songs = Song.joins(:moods).where("mood_id IN (?)", params[:moods])
 
-      if params[:moods].count > 1
-        params[:moods].each do |stuff|
-          @moodList = @moodList & ', ' & stuff
-        end
+      # NOTE: Get the titles of the selected moods
+      mood_titles = []
+      params[:moods]. each do |m|
+        mood_titles << Mood.find(m).title.titleize
       end
 
-
-      @songs = Song.joins(:moods).where("mood_id IN (?)", @m)
+      # Put mood titles into a sentence
+      moods = mood_titles.to_sentence
+      flash[:success] = 'Filtering moods on ' + moods + '.'
+    else
+      @songs = Song.sorted_by_title
     end
 
     render "index"
