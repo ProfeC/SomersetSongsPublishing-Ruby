@@ -1,7 +1,7 @@
 class Mood < ActiveRecord::Base
   has_and_belongs_to_many :songs, :join_table => 'moods_songs'
 
-  scope :sorted, lambda { order("moods.title ASC") }
+  scope :sorted, lambda { order("title ASC") }
 
   # NOTE: Search for a mood by name
   def self.search_by_name(name)
@@ -29,6 +29,6 @@ class Mood < ActiveRecord::Base
     end
 
     # Put mood titles into a sentence
-    mood_titles.to_sentence
+    mood_titles.to_sentence(two_words_connector: ' or ', last_word_connector: ' or ')
   end
 end

@@ -26,6 +26,8 @@
     }
 
     #filter-moods {
+      font-size: 14px;
+
       .input-group {
 
         .checkbox {
@@ -40,8 +42,9 @@
       }
 
       .row {
-        min-height: 200px;
+        margin-bottom: 13px;
         max-height: 350px;
+        min-height: 200px;
         overflow-y: scroll;
       }
 

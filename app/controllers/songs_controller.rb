@@ -4,18 +4,65 @@ class SongsController < ApplicationController
   before_action :set_mood, only: [:show, :edit, :update, :destroy, :create]
 
   def filter
+    # NOTE: Filter on genres
+    if params[:genres].present?
+      # NOTE: Get all songs with the requested genre(s)
+      songs = Song.joins(:genres).where("genre_id IN (?)", params[:genres])
+
+      # NOTE: Get the titles of the selected genres and put them in a sentence
+      genres = Genre.make_sentence(params[:genres])
+
+      # NOTE: Make sure we got some songs back
+      if songs.present?
+        @songs = songs.sorted_by_title
+        flash[:success] = 'Filtering genres on ' + genres + '.'
+      else
+        flash[:alert] = 'There are no songs matching genres: ' + genres + '.'
+      end
+    end
+
+    # NOTE: Filter on moods
     if params[:moods].present?
       # NOTE: Get all songs with the requested mood(s)
-      @songs = Song.joins(:moods).where("mood_id IN (?)", params[:moods])
+      songs = Song.joins(:moods).where("mood_id IN (?)", params[:moods])
 
       # NOTE: Get the titles of the selected moods and put them in a sentence
       moods = Mood.make_sentence(params[:moods])
-      flash[:success] = 'Filtering moods on ' + moods + '.'
-    else
+
+      # NOTE: Make sure we got some songs back
+      if songs.present?
+        @songs = songs.sorted_by_title
+        flash[:success] = 'Filtering moods on ' + moods + '.'
+      else
+        flash[:alert] = 'There are no songs matching moods: ' + moods + '.'
+      end
+    end
+
+    # NOTE:  Filter on themes
+    if params[:themes].present?
+      # NOTE: Get all songs with the requested theme(s)
+      songs = Song.joins(:themes).where("theme_id IN (?)", params[:themes])
+
+      # NOTE: Get the titles of the selected themes and put them in a sentence
+      themes = Theme.make_sentence(params[:themes])
+
+      # NOTE: Make sure we got some songs back
+      if songs.present?
+        @songs = songs.sorted_by_title
+        flash[:success] = 'Filtering themes on ' + themes + '.'
+      else
+        flash[:alert] = 'There are no songs matching themes: ' + themes + '.'
+      end
+    end
+
+    if !@songs.present?
       @songs = Song.sorted_by_title
     end
 
     render "index"
+
+    # Discard the flash notice
+    flash.discard
   end
 
   # GET /songs

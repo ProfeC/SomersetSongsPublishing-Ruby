@@ -1,0 +1,37 @@
+<aside class="themes boxed-content">
+  <h3 class="wow">Themes</h3>
+  <p class="wow">Select one or more of the <%= Theme.count %> themes to filter on.</p>
+  <%= form_tag({controller: "songs", action: "filter"}, :method => "get", id: "filter-themes") do %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="input-group">
+
+        <!-- % = params[:themes].to_yaml % -->
+
+          <% # NOTE: Loop over each theme so we can filter on them.
+          Theme.sorted.each do |theme|
+
+            # NOTE: Check to see if we are filtering for themes so we can mark them as selected
+            if params[:themes].present?
+              t = params[:themes].reject { |a| a != theme.id.to_s }
+            else
+              t = nil
+            end
+            %>
+
+          <div class="checkbox">
+            <% if t.blank? %>
+              <%= check_box_tag 'themes[]', theme.id, false %>
+            <% else %>
+              <%= check_box_tag 'themes[]', theme.id, true %>
+            <% end %>
+            <%= label_tag(theme.id, theme.title.titleize) %>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <%= submit_tag("Filter", {class: "center-block btn btn-default"}) %>
+  <% end %>
+</aside>

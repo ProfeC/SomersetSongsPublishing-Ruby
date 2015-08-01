@@ -1,6 +1,6 @@
 <aside class="moods boxed-content">
   <h3 class="wow">Moods</h3>
-  <p class="wow">Select one or more moods to filter on.</p>
+  <p class="wow">Select one or more of the <%= Mood.count %> moods to filter on.</p>
   <%= form_tag({controller: "songs", action: "filter"}, :method => "get", id: "filter-moods") do %>
     <div class="row">
       <div class="col-xs-12">
@@ -32,6 +32,6 @@
         </div>
       </div>
     </div>
-    <%= submit_tag("Filter") %>
+    <%= submit_tag("Filter", {class: "center-block btn btn-default"}) %>
   <% end %>
 </aside>

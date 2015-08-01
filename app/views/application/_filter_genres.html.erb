@@ -1,0 +1,38 @@
+<aside class="genres boxed-content">
+  <h3 class="wow">Genres</h3>
+  <p class="wow">Select one or more of the <%= Genre.count %> genres to filter on.</p>
+
+  <%= form_tag({controller: "songs", action: "filter"}, :method => "get", id: "filter-genres") do %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="input-group">
+
+        <!-- % = params[:genres].to_yaml % -->
+
+          <% # NOTE: Loop over each genre so we can filter on them.
+          Genre.sorted.each do |genre|
+
+            # NOTE: Check to see if we are filtering for genres so we can mark them as selected
+            if params[:genres].present?
+              t = params[:genres].reject { |a| a != genre.id.to_s }
+            else
+              t = nil
+            end
+            %>
+
+          <div class="checkbox">
+            <% if t.blank? %>
+              <%= check_box_tag 'genres[]', genre.id, false %>
+            <% else %>
+              <%= check_box_tag 'genres[]', genre.id, true %>
+            <% end %>
+            <%= label_tag(genre.id, genre.title.titleize) %>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <%= submit_tag("Filter", {class: "center-block btn btn-default"}) %>
+  <% end %>
+</aside>
