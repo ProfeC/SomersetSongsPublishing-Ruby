@@ -5,8 +5,17 @@ class SongsController < ApplicationController
 
   def filter
     if params[:moods].present?
-      m = params[:moods].join(",")
-      @songs = Song.joins(:moods).where("mood_id IN (?)", m)
+      @m = params[:moods].join(', ')
+      @moodList = nil
+
+      if params[:moods].count > 1
+        params[:moods].each do |stuff|
+          @moodList = @moodList & ', ' & stuff
+        end
+      end
+
+
+      @songs = Song.joins(:moods).where("mood_id IN (?)", @m)
     end
 
     render "index"
