@@ -30,7 +30,7 @@
       <%
         album = Album.find(song.album.id)
         artist = Artist.find(album.artist.id)
-        genres = song.genre_ids
+        # genres = song.genre_ids
         # aMoods = Mood.find(song.id)
         # aThemes = Theme.find(song.id)
 
@@ -40,8 +40,6 @@
           release_date = ''
         end
       %>
-
-      <!-- <pre>genres => <%= genres.inspect %></pre> -->
 
       <tr>
         <td><%= link_to song.title, song %><br><small><%= release_date %></small></td>

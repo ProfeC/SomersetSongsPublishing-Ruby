@@ -15,7 +15,7 @@ class SongsController < ApplicationController
       # NOTE: Make sure we got some songs back
       if songs.present?
         @songs = songs.uniq.sorted_by_title
-        flash[:success] = 'Filtering genres on ' + genres + '.'
+        flash[:success] = 'Filtering song genres on ' + genres + '.'
       else
         flash[:alert] = 'There are no songs matching genres: ' + genres + '.'
       end
@@ -32,7 +32,7 @@ class SongsController < ApplicationController
       # NOTE: Make sure we got some songs back
       if songs.present?
         @songs = songs.uniq.sorted_by_title
-        flash[:success] = 'Filtering moods on ' + moods + '.'
+        flash[:success] = 'Filtering song moods on ' + moods + '.'
       else
         flash[:alert] = 'There are no songs matching moods: ' + moods + '.'
       end
@@ -49,7 +49,7 @@ class SongsController < ApplicationController
       # NOTE: Make sure we got some songs back
       if songs.present?
         @songs = songs.uniq.sorted_by_title
-        flash[:success] = 'Filtering themes on ' + themes + '.'
+        flash[:success] = 'Filtering song themes on ' + themes + '.'
       else
         flash[:alert] = 'There are no songs matching themes: ' + themes + '.'
       end
@@ -73,46 +73,53 @@ class SongsController < ApplicationController
     # @songs = Song.all
 
     if params[:q].present?
+      @songs_searched = []
+      @search_string = params[:q].split
 
-      # # NOTE: Get possible artists.
-      # artist_id = Artist.search_by_name(params[:q])
-      # if artist_id.present?
-      #   artist_songs = Artist.search_by_id(artist_id)
-      # else
-        artist_songs = []
-      # end
+      @search_string.each  do |s|
 
-      # # NOTE: Get possible albums.
-      # album_id = Album.search_by_name(params[:q])
-      # # album_songs = Song.search_album(album_id)
+        # # NOTE: Get possible artists.
+        # artist_id = Artist.search_by_name(params[:q])
+        # if artist_id.present?
+        #   artist_songs = Artist.search_by_id(artist_id)
+        # else
+          artist_songs = []
+        # end
 
-      # if album_id.present?
-      #   album_songs = Album.search_by_id(album_id)
-      # else
-        album_songs = []
-      # end
+        # # NOTE: Get possible albums.
+        # album_id = Album.search_by_name(params[:q])
+        # # album_songs = Song.search_album(album_id)
 
-      # NOTE: Get possible genres.
-      genre_id = Genre.search_by_name(params[:q])
-      genre_songs = Song.search_genre(genre_id)
+        # if album_id.present?
+        #   album_songs = Album.search_by_id(album_id)
+        # else
+          album_songs = []
+        # end
 
-      # NOTE: Get possible moods.
-      mood_id = Mood.search_by_name(params[:q])
-      mood_songs = Song.search_mood(mood_id)
+        # NOTE: Get possible genres.
+        # genre_id = Genre.search_by_name(params[:q])
+        genre_id = Genre.search_by_name(s)
+        genre_songs = Song.search_genre(genre_id)
 
-      # NOTE: Get possible themes.
-      theme_id = Theme.search_by_name(params[:q])
-      theme_songs = Song.search_theme(theme_id)
+        # NOTE: Get possible moods.
+        mood_id = Mood.search_by_name(s)
+        mood_songs = Song.search_mood(mood_id)
 
-      #NOTE: Get possible songs
-      songs_list = Song.search(params[:q])
+        # NOTE: Get possible themes.
+        theme_id = Theme.search_by_name(s)
+        theme_songs = Song.search_theme(theme_id)
 
-      @songs_searched = (songs_list + mood_songs + theme_songs + genre_songs + album_songs + artist_songs).uniq
+        #NOTE: Get possible songs
+        songs_list = Song.search(s)
+
+        @songs_searched = (@songs_searched + songs_list + mood_songs + theme_songs + genre_songs + album_songs + artist_songs).uniq
+
+      end
 
 
       # Check to see if the array is empty
       if @songs_searched.blank?
-        flash[:warning] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
+        flash[:alert] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
       else
         @songs = @songs_searched
       end
