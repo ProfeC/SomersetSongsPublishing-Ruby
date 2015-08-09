@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   # get 'index' => 'application#index'
   get 'about' => 'application#about'
   get 'contact' => 'application#contact'
+  get 'solicit' => 'application#solicit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

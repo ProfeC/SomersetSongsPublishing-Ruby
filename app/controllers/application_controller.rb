@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     render 'about'
   end
 
+  def solicit
+    render 'music_request'
+  end
+
   def services
     render 'services'
   end
