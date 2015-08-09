@@ -1,6 +1,6 @@
 <%
   # NOTE: Set classes for non-Song controller pages
-  if controller_name == "songs"
+  if controller_name == "songs#index"
     main_col_1 = "col-md-9"
     main_col_2 = "col-md-3"
   else
@@ -87,9 +87,9 @@
               </div>
               <div class="sidebar <%= main_col_2 %>">
                 <h2>Filters <%= @clear_filter %></h2>
-                  <%= render :partial => "application/filter_moods" if controller_name == "songs" %>
-                  <%= render :partial => "application/filter_themes" if controller_name == "songs" %>
-                  <%= render :partial => "application/filter_genres" if controller_name == "songs" %>
+                  <%= render :partial => "application/filter_moods" if controller_name == "songs#index" %>
+                  <%= render :partial => "application/filter_themes" if controller_name == "songs#index" %>
+                  <%= render :partial => "application/filter_genres" if controller_name == "songs#index" %>
               </div>
             </div>
           </div>
