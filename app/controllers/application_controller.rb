@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def solicit
-    render 'music_request'
+    render 'solicit'
   end
 
   def services
