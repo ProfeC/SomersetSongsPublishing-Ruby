@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'songs#index'
+  root 'application#index'
 
   # get '/' => 'application#index'
   # get 'index' => 'application#index'
