@@ -25,3 +25,20 @@ form {
     resize: vertical;
   }
 }
+
+#filter-genres,
+#filter-moods,
+#filter-themes {
+  .checkbox {
+    input[type="checkbox"] {
+      display: inline-block;
+      margin: 0;
+      position: static;
+      width: auto;
+    }
+
+    label {
+      padding-left: 10px
+    }
+  }
+}
