@@ -1,0 +1,41 @@
+
+        <div class="fullwidth-block feature-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="feature wow fadeInUp">
+                  <h1>Welcome</h1>
+                  <p>Tiramisu cotton candy caramels cake biscuit jelly-o chupa chups chocolate. Tootsie roll lollipop topping. Pudding cake powder icing tart sugar plum sesame snaps. Fruitcake tootsie roll candy. Sweet roll toffee donut. Chocolate cake gummi bears fruitcake cookie biscuit cotton candy marshmallow.</p>
+                  <p>Liquorice macaroon marshmallow macaroon cheesecake sweet soufflé. Cheesecake cookie dessert jelly-o. Fruitcake tart topping.</p>
+                </div> <!-- .feature -->
+              </div> <!-- .col-md-12 -->
+            </div> <!-- .row -->
+          </div> <!-- .container -->
+        </div> <!-- .feature-section -->
+
+        <div class="fullwidth-block about-section">
+
+          <div class="container">
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <h2>Music Search</h2>
+                <p>Search the entire catalog for: melodic moods, lyrical themes, title, genre, etc. Or, feel free to <%= link_to 'browse the entire collection for ideas', {:controller => :songs, :action => :index} %>.</p>
+
+                <div style="padding: 13px 0">
+                  <%= render(:partial => "application/search_form") %>
+                  </div>
+
+              </div>
+
+              <div class="col-md-6">
+                <h2>Need Help?</h2>
+                <p>We can assist you in making a selection for_____. Drop us a line and we'll reach out to help you make your selections.</p>
+                <%= link_to 'Music Request', {:controller => :application, :action => :solicit}, :class => 'btn btn-primary btn-lg btn-block' %>
+              </div>
+
+            </div> <!-- .row -->
+
+          </div> <!-- .container -->
+        </div> <!-- .fullwidth-block -->
