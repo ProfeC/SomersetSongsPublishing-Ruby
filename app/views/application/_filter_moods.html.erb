@@ -6,8 +6,6 @@
       <div class="col-xs-12">
         <div class="input-group">
 
-        <!-- % = params[:moods].to_yaml % -->
-
           <% # NOTE: Loop over each mood so we can filter on them.
           Mood.sorted.each do |mood|
 
@@ -20,12 +18,13 @@
             %>
 
           <div class="checkbox">
+            <label for="<%= mood.id %>">
             <% if t.blank? %>
               <%= check_box_tag 'moods[]', mood.id, false %>
             <% else %>
               <%= check_box_tag 'moods[]', mood.id, true %>
             <% end %>
-            <%= label_tag(mood.id, mood.title) %>
+            <%= mood.title %></label>
           </div>
           <% end %>
 

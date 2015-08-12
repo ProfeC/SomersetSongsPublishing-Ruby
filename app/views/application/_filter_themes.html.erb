@@ -6,8 +6,6 @@
       <div class="col-xs-12">
         <div class="input-group">
 
-        <!-- % = params[:themes].to_yaml % -->
-
           <% # NOTE: Loop over each theme so we can filter on them.
           Theme.sorted.each do |theme|
 
@@ -20,12 +18,13 @@
             %>
 
           <div class="checkbox">
+            <label for="<%= theme.id %>">
             <% if t.blank? %>
               <%= check_box_tag 'themes[]', theme.id, false %>
             <% else %>
               <%= check_box_tag 'themes[]', theme.id, true %>
             <% end %>
-            <%= label_tag(theme.id, theme.title.titleize) %>
+            <%= theme.title.titleize %></label>
           </div>
           <% end %>
 

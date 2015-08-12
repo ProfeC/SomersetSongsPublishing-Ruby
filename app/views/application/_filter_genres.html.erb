@@ -7,8 +7,6 @@
       <div class="col-xs-12">
         <div class="input-group">
 
-        <!-- % = params[:genres].to_yaml % -->
-
           <% # NOTE: Loop over each genre so we can filter on them.
           Genre.sorted.each do |genre|
 
@@ -21,12 +19,13 @@
             %>
 
           <div class="checkbox">
+            <label for="<%= genre.id %>">
             <% if t.blank? %>
               <%= check_box_tag 'genres[]', genre.id, false %>
             <% else %>
               <%= check_box_tag 'genres[]', genre.id, true %>
             <% end %>
-            <%= label_tag(genre.id, genre.title.titleize) %>
+            <%= genre.title.titleize %></label>
           </div>
           <% end %>
 
