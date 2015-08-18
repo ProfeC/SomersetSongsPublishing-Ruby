@@ -88,7 +88,7 @@ album_list = [
   },
   {
     title: 'The Understanding',
-    artist: 'Memphis Bleek (Explicit)'
+    artist: 'Memphis Bleek'
   },
   {
     title: 'Unusual Heat',

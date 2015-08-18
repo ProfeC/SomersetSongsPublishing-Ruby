@@ -23,7 +23,7 @@ artist_list = [
     description: ''
   },
   {
-    name: 'Memphis Bleek (Explicit)',
+    name: 'Memphis Bleek',
     description: ''
   },
   {
