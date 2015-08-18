@@ -11,8 +11,8 @@
 album = Album.create!(
   artist_id: Artist.find_by(name: 'Foreigner').id,
   description: '',
-  original_release_date: '1978-01-01',
-  title: 'Double Vision'
+  original_release_date: '1977-01-01',
+  title: 'Foreigner'
 )
 
 songs_list = [
@@ -20,101 +20,111 @@ songs_list = [
     audio: '',
     cover_art: '',
     genre: ['rock'],
-    length: '00:03:12',
-    mood: [],
-    date: '1980-10-10',
-    theme: ['blue'],
-    title: 'Blue Morning, Blue Day'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: [],
-    length: '00:03:15',
-    mood: [],
-    date: '1980-10-10',
-    theme: ['home'],
-    title: 'Back Where You Belong'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: [],
-    length: '00:03:44',
-    mood: [],
-    date: '1980-10-10',
-    theme: ['eyes'],
-    title: 'Double Vision'
+    length: '00:04:18',
+    mood: ['anxiety', 'angst'],
+    date: '1977-02-18',
+    description: '',
+    theme: [],
+    title: 'At War with the World'
   },
   {
     audio: '',
     cover_art: '',
     genre: ['rock'],
-    length: '00:4:29',
-    mood: [],
-    date: '1980-10-10',
-    theme: ['temperature'],
-    title: 'Hot Blooded'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: ['ballad'],
-    length: '00:04:06',
-    mood: ['ambient'],
-    date: '1980-10-10',
-    theme: ['waiting'],
-    title: 'I Have Waited So Long'
+    length: '00:03:19',
+    mood: ['uptempo', 'driving', 'dynamic'],
+    date: '1977-02-18',
+    description: '',
+    theme: ['temperature', 'frozen'],
+    title: 'Cold As Ice'
   },
   {
     audio: '',
     cover_art: '',
     genre: [],
-    length: '00:03:37',
+    length: '00:03:49',
     mood: [],
-    date: '1980-10-10',
-    theme: ['children'],
-    title: 'Lonely Children'
+    date: '1977-02-18',
+    description: '',
+    theme: ['feel'],
+    title: 'Feels Like The First Time'
   },
   {
     audio: '',
     cover_art: '',
     genre: [],
-    length: '00:03:31',
+    length: '00:04:18',
     mood: [],
-    date: '1980-10-10',
+    date: '1977-02-18',
+    description: '',
+    theme: ['miss you'],
+    title: 'Fool For You Anyway'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: [],
+    length: '00:05:09',
+    mood: [],
+    date: '1977-02-18',
+    description: '',
+    theme: ['need','want'],
+    title: 'I Need You'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: [],
+    length: '00:05:09',
+    mood: ['driving'],
+    date: '1977-02-18',
+    description: 'Long, Long Way From Home',
+    theme: ['home'],
+    title: 'Long, Long Way from Home'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: ['rock'],
+    length: '00:04:01',
+    mood: [],
+    date: '1977-02-18',
+    description: '',
+    theme: ['stars','moon'],
+    title: 'Starrider'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: [],
+    length: '00:03:49',
+    mood: [],
+    date: '1977-02-28',
+    description: '',
+    theme: ['woman', 'women'],
+    title: 'Woman Oh Woman'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: [],
+    length: '00:04:15',
+    mood: [],
+    date: '1977-12-18',
+    description: '',
+    theme: ['late'],
+    title: 'The Damage is Done'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: [],
+    length: '00:02:58',
+    mood: [],
+    date: '1979-02-18',
+    description: '',
     theme: [],
-    title: 'Love has Taken its Toll'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: [],
-    length: '00:04:49',
-    mood: [],
-    date: '1980-10-10',
-    theme: ['magic'],
-    title: 'Spellbinder'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: [],
-    length: '00:03:55',
-    mood: ['triumphant'],
-    date: '1980-10-10',
-    theme: [],
-    title: 'Tramontane (Instrumental)'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: [],
-    length: '00:03:24',
-    mood: [],
-    date: '1980-10-10',
-    theme: [],
-    title: 'You\'re All I Am'
+    title: 'Headknocker'
   }
 ]
 

@@ -8,23 +8,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-album = Album.create(
-  artist_id: Artist.find_by(name: 'The Cult').id,
+album = Album.create!(
+  artist_id: Artist.find_by(name: 'Armand Van Helden').id,
   description: '',
-  original_release_date: '',
-  title: 'Beyond Good and Evil'
+  original_release_date: '2001-01-01',
+  title: 'Gandhi Khan'
 )
 
 songs_list = [
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:04;59',
-    mood: '',
-    date: '2000-08-16',
-    theme: '',
-    title: 'Breathe'
+    genre: [],
+    length: '00:06:35',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'The Robots Are Coming'
   }
 ]
 

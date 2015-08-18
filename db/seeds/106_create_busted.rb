@@ -16,17 +16,16 @@ album = Album.create(
 )
 
 songs_list = [
-  # {
-    # album: a.title,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    # length: '',
-    # mood: '',
-    # date: '',
-    # theme: '',
-    # title: ''
-  # }
+  {
+    audio: '',
+    cover_art: '',
+    genre: [],
+    length: '00:04:26',
+    mood: [],
+    date: '1990-07-13',
+    theme: [],
+    title: 'If You Need Me'
+  }
 ]
 
 songs_list.each do |song|

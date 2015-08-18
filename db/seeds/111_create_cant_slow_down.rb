@@ -9,102 +9,122 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 album = Album.create!(
-  artist_id: Artist.find_by(name: 'Mick Jones').id,
+  artist_id: Artist.find_by(name: 'Foreigner').id,
   description: '',
-  original_release_date: '',
-  title: 'Mick Jones'
+  original_release_date: '2009-09-29',
+  title: 'Can\'t Slow Down'
 )
 
 songs_list = [
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:04:34',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Danielle'
+    genre: ['ballad'],
+    length: '00:03:32',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'Angel Tonight'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:04:41',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Danielle'
+    genre: [],
+    length: '00:03:48',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'As Long As I Live'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:01:43',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Johnny (Part 1)'
+    genre: ['rock'],
+    length: '00:03:28',
+    mood: ['uptempo'],
+    date: '',
+    description: '',
+    theme: ['car', 'racing', 'automotive'],
+    title: 'Can\'t Slow Down'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:03:30',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Just Wanna Hold'
+    genre: [],
+    length: '00:03:52',
+    mood: [],
+    date: '',
+    description: '',
+    theme: ['miss you'],
+    title: 'Give Me A Sign'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:03:50',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Save Me Tonight'
+    genre: [],
+    length: '00:04:32',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'I Can\'t Give Up'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:03:25',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'That\'s The Way My Love Is'
+    genre: [],
+    length: '00:04:14',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'I\'ll Be Home Tonight'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:04:25',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Write Tonight'
+    genre: [],
+    length: '00:03:53',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'In Pieces'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:05:14',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'The Wrong Side Of The Law'
+    genre: [],
+    length: '00:03:43',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'Living In A Dream'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:05:39',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'You Are My Friend'
+    genre: [],
+    length: '00:03:43',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'Ready'
+  },
+  {
+    audio: '',
+    cover_art: '',
+    genre: ['ballad'],
+    length: '00:03:54',
+    mood: [],
+    date: '',
+    description: '',
+    theme: [],
+    title: 'When It Comes To Love'
   }
 ]
 

@@ -11,7 +11,7 @@
 album = Album.create!(
   artist_id: Artist.find_by(name: 'Foreigner').id,
   description: '',
-  original_release_date: '1981-01-01',
+  original_release_date: '1981-07-10',
   title: '4',
 )
 
@@ -22,7 +22,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: '',
     title: 'Break It Up'
   },
@@ -32,7 +32,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: '',
     title: 'Don\'t Let Go'
   },
@@ -42,7 +42,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['stars','moon'],
     title: 'Girl on the Moon'
   },
@@ -52,7 +52,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['winning','achievement'],
     title: 'I\'m Gonna Win'
   },
@@ -62,7 +62,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['heroes'],
     title: 'Juke Box Hero'
   },
@@ -72,7 +72,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: '',
     title: 'Luanne'
   },
@@ -82,17 +82,17 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['night'],
     title: 'Night Life'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: ['rock'],
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['speed', 'fast'],
     title: 'Urgent'
   },
@@ -102,7 +102,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['waiting'],
     title: 'Waiting for a Girl Like You'
   },
@@ -112,7 +112,7 @@ songs_list = [
     genre: '',
     length: '',
     mood: '',
-    date: '',
+    date: '1981-07-10',
     theme: ['woman','women'],
     title: 'Woman in Black'
   }

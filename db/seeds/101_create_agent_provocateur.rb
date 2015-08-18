@@ -51,9 +51,9 @@ songs_list = [
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: ['ballad'],
     length: '00:05:00',
-    mood: '',
+    mood: ['spiritual'],
     date: '1984-12-19',
     theme: '',
     title: 'I Want To Know What Love Is'
@@ -101,11 +101,11 @@ songs_list = [
   {
     audio: '',
     cover_art: '',
-    genre: '',
+    genre: ['rock'],
     length: '00:03:46',
-    mood: '',
+    mood: ['reflective'],
     date: '1984-12-19',
-    theme: '',
+    theme: ['alone', 'lonely'],
     title: 'That Was Yesterday'
   },
   {

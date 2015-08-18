@@ -8,7 +8,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-album = Album.create(
+album = Album.create!(
   artist_id: Artist.find_by(name: 'EPMD').id,
   description: '',
   original_release_date: '',
@@ -16,17 +16,16 @@ album = Album.create(
 )
 
 songs_list = [
-  # {
-    # album: a.title,
-    # audio: '',
-    # cover_art: '',
-    # genre: '',
-    # length: '',
-    # mood: '',
-    # date: '',
-    # theme: '',
-    # title: ''
-  # }
+  {
+    audio: '',
+    cover_art: '',
+    genre: '',
+    length: '00:02:59',
+    mood: '',
+    date: '1992-01-01',
+    theme: ['risk'],
+    title: 'Chill [Street Thunder]'
+  }
 ]
 
 songs_list.each do |song|
