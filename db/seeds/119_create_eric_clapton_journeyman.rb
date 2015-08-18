@@ -9,10 +9,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 album = Album.create!(
-  artist_id: Artist.find_by(name: 'Tina Arena').id,
+  artist_id: Artist.find_by(name: 'Eric Clapton').id,
   description: '',
-  original_release_date: '1998-10-08',
-  title: 'In Deep'
+  original_release_date: '1989-01-12',
+  title: 'Journeyman'
 )
 
 songs_list = [
@@ -20,23 +20,12 @@ songs_list = [
     audio: '',
     cover_art: '',
     genre: [],
-    length: '00:04:25',
+    length: '00:05:11',
     mood: [],
     date: '',
     description: '',
     theme: [],
-    title: 'Flashback'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: [],
-    length: '00:04:54',
-    mood: [],
-    date: '',
-    description: '',
-    theme: [],
-    title: 'I Want To Live With You'
+    title: 'Bad Love'
   }
 ]
 
