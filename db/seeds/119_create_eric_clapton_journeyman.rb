@@ -8,12 +8,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-album = Album.create!(
+album = Album.create_with(
   artist_id: Artist.find_by(name: 'Eric Clapton').id,
   description: '',
-  original_release_date: '1989-01-12',
-  title: 'Journeyman'
-)
+  original_release_date: '1989-01-12').find_or_create_by(title: 'Journeyman')
 
 songs_list = [
   {
