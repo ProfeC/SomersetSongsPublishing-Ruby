@@ -9,92 +9,45 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 album = Album.create!(
-  artist_id: Artist.find_by(name: 'Mick Jones').id,
+  artist_id: Artist.find_by(name: 'Foreigner').id,
   description: '',
-  original_release_date: '',
-  title: 'Mick Jones'
+  original_release_date: '1993-05-04',
+  title: 'The Very Best And Beyond'
 )
 
 songs_list = [
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:04:34',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Danielle'
+    genre: [],
+    length: '00:05:15',
+    mood: [],
+    date: '1992-12-17',
+    description: '',
+    theme: [],
+    title: 'With Heaven On Our Side'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:01:43',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Johnny (Part 1)'
+    genre: [],
+    length: '00:05:15',
+    mood: [],
+    date: '1993-05-03',
+    description: '',
+    theme: [],
+    title: 'Prisoner Of Love'
   },
   {
     audio: '',
     cover_art: '',
-    genre: '',
-    length: '00:03:30',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Just Wanna Hold'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: '',
-    length: '00:03:50',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Save Me Tonight'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: '',
-    length: '00:03:25',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'That\'s The Way My Love Is'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: '',
-    length: '00:04:25',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'Write Tonight'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: '',
-    length: '00:05:14',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'The Wrong Side Of The Law'
-  },
-  {
-    audio: '',
-    cover_art: '',
-    genre: '',
-    length: '00:05:39',
-    mood: '',
-    date: '1989-10-04',
-    theme: '',
-    title: 'You Are My Friend'
+    genre: [],
+    length: '00:04:51',
+    mood: [],
+    date: '1993-05-04',
+    description: '',
+    theme: [],
+    title: 'Soul Doctor'
   }
 ]
 
