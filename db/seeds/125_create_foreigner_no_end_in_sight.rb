@@ -8,12 +8,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-album = Album.create!(
+album = Album.create_with(
   artist_id: Artist.find_by(name: 'Foreigner').id,
   description: '',
-  original_release_date: '2008-09-24',
-  title: 'No End In Sight: The Very Best Of Foreigner'
-)
+  original_release_date: '2008-09-24').find_or_create_by!(title: 'No End In Sight: The Very Best Of Foreigner')
 
 songs_list = [
   {
