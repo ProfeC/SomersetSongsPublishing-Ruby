@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   layout 'application'
 
+  def get_page_metadata
+    @page = Page.find_by_name(params[:name])
+    @pagetitle = @page.title
+  end
+
   def index
     render 'index'
   end
