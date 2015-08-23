@@ -1,4 +1,4 @@
-<%= form_for(@message) do |f| %>
+<%= form_for @message, html: {class: @form_class, id: @form_id} do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -12,30 +12,49 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :project %><br>
+    <label for"<%= :project %>">Project Name</label><br>
     <%= f.text_field :project %>
   </div>
+
   <div class="field">
-    <%= f.label :description %><br>
+    <label for"<%= :description %>">Project Description</label><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="checkbox field">
+        <label for="<%= :listen_online %>"><%= f.check_box :listen_online, class: 'checkbox' %>I will listen to suggestions online.</label>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="checkbox field">
+        <label for"<%= :send_suggestions %>"><%= f.check_box :send_suggestions, class: 'checkbox' %>Please send me suggestions.</label>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email_address %><br>
-    <%= f.text_field :email_address %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <label for"<%= :name %>">Your Name</label><br>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="field">
+        <label for"<%= :email_address %>">Your Email Address</label><br>
+        <%= f.text_field :email_address %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :listen_online %><br>
-    <%= f.check_box :listen_online %>
-  </div>
-  <div class="field">
-    <%= f.label :send_suggestions %><br>
-    <%= f.check_box :send_suggestions %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <br>
+  <div class="row actions">
+    <div class="col-md-6 col-md-offset-3">
+      <%= submit_tag('Request Suggestions', {class: 'center-block btn btn-primary btn-lg btn-block'}) %>
+    </div>
   </div>
 <% end %>
