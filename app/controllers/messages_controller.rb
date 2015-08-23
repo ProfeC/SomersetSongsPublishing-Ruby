@@ -36,6 +36,12 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        # Send an email to the appropriate place
+        if @contact_type = 'project' do
+          ContactMailer.project_request(@message).deliver_later
+        else
+          ContactMailer.contact_request.deliver_later
+        end
         format.html { redirect_to @message, notice: 'Message was successfully created.', style: 'success' }
         format.json { render :show, status: :created, location: @message }
       else

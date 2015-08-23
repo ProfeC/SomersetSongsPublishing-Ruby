@@ -5,10 +5,16 @@ class ContactMailer < ApplicationMailer
   #
   #   en.contact_mailer.project_request.subject
   #
-  def project_request
+  def project_request(message)
+    @body = :message => message
+    @contact_email = message.email
+    @contact_name = message.name
     @greeting = "Hi"
+    @listen_online = message.listen_online
+    @send_suggestions = message.send_suggestions
+    @sent_on = Time.now
 
-    mail to: "to@example.org"
+    mail (to: "licensing@somersetsongs.com", subject: 'Music Request for: ' + message.project)
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
