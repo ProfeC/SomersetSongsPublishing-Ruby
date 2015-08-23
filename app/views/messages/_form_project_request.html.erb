@@ -1,3 +1,6 @@
+<%
+@contact_type = 'project'
+%>
 <%= form_for @message, html: {class: @form_class, id: @form_id} do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">

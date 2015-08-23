@@ -1,5 +1,17 @@
-<h1>Music Request for<%= @body.project %></h1>
+<h1>Music Request for <%= @body.project %> Project</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/contact_mailer/project_request.html.erb
-</p>
+<h2>Contact Information</h2>
+<ul>
+  <li><strong>Name:</strong> <%= @body.name %></li>
+  <li><strong>Email:</strong> <%= @body.email_address %></li>
+</ul>
+
+<h2>Project Information</h2>
+<p><%= @body.description %></p>
+
+<h2>Other Information</h2>
+<ul>
+<li><strong>Will listen online:</strong> <%= @body.listen_online %></li>
+<li><strong>Send suggestion:</strong> <%= @body.send_suggestions %></li>
+<li><strong>Time Requested:</strong> <%= @sent_on %></li>
+</ul>

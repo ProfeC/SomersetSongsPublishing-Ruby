@@ -2,6 +2,9 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   # before_filter :login_required, :except[:new, :create]
 
+  # Defaults
+  @contact_type = ''
+
   # GET /messages
   # GET /messages.json
   def index
@@ -37,11 +40,12 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         # Send an email to the appropriate place
-        if @contact_type = 'project' do
-          ContactMailer.project_request(@message).deliver_later
+        if (@contact_type == 'project')
+          ContactMailer.project_request(@message).deliver_now
         else
           ContactMailer.contact_request.deliver_later
         end
+
         format.html { redirect_to @message, notice: 'Message was successfully created.', style: 'success' }
         format.json { render :show, status: :created, location: @message }
       else
@@ -57,7 +61,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.update(message_params)
         flash[:alert] =  'Message was successfully updated.'
-        format.html { redirect_to @message, }
+        format.html { redirect_to @message }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }
@@ -71,7 +75,8 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' , style: 'success'}
+      flash[:alert] = 'Message was successfully destroyed.'
+      format.html { redirect_to messages_url }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,19 @@
 =======================================
-Music Request for<%= @body.project %>
+Music Request for <%= @body.project %> Project
 =======================================
 
+Contact Information
+=======================================
+Name: <%= @body.name %>
+Email: <%= @body.email_address %>
 
-<%= @greeting %>, find me in app/views/contact_mailer/project_request.text.erb
+
+Project Information
+=======================================
+<%= @body.description %>
+
+Other Information
+=======================================
+Will listen online: <%= @body.listen_online %>
+Send suggestion: <%= @body.send_suggestions %>
+Time Requested: <%= @sent_on %>
