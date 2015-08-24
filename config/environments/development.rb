@@ -13,8 +13,24 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  ###
+  #NOTE: ActionMailer Settings
+  ###
+
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['mail_address'],
+    authentication: ENV['mail_authentication'],
+    domain: ENV['mail_domain'],
+    enable_starttls_auto: ENV['mail_starttls'],
+    from: ENV['mail_user']
+    password: ENV['mail_pass'],
+    port: ENV['mail_port'],
+    user_name: ENV['mail_user'],
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: MyString
+  description: MyText
+  name: MyString
+  email_address: MyString
+  listen_online: false
+  send_suggestions: false
+
+two:
+  project: MyString
+  description: MyText
+  name: MyString
+  email_address: MyString
+  listen_online: false
+  send_suggestions: false

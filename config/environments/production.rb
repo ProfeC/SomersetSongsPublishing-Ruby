@@ -89,4 +89,23 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+
+  ###
+  #NOTE: ActionMailer Settings
+  ###
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['mail_address'],
+    authentication: ENV['mail_authentication'],
+    domain: ENV['mail_domain'],
+    enable_starttls_auto: ENV['mail_starttls'],
+    from: ENV['mail_user']
+    password: ENV['mail_pass'],
+    port: ENV['mail_port'],
+    user_name: ENV['mail_user'],
+  }
 end

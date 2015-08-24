@@ -68,6 +68,9 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
+    @title ='Music Search'
+    @leading_text = 'Please feel free to browse for ideas. No sign-in is needed. You can search the entire catalog for: melodic moods, lyrical themes, title, genre, etc.'
+    @subtitle = ''
 
     # NOTE: Set the value of songs to "All" by default
     # @songs = Song.all

@@ -87,6 +87,9 @@ Rails.application.routes.draw do
   # NOTE: Theme Resources
   resources :themes
 
+  # NOTE: Message Resources
+  resources :messages
+
   # Default route to be processed last
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
 end

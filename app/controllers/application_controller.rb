@@ -3,7 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  layout 'hosting'
+  layout 'application'
+
+  def get_page_metadata
+    @page = Page.find_by_name(params[:name])
+    @pagetitle = @page.title
+  end
 
   def index
     render 'index'
