@@ -52,6 +52,9 @@ gem "figaro"
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '< 2.0'
 
+# Adds Raygun.io Support
+gem 'raygun4ruby'
+
 # Use ActiveAdmin (and its dependencies) for administrative UI [http://activeadmin.info/docs/documentation.html]
 # gem 'activeadmin', github: 'activeadmin'
 # gem 'devise'
@@ -86,7 +89,5 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # Adds Raygun.io Support
-  gem 'raygun4ruby'
 end
 
