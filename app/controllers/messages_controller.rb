@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         # Send an email to the appropriate place
-        if (@contact_type = 'project')
+        if params['contact_type'] == 'project'
           ContactMailer.project_request(@message).deliver_now
         else
           ContactMailer.contact_request.deliver_later
