@@ -30,6 +30,7 @@ Rails.application.configure do
     password: ENV['mail_pass'],
     port: ENV['mail_port'],
     user_name: ENV['mail_user'],
+    enable_starttls_auto: ENV['mail_starttls']
   }
 
   # Print deprecation notices to the Rails logger.
