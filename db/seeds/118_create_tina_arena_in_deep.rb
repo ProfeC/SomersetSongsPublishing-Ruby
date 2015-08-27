@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:25',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Flashback'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:04:54',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I Want To Live With You'

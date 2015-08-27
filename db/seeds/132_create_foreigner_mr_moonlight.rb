@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:44',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'All I Need To Know'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:04:46',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Big Dog'
@@ -42,7 +42,7 @@ songs_list = [
     genre: [],
     length: '00:04:58',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Hand On My Heart'
@@ -53,7 +53,7 @@ songs_list = [
     genre: [],
     length: '00:05:08',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Hole In My Soul'
@@ -64,7 +64,7 @@ songs_list = [
     genre: [],
     length: '00:05:15',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I Keep Hoping'
@@ -75,7 +75,7 @@ songs_list = [
     genre: [],
     length: '00:04:34',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Rain'
@@ -86,7 +86,7 @@ songs_list = [
     genre: [],
     length: '00:06:19',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Real World'
@@ -97,7 +97,7 @@ songs_list = [
     genre: [],
     length: '00:05:09',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Running The Risk'
@@ -108,7 +108,7 @@ songs_list = [
     genre: [],
     length: '00:03:54',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Under The Gun'
@@ -119,7 +119,7 @@ songs_list = [
     genre: ['ballad'],
     length: '00:04:51',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Until The End Of Time'
@@ -130,7 +130,7 @@ songs_list = [
     genre: [],
     length: '00:04:16',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'White Lie'

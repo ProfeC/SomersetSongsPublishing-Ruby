@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:10',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'In My Life (Explicit)'

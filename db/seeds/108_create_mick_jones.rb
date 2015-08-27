@@ -11,7 +11,7 @@
 album = Album.create_with(
   artist_id: Artist.find_by(name: 'Mick Jones').id,
   description: '',
-  original_release_date: '').find_or_create_by!(title: 'Mick Jones')
+  original_release_date: '1989-10-04').find_or_create_by!(title: 'Mick Jones')
 
 songs_list = [
   {

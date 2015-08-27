@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:17',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Flesh Wound'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:06:02',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I\'ll Fight For You'
@@ -42,7 +42,7 @@ songs_list = [
     genre: [],
     length: '00:04:21',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Lowdown And Dirty'
@@ -53,7 +53,7 @@ songs_list = [
     genre: [],
     length: '00:04:25',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Moment Of Truth'
@@ -64,7 +64,7 @@ songs_list = [
     genre: [],
     length: '00:04:37',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Mountain Of Love'
@@ -75,7 +75,7 @@ songs_list = [
     genre: [],
     length: '00:03:55',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'No Hiding Place'
@@ -86,7 +86,7 @@ songs_list = [
     genre: [],
     length: '00:04:47',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Only Heaven Knows'
@@ -97,7 +97,7 @@ songs_list = [
     genre: [],
     length: '00:05:02',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Ready For The Rain'
@@ -108,7 +108,7 @@ songs_list = [
     genre: [],
     length: '00:04:32',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Safe In My Heart'
@@ -119,7 +119,7 @@ songs_list = [
     genre: [],
     length: '00:04:32',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Unusual Heat'
@@ -130,7 +130,7 @@ songs_list = [
     genre: [],
     length: '00:04:43',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'When The Night Comes Down'

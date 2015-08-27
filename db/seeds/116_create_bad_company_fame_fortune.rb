@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:04',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Burning Up'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:04:25',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Hold On My Heart'

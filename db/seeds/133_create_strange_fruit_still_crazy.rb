@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:03:39',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'All Over The World'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:03:46',
     mood: [],
-    date: '',
+    # date: '',
     description: 'w/ Jimmy Nail',
     theme: [],
     title: 'Bird On A Wire'
@@ -42,7 +42,7 @@ songs_list = [
     genre: [],
     length: '00:04:15',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Scream Freedom'
@@ -53,7 +53,7 @@ songs_list = [
     genre: ['ballad'],
     length: '00:07:54',
     mood: [],
-    date: '',
+    # date: '',
     description: 'w/ Jimmy Nail',
     theme: [],
     title: 'The Flame Still Burns Flame'

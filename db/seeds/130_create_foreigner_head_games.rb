@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:54',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Blinded By Science'
@@ -31,7 +31,7 @@ songs_list = [
     genre: ['rock'],
     length: '00:03:37',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Dirty White Boy'
@@ -42,7 +42,7 @@ songs_list = [
     genre: [],
     length: '00:03:58',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Do What You Like'
@@ -53,7 +53,7 @@ songs_list = [
     genre: [],
     length: '00:03:37',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Head Games'
@@ -64,7 +64,7 @@ songs_list = [
     genre: [],
     length: '00:03:40',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I\'ll Get Even With You'
@@ -75,7 +75,7 @@ songs_list = [
     genre: [],
     length: '00:03:18',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Love On The Telephone'
@@ -86,7 +86,7 @@ songs_list = [
     genre: [],
     length: '00:03:26',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Modern Day, The The Modern Day'
@@ -97,7 +97,7 @@ songs_list = [
     genre: [],
     length: '00:03:35',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Rev On The Red Line'
@@ -108,7 +108,7 @@ songs_list = [
     genre: [],
     length: '00:04:43',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Seventeen'
@@ -119,7 +119,7 @@ songs_list = [
     genre: [],
     length: '00:03:26',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'The Modern Day  Modern Day'
@@ -130,7 +130,7 @@ songs_list = [
     genre: [],
     length: '00:03:25',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Women'

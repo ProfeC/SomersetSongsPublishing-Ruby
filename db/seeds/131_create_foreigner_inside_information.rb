@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:07',
     mood: [],
-    date: '',
+    # date: '',
     description: 'a.k.a.: A Night To Remember',
     theme: [],
     title: 'Night To Remember'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:05:10',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'The The Beat Of My Heart'
@@ -42,7 +42,7 @@ songs_list = [
     genre: [],
     length: '00:04:27',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Can\'t Wait'
@@ -53,7 +53,7 @@ songs_list = [
     genre: [],
     length: '00:04:11',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Counting Every Minute'
@@ -64,7 +64,7 @@ songs_list = [
     genre: [],
     length: '00:03:53',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Face To Face'
@@ -75,7 +75,7 @@ songs_list = [
     genre: [],
     length: '00:04:29',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Heart Turns To Stone'
@@ -86,7 +86,7 @@ songs_list = [
     genre: ['ballad'],
     length: '00:04:52',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I Don\'t Want To Live Without You'
@@ -97,7 +97,7 @@ songs_list = [
     genre: [],
     length: '00:04:09',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Inside Information'
@@ -108,7 +108,7 @@ songs_list = [
     genre: [],
     length: '00:04:42',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Out Of The Blue'
@@ -119,7 +119,7 @@ songs_list = [
     genre: [],
     length: '00:04:12',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Say You Will'

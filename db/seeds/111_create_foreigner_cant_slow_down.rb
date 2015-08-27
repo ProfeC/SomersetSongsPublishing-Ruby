@@ -20,7 +20,7 @@ songs_list = [
     genre: ['ballad'],
     length: '00:03:32',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Angel Tonight'
@@ -31,7 +31,7 @@ songs_list = [
     genre: [],
     length: '00:03:48',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'As Long As I Live'
@@ -42,7 +42,7 @@ songs_list = [
     genre: ['rock'],
     length: '00:03:28',
     mood: ['uptempo'],
-    date: '',
+    # date: '',
     description: '',
     theme: ['car', 'racing', 'automotive'],
     title: 'Can\'t Slow Down'
@@ -53,7 +53,7 @@ songs_list = [
     genre: [],
     length: '00:03:52',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: ['miss you'],
     title: 'Give Me A Sign'
@@ -64,7 +64,7 @@ songs_list = [
     genre: [],
     length: '00:04:32',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I Can\'t Give Up'
@@ -75,7 +75,7 @@ songs_list = [
     genre: [],
     length: '00:04:14',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I\'ll Be Home Tonight'
@@ -86,7 +86,7 @@ songs_list = [
     genre: [],
     length: '00:03:53',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'In Pieces'
@@ -97,7 +97,7 @@ songs_list = [
     genre: [],
     length: '00:03:43',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Living In A Dream'
@@ -108,7 +108,7 @@ songs_list = [
     genre: [],
     length: '00:03:43',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Ready'
@@ -119,7 +119,7 @@ songs_list = [
     genre: ['ballad'],
     length: '00:03:54',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'When It Comes To Love'

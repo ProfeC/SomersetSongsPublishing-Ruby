@@ -20,7 +20,7 @@ songs_list = [
     genre: ['rap', 'hip hop'],
     length: '00:04:04',
     mood: ['uptempo'],
-    date: '',
+    # date: '',
     description: '',
     theme: ['temperature', 'frozen'],
     title: 'Cold As Ice (MOP Version)'

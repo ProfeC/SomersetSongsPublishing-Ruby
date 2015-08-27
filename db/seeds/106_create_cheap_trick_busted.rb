@@ -11,7 +11,7 @@
 album = Album.create_with(
   artist_id: Artist.find_by(name: 'Cheap Trick').id,
   description: '',
-  original_release_date: '').find_or_create_by!(title: 'Busted')
+  original_release_date: '1990-07-13').find_or_create_by!(title: 'Busted')
 
 songs_list = [
   {

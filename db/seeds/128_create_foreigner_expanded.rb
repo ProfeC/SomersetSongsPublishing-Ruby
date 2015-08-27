@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:03:41',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Take Me To Your Leader'
