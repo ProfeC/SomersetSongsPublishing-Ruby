@@ -185,7 +185,8 @@ class SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
-        format.html { redirect_to @song, notice: 'Song was successfully updated.', style: 'success' }
+        flash[:success] = 'Song was successfully updated.'
+        format.html { redirect_to @song }
         format.json { render :show, status: :ok, location: @song }
       else
         format.html { render :edit }

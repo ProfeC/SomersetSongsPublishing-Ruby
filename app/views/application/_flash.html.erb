@@ -9,7 +9,7 @@
 <% if flash[:alert].present? %>
   <div class="fullwidth-block">
     <div div-alert class="container alert alert-danger" role="alert">
-      <%= flash[:alert] %>
+      <h4><i class="fa fa-exclamation"></i><%= flash[:alert] %></h4>
     </div>
   </div>
 <% end %>
@@ -17,7 +17,7 @@
 <% if flash[:notice].present? %>
   <div class="fullwidth-block">
     <div div-alert class="container alert alert-info" role="alert">
-      <%= flash[:notice] %>
+      <h4><i class="fa fa-bolt"></i><%= flash[:notice] %></h4>
     </div>
   </div>
 <% end %>
@@ -25,7 +25,7 @@
 <% if flash[:success].present? %>
   <div class="fullwidth-block">
     <div div-alert class="container alert alert-success" role="alert">
-      <%= flash[:success] %>
+      <h4><i class="fa fa-thumbs-o-up"></i><%= flash[:success] %></h4>
     </div>
   </div>
 <% end %>
@@ -33,7 +33,7 @@
 <% if flash[:warning].present? %>
   <div class="fullwidth-block">
     <div div-alert class="container alert alert-warning" role="alert">
-      <%= flash[:warning] %>
+      <h4><i class="fa fa-exclamation"></i><%= flash[:warning] %></h4>
     </div>
   </div>
 <% end %>
