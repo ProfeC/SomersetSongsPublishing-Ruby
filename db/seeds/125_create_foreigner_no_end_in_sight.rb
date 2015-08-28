@@ -20,7 +20,7 @@ songs_list = [
     genre: ['rock'],
     length: '00:03:45',
     mood: [],
-    date: '',
+    # date: '',
     description: 'a.k.a.: It\'s Too Late',
     theme: [],
     title: 'Too Late'

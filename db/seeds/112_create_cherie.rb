@@ -20,7 +20,7 @@ songs_list = [
     genre: ['rock'],
     length: '00:03:22',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'I\'m Ready'

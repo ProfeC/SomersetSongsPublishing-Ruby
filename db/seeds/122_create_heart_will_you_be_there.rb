@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:00:01',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Risin\' Suspicion'

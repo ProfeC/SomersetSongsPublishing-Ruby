@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:05:11',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Bad Love'

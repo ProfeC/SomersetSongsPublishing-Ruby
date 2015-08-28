@@ -11,7 +11,7 @@
 album = Album.create_with(
   artist_id: Artist.find_by(name: 'The Cult').id,
   description: '',
-  original_release_date: '').find_or_create_by!(title: 'Beyond Good and Evil')
+  original_release_date: '2000-08-16').find_or_create_by!(title: 'Beyond Good and Evil')
 
 songs_list = [
   {

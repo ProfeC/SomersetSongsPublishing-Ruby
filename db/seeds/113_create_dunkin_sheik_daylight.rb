@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:04:09',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'On Her Mind'

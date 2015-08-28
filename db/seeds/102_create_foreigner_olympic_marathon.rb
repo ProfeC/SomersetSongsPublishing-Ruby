@@ -21,7 +21,7 @@ songs_list = [
     genre: ['instrumental'],
     length: '00:04:00',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'Street Thunder'

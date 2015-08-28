@@ -20,7 +20,7 @@ songs_list = [
     genre: [],
     length: '00:06:35',
     mood: [],
-    date: '',
+    # date: '',
     description: '',
     theme: [],
     title: 'The Robots Are Coming'
