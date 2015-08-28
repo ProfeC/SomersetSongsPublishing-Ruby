@@ -6,10 +6,14 @@ class Song < ActiveRecord::Base
 
   # Add file attachments
   has_attached_file :cover_art, :styles => { :large => "300x300", :medium => "200x200>", :thumb => "100x100>" }
-  validates_attachment_content_type :cover_art, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :cover_art,
+    :content_type => /\Aimage\/.*\Z/,
+    :size => { :less_than => 3.megabytes }
 
   has_attached_file :audio
-  validates_attachment_content_type :audio, :content_type => /\Aaudio\/.*\Z/
+  validates_attachment_content_type :audio,
+    :content_type => /\Aaudio\/.*\Z/,
+    :size => { :less_than => 13.megabytes }
 
   scope :sorted_by_title, lambda { order("songs.title ASC") }
   # scope :sorted_by_title_reverse, lambda { order("songs.title DESC") }

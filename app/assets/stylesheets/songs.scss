@@ -2,8 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*===========================================
+ * Importing CSS Libraries
+ *===========================================*/
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import
+  'libs/settings',
+  'libs/mixins',
+  'libs/normalize',
+  'libs/component',
+  'libs/form',
+
+  'layout/content',
+  'layout/footer',
+  'layout/header',
+  'layout/main-nav',
+  'layout/typography',
+
+  'pages/news',
+  'pages/page',
+
+  'libs/search-bar',
+  'libs/widgets';
+
 .song-list {
   header {
     margin-top: 13px;
   }
+}
+
+.edit_song {
+  #clear_art {
+    padding-right: 5px;
+    vertical-align:  text-top;
+    width: auto;
+  }
+}
+
+.current-file {
+  font-size: .85em;
+  color: $secondary-color;
 }
