@@ -24,3 +24,4 @@ vendor/assets/bootstrap-3.3.4-dist.zip
 
 # Ignore local environment variables
 .env
+public/system
