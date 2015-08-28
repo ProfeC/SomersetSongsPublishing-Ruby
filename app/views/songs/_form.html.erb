@@ -2,9 +2,6 @@
 # TODO: Not have saving the form clear out currently assigned album art and audio.
 %>
 
-<pre><%= @song.to_yaml %></pre>
-<!-- <pre><%= @moodList.to_yaml %></pre> -->
-
 <%= form_for(@song, multipart: true) do |f| %>
   <%
     # Some local variables
