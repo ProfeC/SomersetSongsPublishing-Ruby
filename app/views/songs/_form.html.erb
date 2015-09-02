@@ -1,13 +1,8 @@
-<%
-# TODO: Not have saving the form clear out currently assigned album art and audio.
-%>
+<!-- <pre>< % = @song.to_yaml %></pre> -->
+<!-- <pre>< % =  @moods.to_yaml %></pre> -->
+
 
 <%= form_for(@song, multipart: true) do |f| %>
-  <%
-    # Some local variables
-    @albums = Album.all
-  %>
-
   <% if @song.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
@@ -21,53 +16,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <h3><%= f.label :title %></h3>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :description %><br>
+    <h3><%= f.label :description %></h3>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
-    <%= f.label :original_release_date %><br>
+    <h3><%= f.label :original_release_date %></h3>
     <%= f.date_select :original_release_date, {start_year:1960, end_year: Date.today.year, order: [:month, :day, :year]}, { :class => 'xform-control' } %>
   </div>
 
   <div class="field">
-    <%= f.label :length %><br>
+    <h3><%= f.label :length %></h3>
     <%= f.text_field :length %>
   </div>
 
   <div class="field">
-    <%= f.label :album %>
+    <h3><%= f.label :album %></h3>
     <br><%= f.select(:album_id, @albums.map {|a| [a.title, a.id]}) %>
-  </div>
-
-  <div class="field">
-
-    <label>Moods</label>
-    <section class="moods">
-
-    <%= fields_for :moods do |moods_form| %>
-      <%= :moods.to_yaml %>
-    <% end %>
-
-    <%
-      @moodList.each do |mood|
-        if @moods.map {|m| m.id}.include? mood.id
-          selected = 'yes'
-        else
-          selected = ''
-        end
-    %>
-      <div class="checkbox">
-        <%= check_box_tag mood, selected %>
-        <%= f.label(mood, mood.title) %>
-      </div>
-    <% end %>
-    </section>
   </div>
 
   <% #NOTE: Audio File %>
@@ -99,7 +69,7 @@
 
   <% #NOTE: Cover Art %>
   <div class="field">
-    <h4><%= f.label :cover_art %></h4>
+    <h3><%= f.label :cover_art %></h3>
     <div class="row">
 
     <% if @song.cover_art.blank? %>
@@ -121,6 +91,92 @@
     <%= f.hidden_field 'hidden_cover_art', value: @song.cover_art_file_name, id: "hidden_cover_art" %>
   </div>
 
+  <div class="field">
+    <h3><label>Genres</label></h3>
+    <section class="genres">
+
+      <% # NOTE: Loop over each genre so we can filter on them.
+      @genres.sorted.each do |genre|
+
+        # NOTE: Check to see if we are filtering for genres so we can mark them as selected
+        if @song.genre_ids.present?
+          selected = @song.genre_ids.reject { |a| a != genre.id }
+        else
+          selected = nil
+        end
+        %>
+
+      <div class="checkbox">
+        <% if selected.blank? %>
+          <%= check_box_tag 'genres[]', genre.id, false %>
+        <% else %>
+          <%= check_box_tag 'genres[]', genre.id, true %>
+        <% end %>
+
+        <label for="<%= genre.id %>"><%= genre.title.titleize %></label>
+      </div>
+      <% end %>
+
+    </section>
+  </div>
+
+  <div class="field">
+    <h3><label>Moods</label></h3>
+    <section class="moods">
+
+      <% # NOTE: Loop over each mood so we can filter on them.
+      @moods.sorted.each do |mood|
+
+        # NOTE: Check to see if we are filtering for moods so we can mark them as selected
+        if @song.mood_ids.present?
+          selected = @song.mood_ids.reject { |a| a != mood.id }
+        else
+          selected = nil
+        end
+        %>
+
+      <div class="checkbox">
+        <% if selected.blank? %>
+          <%= check_box_tag 'moods[]', mood.id, false %>
+        <% else %>
+          <%= check_box_tag 'moods[]', mood.id, true %>
+        <% end %>
+
+        <label for="<%= mood.id %>"><%= mood.title.titleize %></label>
+      </div>
+      <% end %>
+
+    </section>
+  </div>
+
+  <div class="field">
+    <h3><label>Themes</label></h3>
+    <section class="themes">
+
+      <% # NOTE: Loop over each theme so we can filter on them.
+      @themes.sorted.each do |theme|
+
+        # NOTE: Check to see if we are filtering for themes so we can mark them as selected
+        if @song.theme_ids.present?
+          selected = @song.theme_ids.reject { |a| a != theme.id }
+        else
+          selected = nil
+        end
+        %>
+
+      <div class="checkbox">
+        <% if selected.blank? %>
+          <%= check_box_tag 'themes[]', theme.id, false %>
+        <% else %>
+          <%= check_box_tag 'themes[]', theme.id, true %>
+        <% end %>
+
+        <label for="<%= theme.id %>"><%= theme.title.titleize %></label>
+      </div>
+      <% end %>
+
+    </section>
+  </div>
 
   <div class="actions">
     <%= f.submit nil, class: 'btn btn-primary btn-lg btn-block' %>

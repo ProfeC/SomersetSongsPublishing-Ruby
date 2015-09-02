@@ -46,3 +46,21 @@
   font-size: .85em;
   color: $secondary-color;
 }
+
+.edit_song {
+  .genres,
+  .moods,
+  .themes {
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    columns-count: 4;
+
+    .checkbox,
+    .checkbox-inline {
+      input[type="checkbox"] {
+        margin-left: 0;
+        margin-top: 9px;
+      }
+    }
+  }
+}

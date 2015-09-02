@@ -1,7 +1,9 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  before_action :set_album, only: [:show, :edit, :update, :destroy, :create]
-  before_action :set_mood, only: [:show, :edit, :update, :destroy, :create]
+  before_action :get_albums, only: [:edit, :update, :create]
+  before_action :get_genres, only: [:edit, :update, :create]
+  before_action :get_moods, only: [:edit, :update, :create]
+  before_action :get_themes, only: [:edit, :update, :create]
 
   def filter
     # NOTE: Filter on genres
@@ -158,10 +160,6 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
-    @genres = Genre.joins(:songs).where(songs: {id: @song.id})
-    @moods = Mood.joins(:songs).where(songs: {id: @song.id})
-    @moodList = Mood.all
-    @themes = Theme.joins(:songs).where(songs: {id: @song.id})
   end
 
   # POST /songs
@@ -186,6 +184,33 @@ class SongsController < ApplicationController
   def update
     respond_to do |format|
       if @song.update(song_params)
+
+        # NOTE: Clear the genres so we can update them if needed
+        @song.genres.clear
+
+        # NOTE: Update the genre relations.
+        params[:genres].each do |genre|
+          @song.genres << @genres.find(genre)
+        end
+
+        # NOTE: Clear the moods so we can update them if needed
+        @song.moods.clear
+
+        # NOTE: Update the mood relations.
+        params[:moods].each do |mood|
+          @song.moods << @moods.find(mood)
+        end
+
+        # NOTE: Clear the themes so we can update them if needed
+        @song.themes.clear
+
+        # NOTE: Update the theme relations.
+        params[:themes].each do |theme|
+          @song.themes << @themes.find(theme)
+        end
+
+        flash[:notice] = song_params
+        flash[:alert] = params
         flash[:success] = 'Song was successfully updated.'
         format.html { redirect_to @song }
         format.json { render :show, status: :ok, location: @song }
@@ -212,20 +237,28 @@ class SongsController < ApplicationController
       @song = Song.find(params[:id])
     end
 
-    def set_album
-      @album = Album.all
+    def get_albums
+      @albums = Album.all
     end
 
     def set_artist
-      @artist = Artist.all
+      @artists = Artist.all
     end
 
-    def set_mood
-      # @mood = Mood.all
+    def get_genres
+      @genres = Genre.all
+    end
+
+    def get_moods
+      @moods = Mood.all
+    end
+
+    def get_themes
+      @themes = Theme.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :description, :original_release_date, :length, :album_id, :cover_art, :audio)
+      params.require(:song).permit(:title, :description, :original_release_date, :length, :album_id, :mood, :theme, :genre, :cover_art, :audio)
     end
 end
