@@ -65,6 +65,12 @@
             end
           end
 
+          if genre_titles.present?
+            genre_titles = genre_titles.sort.to_sentence
+          else
+            genre_titles = '-'
+          end
+
           #NOTE: Check to see if there are moods
           moods = song.moods
           if moods.present?
@@ -74,6 +80,12 @@
               tags << mood.title.titleize
               mood_titles << mood.title
             end
+          end
+
+          if mood_titles.present?
+            mood_titles = mood_titles.sort.to_sentence
+          else
+            mood_titles = '-'
           end
 
           #NOTE: Check to see if there are themes
@@ -87,6 +99,12 @@
             end
           end
 
+          if theme_titles.present?
+            theme_titles = theme_titles.sort.to_sentence
+          else
+            theme_titles = '-'
+          end
+
             if song.original_release_date.present?
               release_date = song.original_release_date.to_formatted_s(:year)
             else
@@ -96,9 +114,9 @@
 
             <tr>
               <td><p><strong><%= link_to song.title, song %></strong><br><small><%= release_date %></small></p></td>
-              <td><%= genre_titles.sort.to_sentence %></td>
-              <td><%= mood_titles.sort.to_sentence %></td>
-              <td><%= theme_titles.sort.to_sentence %></td>
+              <td><%= genre_titles %></td>
+              <td><%= mood_titles %></td>
+              <td><%= theme_titles  %></td>
             </tr>
               <p></p>
         <% end %>
