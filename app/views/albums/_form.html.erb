@@ -40,6 +40,35 @@
       <%= f.text_area :description %>
     </div>
   </div>
+
+
+  <% #NOTE: Cover Art %>
+  <div class="form-group">
+    <%= f.label :cover_art, class: 'col-md-3 control-label' %>
+    <div class="col-md-9">
+    <div class="row">
+
+    <% if @album.cover_art.blank? %>
+      <div class="col-sm-12">
+        <%= f.file_field :cover_art %>
+      </div>
+    <% else %>
+      <div class="col-sm-6">
+        <%= f.file_field :cover_art, value: @album.cover_art_file_name %>
+        <p class="current-file muted"><em>The current file name is: <strong><%= @album.cover_art_file_name %></strong>.</em></p>
+
+      </div>
+      <div class="col-sm-6">
+        <%= image_tag @album.cover_art.url(:medium), class: "img-responsive center-block thumbnail" %>
+      </div>
+    <% end %>
+
+    </div>
+    <%= f.hidden_field 'hidden_cover_art', value: @album.cover_art_file_name, id: "hidden_cover_art" %>
+  </div>
+  </div>
+
+
   <div class="actions form-group">
     <div class="col-md-9 col-md-offset-3">
     <%= f.submit class: 'btn btn-lg btn-info btn-block center-block' %>

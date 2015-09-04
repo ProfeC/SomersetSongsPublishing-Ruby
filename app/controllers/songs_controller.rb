@@ -189,28 +189,34 @@ class SongsController < ApplicationController
         @song.genres.clear
 
         # NOTE: Update the genre relations.
-        params[:genres].each do |genre|
-          @song.genres << @genres.find(genre)
+        if params[:genres].present?
+          params[:genres].each do |genre|
+            @song.genres << @genres.find(genre)
+          end
         end
 
         # NOTE: Clear the moods so we can update them if needed
         @song.moods.clear
 
         # NOTE: Update the mood relations.
-        params[:moods].each do |mood|
-          @song.moods << @moods.find(mood)
+        if params[:moods].present?
+          params[:moods].each do |mood|
+            @song.moods << @moods.find(mood)
+          end
         end
 
         # NOTE: Clear the themes so we can update them if needed
         @song.themes.clear
 
         # NOTE: Update the theme relations.
-        params[:themes].each do |theme|
-          @song.themes << @themes.find(theme)
+        if params[:themes].present?
+          params[:themes].each do |theme|
+            @song.themes << @themes.find(theme)
+          end
         end
 
-        flash[:notice] = song_params
-        flash[:alert] = params
+        # flash[:notice] = song_params
+        # flash[:alert] = params
         flash[:success] = 'Song was successfully updated.'
         format.html { redirect_to @song }
         format.json { render :show, status: :ok, location: @song }
