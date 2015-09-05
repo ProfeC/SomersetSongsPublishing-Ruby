@@ -55,9 +55,11 @@ gem 'aws-sdk', '< 2.0'
 # Adds Raygun.io Support
 gem 'raygun4ruby'
 
-# Use ActiveAdmin (and its dependencies) for administrative UI [http://activeadmin.info/docs/documentation.html]
-# gem 'activeadmin', github: 'activeadmin'
-# gem 'devise'
+# Use Devise for authentication
+gem 'devise'
+
+# Use RailsAdmin
+gem 'rails_admin'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

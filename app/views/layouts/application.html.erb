@@ -99,6 +99,12 @@
 
       <%= render 'application/footer' %>
 
+      <% if current_user %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+
     </div> <!-- #site-content -->
 
    <!--  // <script src="js/jquery-1.11.1.min.js"></script>
