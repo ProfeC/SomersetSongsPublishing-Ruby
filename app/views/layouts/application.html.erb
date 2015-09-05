@@ -42,9 +42,10 @@
     <div id="site-content">
 
       <header class="site-header" data-spy="affix">
-        <%=
-          # render 'application/header_top'
-        %>
+
+      <% if current_user %>
+          <%= render 'application/header_top' %>
+      <% end %>
 
         <div class="bottom-header">
           <div class="container">
@@ -98,12 +99,6 @@
       </main> <!-- .content -->
 
       <%= render 'application/footer' %>
-
-      <% if current_user %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-      <% end %>
 
     </div> <!-- #site-content -->
 

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  # NOTE: Mount RailsAdmin
   mount RailsAdmin::Engine => '/back-office', as: 'rails_admin'
+
+  # NOTE: Devise Routes
   devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
