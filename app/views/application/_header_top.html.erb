@@ -7,8 +7,10 @@
     <nav class="member-navigation pull-right">
       <!-- <a href="#"><i class="fa fa-user"></i> Register</a> -->
       <!-- <a href="#"><i class="fa fa-lock"></i> Login</a> -->
-      <%= link_to " Back Office", rails_admin.dashboard_path, class: 'fa fa-server' %>
-      <%= link_to " Logout", destroy_user_session_path, method: :delete, class: 'fa fa-rocket' %>
+      <%  if current_user.admin %>
+        <%= link_to " Back Office", rails_admin.dashboard_path, class: 'fa fa-server' %>
+        <% end %>
+      <%= link_to " Logout", destroy_user_session_path, method: :delete, class: 'fa fa-sign-out' %>
     </nav>
   </div> <!-- .container -->
 </div> <!-- .top-header -->
