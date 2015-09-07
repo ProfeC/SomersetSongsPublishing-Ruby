@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   # GET /artists
