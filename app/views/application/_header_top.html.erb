@@ -2,6 +2,7 @@
 <div class="top-header">
   <div class="container">
     <!-- <a href="tel:80049123441">Call Us: (800) 1234567</a> -->
+    <h2 class="pull-left" style="margin:0;">Hello <%= current_user.name ? current_user.name.titleize : 'Some User' %>!</h2>
 
     <!-- .member-navigation -->
     <nav class="member-navigation pull-right">
