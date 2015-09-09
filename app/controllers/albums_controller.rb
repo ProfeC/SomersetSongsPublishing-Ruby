@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_user!, only: [:edit, :new, :update, :destroy, :create]
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   # GET /albums
