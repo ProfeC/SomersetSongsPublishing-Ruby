@@ -1,4 +1,5 @@
 class MoodsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new, :update, :destroy, :create]
   before_action :set_mood, only: [:show, :edit, :update, :destroy]
 
   # GET /moods

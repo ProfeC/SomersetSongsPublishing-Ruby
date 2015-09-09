@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new, :update, :destroy, :create]
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
 
   # GET /genres

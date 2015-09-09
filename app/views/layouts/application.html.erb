@@ -42,9 +42,10 @@
     <div id="site-content">
 
       <header class="site-header" data-spy="affix">
-        <%=
-          # render 'application/header_top'
-        %>
+
+      <% if current_user %>
+          <%= render 'application/header_top' %>
+      <% end %>
 
         <div class="bottom-header">
           <div class="container">
@@ -58,7 +59,7 @@
               <button type="button" class="menu-toggle">
                 <i class="fa fa-bars"></i>
               </button>
-              <%= render(:partial => "application/global_navigation_2") %>
+              <%= render(:partial => "application/global_navigation") %>
             </nav>
           </div> <!-- .container -->
         </div> <!-- .bottom-header -->
