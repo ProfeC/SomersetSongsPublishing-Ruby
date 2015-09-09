@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 
 # Use mysql as the database for Active Record
 # gem 'mysql2'
@@ -38,6 +38,7 @@ gem 'jquery-rails'
 
 # Use FontAwesome for font icons
 gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -55,9 +56,11 @@ gem 'aws-sdk', '< 2.0'
 # Adds Raygun.io Support
 gem 'raygun4ruby'
 
-# Use ActiveAdmin (and its dependencies) for administrative UI [http://activeadmin.info/docs/documentation.html]
-# gem 'activeadmin', github: 'activeadmin'
-# gem 'devise'
+# Use Devise for authentication
+gem 'devise'
+
+# Use RailsAdmin
+gem 'rails_admin'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
