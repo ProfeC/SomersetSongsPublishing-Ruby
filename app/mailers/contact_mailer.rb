@@ -10,7 +10,7 @@ class ContactMailer < ApplicationMailer
     @sent_on = Time.now
 
     # mail (to: "licensing@somersetsongs.com", subject: 'Music Request for: ' + message.project)
-    mail to: "gclark2@gmail.com", from: message.email_address, subject: 'Music Request for: ' + message.project
+    mail to: "licensing@somersetsongs.com", from: message.email_address, subject: 'Music Request for: ' + message.project
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
