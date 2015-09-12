@@ -128,6 +128,9 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.3)
+    postmark (1.6.0)
+      json
+      rake
     puma (2.13.4)
     rack (1.6.4)
     rack-pjax (0.8.0)
@@ -241,6 +244,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.2)
   pg
+  postmark
   puma
   rails (= 4.2.4)
   rails_12factor
