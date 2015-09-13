@@ -17,7 +17,7 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.uniq.sorted_by_title
+        @songs = songs.uniq.sorted_by_title.page params[:page]
         flash[:success] = 'Filtering song genres on ' + genres + '.'
       else
         flash[:alert] = 'There are no songs matching genres: ' + genres + '.'
@@ -34,7 +34,7 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.uniq.sorted_by_title
+        @songs = songs.uniq.sorted_by_title.page params[:page]
         flash[:success] = 'Filtering song moods on ' + moods + '.'
       else
         flash[:alert] = 'There are no songs matching moods: ' + moods + '.'
@@ -51,7 +51,7 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.uniq.sorted_by_title
+        @songs = songs.uniq.sorted_by_title.page params[:page]
         flash[:success] = 'Filtering song themes on ' + themes + '.'
       else
         flash[:alert] = 'There are no songs matching themes: ' + themes + '.'
@@ -59,7 +59,7 @@ class SongsController < ApplicationController
     end
 
     if !@songs.present?
-      @songs = Song.sorted_by_title
+      @songs = Song.sorted_by_title.page params[:page]
     end
 
     render "index"
@@ -127,7 +127,7 @@ class SongsController < ApplicationController
       if @songs_searched.blank?
         flash[:alert] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
       else
-        @songs = @songs_searched
+        @songs = @songs_searched.page params[:page]
       end
 
       # Discard the flash notice
