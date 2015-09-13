@@ -242,6 +242,7 @@ DEPENDENCIES
   foreman
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   paperclip (~> 4.2)
   pg
   postmark

@@ -137,7 +137,7 @@ class SongsController < ApplicationController
     # NOTE: If nothing came back from the search, show ALL songs
     if !@songs.present?
       @moods = Mood.sorted
-      @songs = Song.all.order(:title)
+      @songs = Song.all.order(:title).page params[:page]
       @themes = Theme.all
     end
 

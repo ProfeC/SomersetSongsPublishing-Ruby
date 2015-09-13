@@ -74,6 +74,9 @@ gem 'puma'
 # Use Postmark to send mail
 gem 'postmark'
 
+# Add pagination
+gem 'kaminari'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

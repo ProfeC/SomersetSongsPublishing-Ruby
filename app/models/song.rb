@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   has_and_belongs_to_many :moods, :join_table => 'moods_songs'
   has_and_belongs_to_many :themes, :join_table => 'songs_themes'
 
-  # Add file attachments
+  # NOTE: Add file attachments
   has_attached_file :cover_art, :styles => { :large => "300x300", :medium => "200x200>", :thumb => "100x100>" }
   validates_attachment_content_type :cover_art,
     :content_type => /\Aimage\/.*\Z/,
@@ -23,6 +23,9 @@ class Song < ActiveRecord::Base
   # scope :search, lambda { |query|
   #   where("title LIKE ?", "%#{query}%")
   # }
+
+  # NOTE: Add pagination
+  paginates_per 25
 
   def self.search(q)
 
