@@ -21,7 +21,7 @@ class ArtistsController < ApplicationController
     flash[:notice] = ''
 
     @albums = Album.where(artist_id: @artist).pluck(:id)
-    @songs = Song.where album_id: @albums
+    @songs = (Song.where album_id: @albums).page params[:page]
   end
 
   # GET /artists/new

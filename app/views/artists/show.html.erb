@@ -132,6 +132,9 @@
         <% end %>
         </tbody>
       </table>
+
+      <%= paginate @songs %>
+
     <% else %>
       <p><em>There are no songs associated with this artist.</em></p>
     <% end %>
