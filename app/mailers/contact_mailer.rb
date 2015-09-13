@@ -18,12 +18,46 @@ class ContactMailer < ApplicationMailer
 
     # Test Postmark
     client.deliver(
-      from: 'licensing@somersetsongs.com',
+      from: 'webmaster@profec.net',
       to: 'gclark2@gmail.com',
-      subject: 'Hello from Postmark',
-      html_body: '<strong>Hello</strong> dear Postmark user.',
+      subject: 'Music Request for: ' + message.project,
+      html_body: (render 'contact_mailer/project_request'),
       track_opens: true
     )
+
+    # Notify the team about a new request
+    # client.deliver_with_template({
+    #   :from=>"webmaster@profec.net",
+    #   :to=>"gclark2@gmail.com",
+    #   :template_id=>68359,
+    #   :template_model=> {
+    #     "project"=>message.project,
+    #     "name"=>message.name,
+    #     "email_address"=>message.email_address,
+    #     "description"=>message.description,
+    #     "listen_online"=>message.listen_online,
+    #     "send_suggestions"=>message.send_suggestions,
+    #     "sent_on"=> @sent_on
+    #     }
+    #   }
+    # )
+
+    #Send confirmation email
+    # client.deliver_with_template({
+    #   :from=>"webmaster@profec.net",
+    #   :to=>message.email_address,
+    #   :template_id=>68369,
+    #   :template_model=> {
+    #     "project"=>message.project,
+    #     "name"=>message.name,
+    #     "email_address"=>message.email_address,
+    #     "description"=>message.description,
+    #     "listen_online"=>message.listen_online,
+    #     "send_suggestions"=>message.send_suggestions,
+    #     "sent_on"=> @sent_on
+    #     }
+    #   }
+    # )
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
