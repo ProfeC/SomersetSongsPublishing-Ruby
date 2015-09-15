@@ -56,6 +56,9 @@ gem 'aws-sdk', '< 2.0'
 # Adds Raygun.io Support
 gem 'raygun4ruby'
 
+# Add New Relic Support
+gem 'newrelic_rpm'
+
 # Use Devise for authentication
 gem 'devise'
 
