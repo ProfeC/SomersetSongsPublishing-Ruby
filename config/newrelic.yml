@@ -12,7 +12,7 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: 1254d4e8bdd8312ab98c2a30c004bb809e528b2b
+  license_key: b83969f84f4fcddc99ea79bcaeafa97861405785
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
@@ -31,6 +31,7 @@ common: &default_settings
 development:
   <<: *default_settings
   app_name: Somerset Songs Media Library (Development)
+  # license_key: fbf3327d65312bf0bb9bc7c25fe903e8f20681bb
 
   # NOTE: There is substantial overhead when running in developer mode.
   # Do not use for production or load testing.
