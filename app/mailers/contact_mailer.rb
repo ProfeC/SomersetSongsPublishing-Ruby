@@ -8,22 +8,22 @@ class ContactMailer < ApplicationMailer
   #
   def project_request(message)
     # Create an instance of Postmark::ApiClient
-    client = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
 
     @body = message
     @sent_on = Time.now
 
     # mail (to: "licensing@somersetsongs.com", subject: 'Music Request for: ' + message.project)
-    #mail to: "licensing@somersetsongs.com", from: message.email_address, subject: 'Music Request for: ' + message.project
+    mail to: "licensing@somersetsongs.com", from: message.email_address, subject: 'Music Request for: ' + message.project
 
     # Test Postmark
-    client.deliver(
-      from: 'webmaster@profec.net',
-      to: 'gclark2@gmail.com',
-      subject: 'Music Request for: ' + message.project,
-      html_body: (render 'contact_mailer/project_request'),
-      track_opens: true
-    )
+    # client = Postmark::ApiClient.new(ENV['POSTMARK_API_KEY'])
+    # client.deliver(
+    #   from: 'webmaster@profec.net',
+    #   to: 'licensing@somersetsongs.com',
+    #   subject: 'Music Request for: ' + message.project,
+    #   html_body: (render 'contact_mailer/project_request'),
+    #   track_opens: true
+    # )
 
     # Notify the team about a new request
     # client.deliver_with_template({
@@ -58,6 +58,15 @@ class ContactMailer < ApplicationMailer
     #     }
     #   }
     # )
+  end
+
+  def project_request_confirmation(message)
+    # Create an instance of Postmark::ApiClient
+
+    @body = message
+    @sent_on = Time.now
+
+    mail to: message.email_address, from: 'licensing@somersetsongs.com', subject: 'Music Request for: ' + message.project + ' Confirmation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
