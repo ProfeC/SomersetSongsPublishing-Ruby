@@ -32,7 +32,7 @@
 
       <% if @album.description  %>
       <div class="description">
-          <%= @album.description %>
+          <%= @album.description.html_safe %>
       </div>
       <% end %>
     </div>

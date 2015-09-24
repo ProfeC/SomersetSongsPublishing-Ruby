@@ -126,7 +126,7 @@
   <% if @song.description  %>
   <div class="description">
     <h3>Description</h3>
-    <p><%= @song.description %></p>
+    <p><%= @song.description.html_safe %></p>
   </div>
   <% end %>
 

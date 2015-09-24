@@ -23,7 +23,7 @@
     <div class="col-md-8">
       <% if @artist.description  %>
       <div class="description">
-          <%= @artist.description %>
+          <%= @artist.description.html_safe %>
       </div>
       <% end %>
     </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   # NOTE: Devise Routes
   # devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'}
   devise_for :users, path: "authorize", path_names: {
