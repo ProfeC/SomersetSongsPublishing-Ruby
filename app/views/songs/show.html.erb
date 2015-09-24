@@ -16,9 +16,11 @@
     <small><em><%= release_date %></em></small>
     </h1>
 
-    <% if current_user.admin %>
+    <% if current_user
+      if current_user.admin %>
       <%= link_to 'Edit', edit_song_path(@song), class: 'btn btn-primary' %>
-    <% end %>
+    <% end
+    end %>
   </header>
 
   <div class="row">

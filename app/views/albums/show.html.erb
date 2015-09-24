@@ -4,9 +4,11 @@
     <h1><%= @album.title %></h1>
     <h2>By <%= link_to @album.artist.name, @album.artist %></h2>
 
-    <% if current_user.admin %>
-      <%= link_to 'Edit', edit_album_path(@album), class: 'btn btn-primary' %>
-    <% end %>
+    <% if current_user
+      if current_user.admin %>
+        <%= link_to 'Edit', edit_album_path(@album), class: 'btn btn-primary' %>
+      <% end
+    end %>
   </header>
 
   <!-- <pre><%= simple_format @album.to_yaml %></pre> -->
