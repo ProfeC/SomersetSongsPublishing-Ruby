@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :new, :update, :destroy, :create]
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  before_action :get_albums, only: [:edit, :update, :create]
-  before_action :get_genres, only: [:edit, :update, :create]
-  before_action :get_moods, only: [:edit, :update, :create]
-  before_action :get_themes, only: [:edit, :update, :create]
+  before_action :get_albums, only: [:edit, :new, :update, :create]
+  before_action :get_genres, only: [:edit, :new, :update, :create]
+  before_action :get_moods, only: [:edit, :new, :update, :create]
+  before_action :get_themes, only: [:edit, :new, :update, :create]
 
   def filter
     # NOTE: Filter on genres
