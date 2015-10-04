@@ -9,14 +9,20 @@
 .btn-edit {
   background-color: transparentize($background-color, .66);
   border-color: transparentize($background-color, .33);
+  color: #666;
 
   &:hover {
     background-color: transparentize(#0f0, .66);
     border-color: transparentize(#6f6, .33);
+    color: inherit;
   }
 
   a {
     color: #666;
     text-decoration: none;
+
+    &:hover {
+      color: #666;
+    }
   }
 }
