@@ -1,11 +1,23 @@
-
+<%
+  @page = Page.find('welcome')
+%>
         <div class="fullwidth-block feature-section">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
                 <div class="feature">
-                  <h1><%= Page.find('welcome').title %></h1>
-                  <%= Page.find('welcome').body.html_safe %>
+                  <h1><%= @page.title %>
+
+                  <% if @page.subtitle %>
+                    <small class="subheader"><%= @page.leading_text %></small>
+                  <% end %>
+                  </h1>
+
+                  <% if @page.leading_text %>
+                    <p class="leading muted"><%= @page.leading_text %></p>
+                  <% end %>
+
+                  <%= @page.body.html_safe %>
                 </div> <!-- .feature -->
               </div> <!-- .col-md-12 -->
             </div> <!-- .row -->
