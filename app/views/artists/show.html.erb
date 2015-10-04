@@ -2,6 +2,12 @@
 
   <header class="page-header">
     <h1><%= @artist.name %></h1>
+
+    <% if current_user
+      if current_user.admin %>
+        <%= link_to 'Edit', edit_artist_path(@artist), class: 'btn btn-primary' %>
+      <% end
+    end %>
   </header>
 
   <div class="row">
@@ -19,7 +25,7 @@
     <div class="col-md-8">
       <% if @artist.description  %>
       <div class="description">
-          <%= @artist.description %>
+          <%= @artist.description.html_safe %>
       </div>
       <% end %>
     </div>
@@ -132,13 +138,11 @@
         <% end %>
         </tbody>
       </table>
+
+      <%= paginate @songs %>
+
     <% else %>
       <p><em>There are no songs associated with this artist.</em></p>
     <% end %>
-
-
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
 
 </article>

@@ -3,6 +3,12 @@
   <header class="page-header">
     <h1><%= @album.title %></h1>
     <h2>By <%= link_to @album.artist.name, @album.artist %></h2>
+
+    <% if current_user
+      if current_user.admin %>
+        <%= link_to 'Edit', edit_album_path(@album), class: 'btn btn-primary' %>
+      <% end
+    end %>
   </header>
 
   <!-- <pre><%= simple_format @album.to_yaml %></pre> -->
@@ -28,7 +34,7 @@
 
       <% if @album.description  %>
       <div class="description">
-          <%= @album.description %>
+          <%= @album.description.html_safe %>
       </div>
       <% end %>
     </div>
@@ -127,7 +133,5 @@
     <% end %>
 
       </div></div>
-  <%= link_to 'Edit', edit_album_path(@album) %> |
-  <%= link_to 'Back', albums_path %>
 
 </article>

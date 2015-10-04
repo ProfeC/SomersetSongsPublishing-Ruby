@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
-  # NOTE: Mount RailsAdmin
-  mount RailsAdmin::Engine => '/backoffice', as: 'rails_admin'
-
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   # NOTE: Devise Routes
   # devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'}
-  devise_for :users, path: "auth", path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'cmon_let_me_in' }
+  devise_for :users, path: "authorize", path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    password: 'secret',
+    confirmation: 'verification',
+    unlock: 'unblock',
+    registration: 'register',
+    sign_up: 'cmon_let_me_in'
+  }
+
+  # NOTE: Mount RailsAdmin
+  mount RailsAdmin::Engine => '/backoffice', as: 'rails_admin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

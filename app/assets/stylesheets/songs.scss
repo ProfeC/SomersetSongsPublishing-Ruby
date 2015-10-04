@@ -28,6 +28,13 @@
   'libs/search-bar',
   'libs/widgets';
 
+.song.index {
+  .pagination {
+    padding: 0 13rem;
+      // text-align:  center;
+  }
+}
+
 .song-list {
   header {
     margin-top: 13px;

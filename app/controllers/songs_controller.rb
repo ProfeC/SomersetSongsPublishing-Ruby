@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :new, :update, :destroy, :create]
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  before_action :get_albums, only: [:edit, :update, :create]
-  before_action :get_genres, only: [:edit, :update, :create]
-  before_action :get_moods, only: [:edit, :update, :create]
-  before_action :get_themes, only: [:edit, :update, :create]
+  before_action :get_albums, only: [:edit, :new, :update, :create]
+  before_action :get_genres, only: [:edit, :new, :update, :create]
+  before_action :get_moods, only: [:edit, :new, :update, :create]
+  before_action :get_themes, only: [:edit, :new, :update, :create]
 
   def filter
     # NOTE: Filter on genres
@@ -17,10 +17,10 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.uniq.sorted_by_title
-        flash[:success] = 'Filtering song genres on ' + genres + '.'
+        @songs = songs.uniq.sorted_by_title.page params[:page]
+        flash[:success] = ' Filtering song genres on ' + genres + '.'
       else
-        flash[:alert] = 'There are no songs matching genres: ' + genres + '.'
+        flash[:alert] = ' There are no songs matching genres: ' + genres + '.'
       end
     end
 
@@ -34,10 +34,10 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.uniq.sorted_by_title
-        flash[:success] = 'Filtering song moods on ' + moods + '.'
+        @songs = songs.uniq.sorted_by_title.page params[:page]
+        flash[:success] = ' Filtering song moods on ' + moods + '.'
       else
-        flash[:alert] = 'There are no songs matching moods: ' + moods + '.'
+        flash[:alert] = ' There are no songs matching moods: ' + moods + '.'
       end
     end
 
@@ -51,15 +51,15 @@ class SongsController < ApplicationController
 
       # NOTE: Make sure we got some songs back
       if songs.present?
-        @songs = songs.uniq.sorted_by_title
-        flash[:success] = 'Filtering song themes on ' + themes + '.'
+        @songs = songs.uniq.sorted_by_title.page params[:page]
+        flash[:success] = ' Filtering song themes on ' + themes + '.'
       else
-        flash[:alert] = 'There are no songs matching themes: ' + themes + '.'
+        flash[:alert] = ' There are no songs matching themes: ' + themes + '.'
       end
     end
 
     if !@songs.present?
-      @songs = Song.sorted_by_title
+      @songs = Song.sorted_by_title.page params[:page]
     end
 
     render "index"
@@ -122,12 +122,11 @@ class SongsController < ApplicationController
 
       end
 
-
       # Check to see if the array is empty
       if @songs_searched.blank?
-        flash[:alert] = ('There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
+        flash[:alert] = (' There are no songs containing the term(s): <em><strong>' + params[:q].to_s + '</strong></em>.').html_safe
       else
-        @songs = @songs_searched
+        @songs = Kaminari.paginate_array(@songs_searched).page(params[:page])
       end
 
       # Discard the flash notice
@@ -137,8 +136,8 @@ class SongsController < ApplicationController
     # NOTE: If nothing came back from the search, show ALL songs
     if !@songs.present?
       @moods = Mood.sorted
-      @songs = Song.all.order(:title)
       @themes = Theme.all
+      @songs = Song.all.order(:title).page params[:page]
     end
 
   end
@@ -170,7 +169,7 @@ class SongsController < ApplicationController
 
     respond_to do |format|
       if @song.save
-        flash[:success] = 'Song was successfully created.'
+        flash[:success] = ' Song was successfully created.'
         format.html { redirect_to @song }
         format.json { render :show, status: :created, location: @song }
       else

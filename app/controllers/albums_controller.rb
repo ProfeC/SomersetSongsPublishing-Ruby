@@ -22,7 +22,7 @@ class AlbumsController < ApplicationController
     @artist = Artist.find(@album.artist.id)
 
     # Get all the songs for the album
-    @songs = Song.where(album: @album.id)
+    @songs = Song.where(album: @album.id).sorted_by_title
 
     # Make the genre join table available
     # @genres = Genre.joins(:songs)

@@ -54,7 +54,10 @@ gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '< 2.0'
 
 # Adds Raygun.io Support
-gem 'raygun4ruby'
+gem 'raygun4ruby', '1.1.6'
+
+# Add New Relic Support
+gem 'newrelic_rpm'
 
 # Use Devise for authentication
 gem 'devise'
@@ -70,6 +73,15 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Puma as the app server
 gem 'puma'
+
+# Add Bootsy for Markdown support in standard forms
+gem 'bootsy'
+
+# Add pagination
+gem 'kaminari'
+
+# Use Postmark to send mail
+gem 'postmark'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

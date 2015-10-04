@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :destroy, :index, :update]
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   # before_filter :login_required, :except[:new, :create]
 
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         # flash[:success] = '<i class="fa fa-paper-plane"></i>Thanks for your message. We will review your request and be in touch soon.'
-        flash[:success] = 'Thanks for your message. We will review your request and be in touch soon.'
+        flash[:success] = ' Thanks for your message. We will review your request and be in touch soon.'
         format.html { redirect_to Song }
       end
     end
@@ -43,11 +43,12 @@ class MessagesController < ApplicationController
         # Send an email to the appropriate place
         if params['contact_type'] == 'project'
           ContactMailer.project_request(@message).deliver_now
+          ContactMailer.project_request_confirmation(@message).deliver_now
         else
           ContactMailer.contact_request.deliver_later
         end
 
-        format.html { redirect_to @message, notice: 'Message was successfully created.', style: 'success' }
+        format.html { redirect_to @message, notice: ' Message was successfully created.', style: 'success' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -61,7 +62,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(message_params)
-        flash[:alert] =  'Message was successfully updated.'
+        flash[:alert] =  ' Message was successfully updated.'
         format.html { redirect_to @message }
         format.json { render :show, status: :ok, location: @message }
       else
@@ -76,7 +77,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      flash[:alert] = 'Message was successfully destroyed.'
+      flash[:alert] = ' Message was successfully destroyed.'
       format.html { redirect_to messages_url }
       format.json { head :no_content }
     end

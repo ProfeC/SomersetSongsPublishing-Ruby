@@ -23,8 +23,12 @@ module SomersetSongs
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Make sure asset pipeline is active. This is mainly for RailsAdmin to work properly.
+    config.assets.enabled = true
+
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
-    config.assets.precompile += %w(rails_admin/rails_admin.css rails_admin/rails_admin.js)
+    # config.assets.precompile += %w(rails_admin/rails_admin.css rails_admin/rails_admin.js)
+    config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
   end
 end
