@@ -13,7 +13,7 @@
                   <% end %>
                   <%  if current_user
                       if current_user.admin %>
-                    <button type="button" class="btn btn-info btn-sm btn-edit"><%= link_to ' Edit Content', edit_page_path( Page.find('welcome')), class: 'fa fa-edit' %></button>
+                    <%= link_to '<button type="button" class="btn btn-info btn-sm btn-edit"><i class="fa fa-edit">&nbsp;Edit Content</i></button>'.html_safe, edit_page_path( Page.find('welcome')) %>
                   <% end
                   end %>
                   </h1>
@@ -39,7 +39,7 @@
                 <h2><%= Page.find('welcome-search').title %>
                 <%  if current_user
                       if current_user.admin %>
-                  <button type="button" class="btn btn-info btn-sm btn-edit"><%= link_to ' Edit Content', edit_page_path( Page.find('welcome-search')), class: 'fa fa-edit' %></button>
+                  <%= link_to '<button type="button" class="btn btn-info btn-sm btn-edit"><i class="fa fa-edit">&nbsp;Edit Content</i></button>'.html_safe, edit_page_path( Page.find('welcome-search'))%>
                 <% end
                 end %></h2>
                 <%= Page.find('welcome-search').body.html_safe %>
@@ -54,7 +54,7 @@
                 <h2><%= Page.find('need-help').title %>
                 <%  if current_user
                       if current_user.admin %>
-                  <button type="button" class="btn btn-info btn-sm btn-edit"><%= link_to ' Edit Content', edit_page_path( Page.find('need-help')), class: 'fa fa-edit' %></button>
+                  <%= link_to '<button type="button" class="btn btn-info btn-sm btn-edit"><i class="fa fa-edit">&nbsp;Edit Content</i></button>'.html_safe, edit_page_path( Page.find('need-help'))%>
                 <% end
                 end %></h2>
                 <%= Page.find('need-help').body.html_safe %>
