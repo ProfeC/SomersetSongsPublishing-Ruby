@@ -11,11 +11,13 @@
       <%  if current_user.admin %>
         <%= link_to " Back Office", rails_admin.dashboard_path, class: 'fa fa-server' %>
 
-
-        <% if @page %>
+        <% if @page.present? %>
           <%= link_to ' Edit Content', edit_page_path(@page), class: 'fa fa-edit' %>
         <%end %>
 
+        <% if @song %>
+          <%= link_to ' Edit Song', edit_song_path(@song), class: 'fa fa-edit' %>
+        <%end %>
 
         <% end %>
       <%= link_to " Logout", destroy_user_session_path, method: :delete, class: 'fa fa-sign-out' %>

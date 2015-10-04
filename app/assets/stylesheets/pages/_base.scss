@@ -1,0 +1,22 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import
+  'pages/news',
+  'pages/page';
+
+.btn-edit {
+  background-color: transparentize($background-color, .66);
+  border-color: transparentize($background-color, .33);
+
+  &:hover {
+    background-color: transparentize(#0f0, .66);
+    border-color: transparentize(#6f6, .33);
+  }
+
+  a {
+    color: #666;
+    text-decoration: none;
+  }
+}

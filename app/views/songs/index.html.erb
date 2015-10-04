@@ -12,12 +12,6 @@
 
 <%= @page.body %>
 
-<% if current_user
-  if current_user.admin %>
-  <br><%= link_to 'Edit Content', edit_page_path(@page), class: 'btn btn-primary' %>
-<% end
-end %>
-
 <!-- <section class="song index wow fadeInUp"> -->
 <section class="song index">
 
