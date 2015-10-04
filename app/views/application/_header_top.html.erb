@@ -11,9 +11,13 @@
       <%  if current_user.admin %>
         <%= link_to " Back Office", rails_admin.dashboard_path, class: 'fa fa-server' %>
 
-        <% if @page.present? %>
+        <% if @page.present?
+          if @page.id.present?
+        %>
+
           <%= link_to ' Edit Content', edit_page_path(@page), class: 'fa fa-edit' %>
-        <%end %>
+        <% end
+        end %>
 
         <% if @song %>
           <%= link_to ' Edit Song', edit_song_path(@song), class: 'fa fa-edit' %>

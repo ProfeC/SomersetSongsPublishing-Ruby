@@ -10,7 +10,7 @@
 <!-- Search Bar -->
 <%= render(:partial => "application/search_form") %>
 
-<%= @page.body %>
+<%= @page.body.html_safe %>
 
 <!-- <section class="song index wow fadeInUp"> -->
 <section class="song index">
