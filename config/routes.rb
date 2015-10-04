@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pages
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   # NOTE: Devise Routes
   # devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'}
@@ -105,6 +106,9 @@ Rails.application.routes.draw do
 
   # NOTE: Message Resources
   resources :messages
+
+  # NOTE: Pages Resoures
+  get ':id' => 'pages#show'
 
   # Default route to be processed last
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
