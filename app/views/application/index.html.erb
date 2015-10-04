@@ -1,12 +1,28 @@
-
+<%
+  # @page = Page.find('welcome')
+%>
         <div class="fullwidth-block feature-section">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
                 <div class="feature">
-                  <h1>Welcome to the Music of Foreigner</h1>
-                  <p>Here you will find numerous major hit songs and recognizable hidden gems created by Songwriter Hall of Fame writers and performed by Foreigner. Please feel free to explore the unique music and hooks that are the hallmarks of the Foreigner genre. No sign-in is needed.</p>
-                  <p>A few facts of interest about the catalog:  Clearance is easy and fast. The majority of the songs are 100% owned and controlled by Somerset Songs for the world. The songs are pre-cleared and available for immediate approval. Lyric change requests, though not encouraged, will be considered. Foreigner also owns master recordings of many of the songs and both master and publishing rights can be cleared with a single request. Metadata is provided for each song.</p>
+                  <h1><%= Page.find('welcome').title %>
+
+                  <% if Page.find('welcome').subtitle %>
+                    <small class="subheader"><%= Page.find('welcome').leading_text %></small>
+                  <% end %>
+                  <%  if current_user
+                      if current_user.admin %>
+                    <button type="button" class="btn btn-info btn-sm btn-edit"><%= link_to ' Edit Content', edit_page_path( Page.find('welcome')), class: 'fa fa-edit' %></button>
+                  <% end
+                  end %>
+                  </h1>
+
+                  <% if Page.find('welcome').leading_text %>
+                    <p class="leading muted"><%= Page.find('welcome').leading_text %></p>
+                  <% end %>
+
+                  <%= Page.find('welcome').body.html_safe %>
                 </div> <!-- .feature -->
               </div> <!-- .col-md-12 -->
             </div> <!-- .row -->
@@ -20,8 +36,13 @@
             <div class="row">
 
               <div class="col-md-6">
-                <h2>Music Search</h2>
-                <p>Search the entire catalog for: melodic moods, lyrical themes, title, genre, etc. Or, feel free to <%= link_to 'browse the entire collection for ideas', {:controller => :songs, :action => :index} %>.</p>
+                <h2><%= Page.find('welcome-search').title %>
+                <%  if current_user
+                      if current_user.admin %>
+                  <button type="button" class="btn btn-info btn-sm btn-edit"><%= link_to ' Edit Content', edit_page_path( Page.find('welcome-search')), class: 'fa fa-edit' %></button>
+                <% end
+                end %></h2>
+                <%= Page.find('welcome-search').body.html_safe %>
 
                 <div style="padding: 13px 0">
                   <%= render(:partial => "application/search_form") %>
@@ -30,8 +51,13 @@
               </div>
 
               <div class="col-md-6">
-                <h2>Need Help?</h2>
-                <p>We can assist you in making a selection for your project. Feel free to complete the music search request with a brief description of your project and we will respond with song suggestions.</p>
+                <h2><%= Page.find('need-help').title %>
+                <%  if current_user
+                      if current_user.admin %>
+                  <button type="button" class="btn btn-info btn-sm btn-edit"><%= link_to ' Edit Content', edit_page_path( Page.find('need-help')), class: 'fa fa-edit' %></button>
+                <% end
+                end %></h2>
+                <%= Page.find('need-help').body.html_safe %>
                 <%= link_to 'Music Request', {:controller => :application, :action => :solicit}, :class => 'btn btn-primary btn-lg btn-block' %>
               </div>
 

@@ -1,15 +1,16 @@
 <!-- Render page title -->
 <%=
+  @page = Page.find('search')
   render 'application/page_title',
-  title: 'Music Search',
-  leading_text: 'Please feel free to browse for ideas. No sign-in is needed. You can search the entire catalog for: melodic moods, lyrical themes, title, genre, etc.',
-  subtitle: ''
+  title: @page.title,
+  leading_text: @page.leading_text,
+  subtitle: @page.subtitle
 %>
 
 <!-- Search Bar -->
 <%= render(:partial => "application/search_form") %>
 
-<p>Or you can complete the Music Search request  with a brief description of what you are looking for and we will respond with music suggestions.</p>
+<%= @page.body.html_safe %>
 
 <!-- <section class="song index wow fadeInUp"> -->
 <section class="song index">
