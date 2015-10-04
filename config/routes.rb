@@ -108,7 +108,7 @@ Rails.application.routes.draw do
   resources :messages
 
   # NOTE: Pages Resoures
-  get ':id' => 'pages#show'
+  # get ':id' => 'pages#show'
 
   # Default route to be processed last
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
