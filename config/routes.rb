@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :pages
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   # NOTE: Devise Routes
   # devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'}
@@ -73,7 +72,7 @@ Rails.application.routes.draw do
   # get '/' => 'application#index'
   # get 'index' => 'application#index'
   get 'about' => 'application#about'
-  get 'contact' => 'application#contact'
+  # get 'contact' => 'application#contact'
   get 'solicit' => 'application#solicit'
 
   # Example of regular route:
@@ -107,7 +106,11 @@ Rails.application.routes.draw do
   # NOTE: Message Resources
   resources :messages
 
-  # NOTE: Pages Resoures
+  # NOTE: Contact Resources
+  resources :contacts
+
+  # NOTE: Page Resources
+  resources :pages
   # get ':id' => 'pages#show'
 
   # Default route to be processed last
