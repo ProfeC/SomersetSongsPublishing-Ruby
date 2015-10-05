@@ -1,0 +1,61 @@
+<%
+  @page = Page.find('contact')
+%>
+<div class="fullwidth-block">
+  <h1><%= @page.title %>
+
+    <% if @page.subtitle %>
+      <small class="subheader"><%= @page.subtitle %></small>
+    <% end %>
+  </h1>
+
+  <% if @page.leading_text %>
+    <p class="leading muted"><%= @page.leading_text %></p>
+  <% end %>
+
+  <% if @page.body %>
+    <%= @page.body.html_safe %>
+  <% end %>
+
+  <section class="contact">
+    <table class="table table-hover table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Contact</th>
+      <%  if current_user.present?
+        if current_user.admin %>
+      <th colspan="3"><%= link_to '<button type="button" class="btn btn-secondary btn-md"><i class="fa fa-plus-square">&nbsp;</i>New Contact</button>'.html_safe, new_contact_path %></th>
+      <% end
+      end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><strong><%= contact.location %></strong></td>
+        <td>
+        <p><%= contact.name %><br>
+        <%= contact.email %><br>
+        <%= contact.address.html_safe %><br>
+        <%= contact.phone %><br>
+        <%= contact.url %>
+        </p></td>
+      <%  if current_user.present?
+        if current_user.admin %>
+        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end
+      end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>
+
+<!-- <br>
+
+<%= link_to 'New Contact', new_contact_path %> -->
+</div>
