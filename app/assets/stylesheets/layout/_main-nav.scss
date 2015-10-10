@@ -37,9 +37,8 @@
     }
 
     .menu-item {
-
       float: left;
-      padding: 0 20px;
+      padding: 13px;
 
       &:last-child {
         padding-right: 0
@@ -51,18 +50,18 @@
         display: block;
         font-size: 1.3em;
         font-weight: 300;
-        padding: 30px 0;
+        padding: 20px 10px;
         position: relative;
         text-decoration: none;
         transition: .2s ease;
 
-        &:after {
-          color: #e4e4e4;
-          content: "|";
-          font-weight: 100;
-          position: absolute;
-          right: -20px;
-        }
+        // &:after {
+        //   color: #e4e4e4;
+        //   content: "|";
+        //   font-weight: 100;
+        //   position: absolute;
+        //   right: -20px;
+        // }
       }
 
       &:first-child {
@@ -70,7 +69,7 @@
       }
 
       &:last-child a {
-        padding-right: 0;
+        // padding-right: 0;
 
         &:after {
           display: none;
@@ -79,8 +78,10 @@
 
       &:hover a,
       &.current-menu-item a {
-        border-bottom: 2px solid $secondary-color;
-        color: $secondary-color;
+        background-color: change-color($secondary-color, $alpha: 0.2);
+        border-bottom: 2px solid rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        padding: 20px 10px;
       }
 
       @media screen and (max-width: 768px) {
@@ -91,9 +92,9 @@
           color: $primary-color;
           padding: 10px 20px;
 
-          &:after {
-            display: none
-          }
+          // &:after {
+          //   display: none
+          // }
         }
 
         // &:hover a,

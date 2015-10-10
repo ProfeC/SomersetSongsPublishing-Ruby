@@ -48,8 +48,9 @@ body {
 }
 
 .branding {
-	@include clearfix;
+  @include clearfix;
   color: $primary-color;
+  padding: 13px 0;
   text-decoration: none;
 
   span {
