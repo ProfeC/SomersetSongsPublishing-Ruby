@@ -2,8 +2,8 @@
 $primary-font: "Roboto Slab", serif;
 
 // Color Variables
-$primary-color: #152559;
-$secondary-color: #01a6d4;
+$primary-color: rgb(21,37,89); // #152559 color description : Very dark blue. => http://www.colorhexa.com/152559
+$secondary-color: rgb(0,74,95); // #004a5f color description : Very dark cyan. => http://www.colorhexa.com/004a5f
 
 // Background Variations
 // $background-color: rgb(235,248,255); // #ebf8ff color description : Very pale (mostly white) blue.
@@ -12,13 +12,13 @@ $secondary-color: #01a6d4;
 // $background-color: rgb(0,128,255); // #0080ff color description : Pure (or mostly pure) blue. **
 // $background-color: rgb(85,171,255); // #55abff color description : Light blue. ***
 // $background-color: rgb(100, 149, 237); // cornflowerblue ****
-$background-color: rgb(135, 206, 235); // skyblue ***
+$background-color: rgb(134, 171, 234); // #86abea color description :  Very soft blue => http://www.colorhexa.com/86abea
 
 
 // $body-background: lighten($background-color, 2.5%);
 $body-background: lighten($background-color, 57%);
-$body-color: #7d808c;
-$muted-color: #adafb8;
+$body-color: rgb(100,103,114); // #646772 color description : Very dark grayish blue. => http://www.colorhexa.com/646772
+$muted-color: rgb(146,148,160); // #9294a0 color description : Dark grayish blue. => http://www.colorhexa.com/9294a0
 
 // $header-background: rgb(214,242,255); // #d6f2ff color description : Very pale blue.
 $header-background: $background-color;
@@ -26,6 +26,6 @@ $header-background-bottom: $background-color;
 $header-background-top: rgb(255, 255, 255);
 
 //$footer-background: #292c35;
-//$footer-background: rgb(0,62,91); // #003e5b color description : Very dark blue.
-$footer-background: darken($background-color, 25%);
+$footer-background: rgb(34,98,209); // #2262d1 color description : Strong blue => http://www.colorhexa.com/2262d1
+// $footer-background: darken($background-color, 25%);
 $footer-color: #aaacb5;
