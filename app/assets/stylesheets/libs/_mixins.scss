@@ -1,12 +1,12 @@
 @mixin clearfix {
     *zoom:1;
-    
+
     &:after {
 		content : " ";
 		clear   : both;
-		display : block; 
-		overflow: hidden; 
-		height  : 0; 
+		display : block;
+		overflow: hidden;
+		height  : 0;
     }
 }
 
@@ -36,4 +36,15 @@ $browser-context: 16; // Default
 @mixin em($pixels, $context: $browser-context) {
 	font-size: #{$pixels}px;
 	font-size: #{$pixels/$context}em;
+}
+
+// Add transitions to elements
+// Found on: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+// Usage: @include transition(color .3s ease);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
 }

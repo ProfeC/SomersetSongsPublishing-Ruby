@@ -1,3 +1,13 @@
+<%
+  if !@form_class.present?
+    @form_class = 'solicit'
+  end
+
+  if !@form_id.present?
+    @form_id = 'form-solicit'
+  end
+%>
+
 <%= form_for @message, html: {class: @form_class, id: @form_id} do |f| %>
 
   <%= hidden_field_tag('contact_type', 'project') %>
@@ -16,26 +26,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <label for"<%= :project %>">Project Name</label><br>
-    <%= f.text_field :project %>
+  <div class="form-group">
+    <label for"<%= :types %>">Project Type</label><br>
+    <ul class="types-list">
+      <li><%= check_box_tag 'types[]', 'film', false, class: 'checkbox' %> Film</li>
+      <li><%= check_box_tag 'types[]', 'television', false, class: 'checkbox' %> Television</li>
+      <li><%= check_box_tag 'types[]', 'advertisement', false, class: 'checkbox' %> Advertisement</li>
+      <li><%= check_box_tag 'types[]', 'other', false, class: 'checkbox' %> Other (please describe in detail below)</li>
+    </ul>
   </div>
 
   <div class="field">
-    <label for"<%= :description %>">Project Description</label><br>
-    <%= f.text_area :description %>
+    <label for"<%= :project %>">Project Theme</label><br>
+    <%= f.text_field :project, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <label for"<%= :description %>">Project Description and Needs</label><br>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
 
   <div class="row">
     <div class="col-sm-6">
       <div class="checkbox field">
-        <label for="<%= :listen_online %>"><%= f.check_box :listen_online, class: 'checkbox' %>I will listen to suggestions online.</label>
+        <label for="<%= :listen_online %>"><%= f.check_box :listen_online, class: 'checkbox form-control' %>I will use this site to listen to songs suggested.</label>
       </div>
     </div>
 
     <div class="col-sm-6">
       <div class="checkbox field">
-        <label for"<%= :send_suggestions %>"><%= f.check_box :send_suggestions, class: 'checkbox' %>Please send MP3’s of suggestions.</label>
+        <label for"<%= :send_suggestions %>"><%= f.check_box :send_suggestions, class: 'checkbox form-control' %>Please send MP3's of songs suggested.</label>
       </div>
     </div>
   </div>
@@ -44,14 +64,14 @@
     <div class="col-md-6">
       <div class="field">
         <label for"<%= :name %>">Your Name</label><br>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
     </div>
 
     <div class="col-md-6">
       <div class="field">
         <label for"<%= :email_address %>">Your Email Address</label><br>
-        <%= f.text_field :email_address %>
+        <%= f.text_field :email_address, class: 'form-control' %>
       </div>
     </div>
   </div>
