@@ -55,8 +55,8 @@ class MessagesController < ApplicationController
       if @message.save
         # Send an email to the appropriate place
         if params['contact_type'] == 'project'
-          # ContactMailer.project_request(@message).deliver_now
-          # ContactMailer.project_request_confirmation(@message).deliver_now
+          ContactMailer.project_request(@message).deliver_now
+          ContactMailer.project_request_confirmation(@message).deliver_now
         else
           ContactMailer.contact_request.deliver_later
         end
