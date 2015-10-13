@@ -105,6 +105,7 @@ Rails.application.routes.draw do
 
   # NOTE: Message Resources
   resources :messages
+    get 'messages/new/project' => 'messages#new_project'
 
   # NOTE: Contact Resources
   resources :contacts

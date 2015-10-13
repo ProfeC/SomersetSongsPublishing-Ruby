@@ -5,6 +5,8 @@ class MessagesController < ApplicationController
 
   # Defaults
   @contact_type = ''
+  @form_class = 'solicit'
+  @form_id = 'form-solicit'
 
   # GET /messages
   # GET /messages.json
@@ -29,6 +31,16 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
+  # GET /messages/new/project
+  def new_project
+    @message = Message.new
+
+    respond_to do | format |
+      format.html { render template: 'messages/_form_project_request' }
+      format.json { render json: @message.errors, status: :unprocessable_entity }
+    end
+  end
+
   # GET /messages/1/edit
   def edit
   end
@@ -37,13 +49,14 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    @message.types = params['types']
 
     respond_to do |format|
       if @message.save
         # Send an email to the appropriate place
         if params['contact_type'] == 'project'
-          ContactMailer.project_request(@message).deliver_now
-          ContactMailer.project_request_confirmation(@message).deliver_now
+          # ContactMailer.project_request(@message).deliver_now
+          # ContactMailer.project_request_confirmation(@message).deliver_now
         else
           ContactMailer.contact_request.deliver_later
         end
@@ -51,8 +64,12 @@ class MessagesController < ApplicationController
         format.html { redirect_to @message, notice: ' Message was successfully created.', style: 'success' }
         format.json { render :show, status: :created, location: @message }
       else
+        if params['contact_type'] == 'project'
+          format.html { render template: 'messages/_form_project_request' }
+        else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -91,6 +108,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:project, :description, :name, :email_address, :listen_online, :send_suggestions)
+      params.require(:message).permit(:project, :description, :name, :email_address, :listen_online, :send_suggestions, :types)
     end
 end

@@ -75,6 +75,19 @@
 //   background-color: rgba(100, 182, 252, 0.25);
 // }
 
+// Buttons
+.btn-primary {
+  // @include box-shadow(inset 0 1px 0 darken($footer-background, 20%));
+  @include transition(lighten($footer-color, 13%) .5 ease);
+  background-color: $footer-background;
+  border-color: darken($footer-background, 13%);
+
+
+  &:hover {
+    background-color: lighten($footer-background, 13%);
+  }
+}
+
 // Add Font Awesome fonts last
 @import "font-awesome-sprockets";
 @import "font-awesome";
