@@ -21,6 +21,9 @@
       <th>Title</th>
       <th>Album</th>
       <th>Artist</th>
+<!--       <th></th>
+      <th>Released</th> -->
+      <!-- <th colspan="2">Actions</th> -->
     </tr>
     </thead>
     <tbody>
@@ -44,6 +47,10 @@
         <td><%= link_to song.title, song %><br><small><%= release_date %></small></td>
         <td><%= link_to album.title, album %></td>
         <td><%= link_to artist.name, artist %></td>
+<!--         <td> - <%= link_to album.title, album %></td>
+        <td align="center"></td> -->
+<!--         <td><%= link_to 'Edit', edit_song_path(song) %></td>
+        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -52,3 +59,7 @@
   <%= paginate @songs %>
 
 </section>
+
+<br>
+
+<!-- <%= link_to 'New Song', new_song_path %> -->

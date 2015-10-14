@@ -17,12 +17,12 @@
 
   <div class="field">
     <h3><%= f.label :title %></h3>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: 'Song Title' %>
   </div>
 
   <div class="field">
     <h3><%= f.label :description %></h3>
-    <%= f.bootsy_area :description %>
+    <%= f.bootsy_area :description, placeholder: 'Enter a description, history, lyrics, etc.' %>
   </div>
 
   <div class="field">
@@ -31,13 +31,23 @@
   </div>
 
   <div class="field">
+    <h3><%= f.label :writers %></h3>
+    <%= f.text_field :writers, placeholder: 'Provide the writers for this song.' %>
+  </div>
+
+  <div class="field">
+    <h3><label for="song_ISRC">ISRC#</label></h3>
+    <%= f.text_field :isrc, maxlength: 15, placeholder: 'CC-XXX-YY-NNNNN' %>
+  </div>
+
+  <div class="field">
     <h3><%= f.label :length %></h3>
-    <%= f.text_field :length %>
+    <%= f.text_field :length, maxlength: 8, placeholder: 'hh:mm:ss' %>
   </div>
 
   <div class="field">
     <h3><%= f.label :album %></h3>
-    <br><%= f.select(:album_id, @albums.map {|a| [a.title, a.id]}) %>
+    <%= f.select(:album_id, @albums.map {|a| [a.title, a.id]}) %>
   </div>
 
   <% #NOTE: Audio File %>
@@ -178,7 +188,5 @@
     </section>
   </div>
 
-  <div class="actions">
-    <%= f.submit nil, class: 'btn btn-primary btn-lg btn-block' %>
-  </div>
+  <%= f.submit nil, class: "btn btn-primary", role:"button" %>
 <% end %>
